@@ -1,0 +1,319 @@
+html, body {
+    height:100%;
+    background-color: #444;
+    font-family: Tahoma, Arial, sans-serif;;
+    font-size: 12px;
+    margin: 0px 0px 0px 0px;
+    color: #555;
+}
+
+div#container {
+    width: 100%;
+    height:100%;
+    min-height:100%; /* real browsers */
+    position: relative;
+    background: #fff;
+    background-position: 0 250px;
+    height:auto !important; /* real browsers */
+  	height:100%; /* IE6: treaded as min-height*/
+}
+
+* html #container {
+height: 100%;
+}
+
+div#side {
+    height:100%;
+    float: left;
+    margin: 0px 20px 50px 10px;
+    font-size: 1.05em;
+    width: 180px;
+}
+
+div#content {
+  margin-left: 200px;
+  margin-right: 5px;
+  background-color: #fff;
+  border-left: 1px solid #eee;
+  padding: 0 0 0 20px;
+  font-size: 1.2em;
+  }
+
+div#footer {
+    position: absolute;
+    text-align: right;
+    font-size: 1em;
+    color: #ccc;
+    background-color: #444;
+    width: 100%;
+    bottom: 0;
+}
+
+div#footer a {
+    color: #8ef;
+}
+
+h1, h2, h3 {
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+h2 {
+  width: 100%;
+  font-size: 1.6em;
+  color: #444;
+  border-bottom: solid 1px #777;
+  background: #eee/*#cf3;*/
+}
+
+h3, h4 {
+    color: #666;
+}
+
+h3 {
+    font-size: 1.3em;
+}
+
+h4 {
+    font-size: 1.2em;
+}
+
+
+img {
+    border: 0;
+}
+
+p {
+    padding: 2px;
+}
+
+a {
+    color: #44A;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #66F;
+}
+label {
+    width: 120px;
+    float: left;
+    text-align: right;
+    margin-right: 4px;
+    display: block
+}
+
+input, select {
+    font-family: Arial;
+    font-size: 10pt;
+    border: 1px solid #DDDDD0;
+    padding: 0;
+    margin: 2px;
+    background-color: #FFFFFF;
+}
+
+#logo {
+    color: #111;
+    position: relative;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    font-size: 2.5em;
+    text-align: left;
+    background: #87ADD2;
+}
+
+#logo a {
+    color: #000;
+}
+
+#header {
+    position: relative;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    text-align: left;
+    list-style-type: none;
+    font-size: 1.4em;
+    background-color: #444;
+    
+}
+
+#header span {
+    display: inline;
+    padding: 0px 10px 0px 10px;
+}
+
+#header span a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+#header .menuline2 a {
+    color: #66F;
+    text-decoration: none;
+}
+
+#header #logout a {
+    color: #F90;
+}
+
+#header #currentmenuline a {
+    color: #AFA;
+    text-decoration: none;
+}
+
+#header span a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+#clock {
+  width: 300px;
+  color: #888;
+  font-size:0.7em;
+  padding: 0 20px 0 0;
+}
+
+#user {
+    display: inline;
+    text-align: center;
+    padding: 5px;
+    color: #F90;
+}
+
+#header .quick_add {
+    padding: 0 20px 0 0;
+}
+
+#header .quick_add a {
+    color: #F90;
+}
+
+ul {
+    list-style-image: none;
+    list-style-type: none;
+}
+
+ul.mylist {
+    margin-left: 0;
+    padding-left: 20px;
+    list-style-image: url(/images/bullet02.gif)
+}
+
+.btnlnk {
+    color: #343;
+    background: #CEC;
+    border: 1px solid #585;
+    padding: 1px 3px 1px 3px;
+    font-size: 10pt;
+}
+
+
+/* autocomplete */
+
+div.auto_complete {
+  width: 350px;
+  background: white;
+  z-index: 1;
+}
+div.auto_complete ul {
+  border:1px solid #888;
+  margin:0;
+  padding:0;
+  width:100%;
+  list-style-type:none;
+}
+div.auto_complete ul li {
+  margin:0;
+  padding:3px;
+}
+div.auto_complete ul li.selected {
+  background-color: #ffb;
+}
+div.auto_complete ul strong.highlight {
+  color: #800; 
+  margin:0;
+  padding:0;
+}
+
+.fieldWithErrors {
+  display: inline;
+  background: #F00;
+  }
+
+.entry {
+  border:1px solid #888;
+  margin:10px;
+  padding:10px;
+  background: #FFE;
+  }
+
+.entry #menu {
+  color:#88F;
+  margin: 10px 0 0 0;
+  }
+
+ 
+.comment {
+  margin:10px;
+  padding:10px;
+  border:1px solid #DDD;
+  background: #EEE;
+  }
+
+.my {
+  background: #EFE;
+  }
+
+  
+.comment #user {
+  color:#333;
+  margin: 0 10px 0 0;
+  float:left;
+  min-width: 100px;
+  vertical-align: middle;
+  background: #DDD;
+  }
+
+.tosee {
+  background: #DFD;
+  }
+  
+.loading {
+  color: #000;
+  background: #FF0;
+  }
+
+.notebook {
+  width: 100%;
+  margin:10px;
+  padding: 0;
+  }
+  
+.notebook .bar {
+  margin:0;
+  padding:0;
+  }
+  
+.notebook .bar .tab {
+  display: inline;
+  border: 1px solid #AA7;
+  border-bottom: 1px solid #FFE;
+  padding: 5px;
+  vertical-align: middle;
+  text-align: left;
+  color: blue;
+  cursor: pointer;
+  background: #FFE;
+  }
+
+.selected {
+  font-weight:bold;
+  }
+  
+.notebook .content {
+  width: 95%;
+  border: 1px solid #AA7;
+  margin-top: 5px;
+  background-color: #FFE;
+  }
+
