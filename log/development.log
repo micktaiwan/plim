@@ -2514,3 +2514,493 @@ Rendering welcome/index
   [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
   [4;35;1mUser Load (19.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
 Completed in 33ms (View: 31, DB: 0) | 200 OK [http://127.0.0.1/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-01 23:03:58) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 57ms (View: 55, DB: 0) | 200 OK [http://127.0.0.1/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-01 23:22:25) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 62ms (View: 60, DB: 0) | 200 OK [http://127.0.0.1/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-01 23:32:03) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+
+
+ActionView::TemplateError (Missing template shared/_header.erb in view path /home/mick/projects/sites/plim/app/views:) on line #27 of app/views/layouts/general.rhtml:
+24: <% if logged_in? %>
+25: Welcome <%=current_user['login']%>.<br/>
+26: <br/>
+27: <%= render :partial => "shared/header" %>
+28: 
+29: <br/>
+30: <% else %>
+
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:95:in `find_full_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:16:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:332:in `new'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:332:in `_unmemoized__pick_template'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/memoizable.rb:70:in `_pick_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/partials.rb:199:in `_unmemoized__pick_partial_template'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/memoizable.rb:70:in `_pick_partial_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/partials.rb:152:in `render_partial'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:258:in `render'
+    app/views/layouts/general.rhtml:27
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:256:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:371:in `_render_with_layout'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:254:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1174:in `render_for_file'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:896:in `render_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:868:in `render_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1248:in `default_render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1254:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:54:in `serve_rails'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:74:in `call'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:63:in `pre_process'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:54:in `process'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:39:in `receive_data'
+    /usr/lib/ruby/gems/1.8/gems/eventmachine-0.12.4/lib/eventmachine.rb:237:in `run_machine'
+    /usr/lib/ruby/gems/1.8/gems/eventmachine-0.12.4/lib/eventmachine.rb:237:in `run'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/backends/base.rb:57:in `start'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/server.rb:150:in `start'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/controllers/controller.rb:80:in `start'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `send'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `run_command'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:139:in `run!'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/bin/thin:6
+    /usr/bin/thin:19:in `load'
+    /usr/bin/thin:19
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (38.1ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (0.9ms)
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-01 23:32:13) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+
+
+ActionView::TemplateError (Missing template welcome/_menu.erb in view path /home/mick/projects/sites/plim/app/views:) on line #27 of app/views/layouts/general.rhtml:
+24: <% if logged_in? %>
+25: Welcome <%=current_user['login']%>.<br/>
+26: <br/>
+27: <%= render :partial => "menu" %>
+28: 
+29: <br/>
+30: <% else %>
+
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:95:in `find_full_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:16:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:332:in `new'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:332:in `_unmemoized__pick_template'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/memoizable.rb:70:in `_pick_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/partials.rb:199:in `_unmemoized__pick_partial_template'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/memoizable.rb:70:in `_pick_partial_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/partials.rb:152:in `render_partial'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:258:in `render'
+    app/views/layouts/general.rhtml:27
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:256:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:371:in `_render_with_layout'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:254:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1174:in `render_for_file'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:896:in `render_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:868:in `render_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1248:in `default_render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1254:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:54:in `serve_rails'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:74:in `call'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:63:in `pre_process'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:54:in `process'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:39:in `receive_data'
+    /usr/lib/ruby/gems/1.8/gems/eventmachine-0.12.4/lib/eventmachine.rb:237:in `run_machine'
+    /usr/lib/ruby/gems/1.8/gems/eventmachine-0.12.4/lib/eventmachine.rb:237:in `run'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/backends/base.rb:57:in `start'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/server.rb:150:in `start'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/controllers/controller.rb:80:in `start'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `send'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `run_command'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:139:in `run!'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/bin/thin:6
+    /usr/bin/thin:19:in `load'
+    /usr/bin/thin:19
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (37.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (0.8ms)
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-01 23:32:55) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered welcome/_menu (0.2ms)
+Completed in 15ms (View: 13, DB: 0) | 200 OK [http://127.0.0.1/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-01 23:41:54) [GET]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;36;1mUser Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (4.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered welcome/_menu (69.0ms)
+Completed in 90ms (View: 87, DB: 0) | 200 OK [http://127.0.0.1/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-01 23:47:01) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;35;1mUser Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered welcome/_menu (1.8ms)
+Completed in 17ms (View: 15, DB: 0) | 200 OK [http://127.0.0.1/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-02 00:02:09) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered welcome/_menu (1.7ms)
+Completed in 18ms (View: 16, DB: 0) | 200 OK [http://127.0.0.1/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-02 00:02:10) [GET]
+  Parameters: {"locale"=>""}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered welcome/_menu (1.8ms)
+Completed in 17ms (View: 15, DB: 0) | 200 OK [http://127.0.0.1/?locale=]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-02 00:02:14) [GET]
+  Parameters: {"locale"=>"zh"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered welcome/_menu (1.8ms)
+Completed in 17ms (View: 15, DB: 0) | 200 OK [http://127.0.0.1/?locale=zh]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-02 00:05:37) [GET]
+  Parameters: {"locale"=>"zh"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;35;1mUser Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered welcome/_menu (1.9ms)
+Completed in 17ms (View: 15, DB: 0) | 200 OK [http://127.0.0.1/?locale=zh]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-02 00:05:42) [GET]
+  Parameters: {"locale"=>""}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered welcome/_menu (1.8ms)
+Completed in 18ms (View: 16, DB: 0) | 200 OK [http://127.0.0.1/?locale=]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-02 00:05:43) [GET]
+  Parameters: {"locale"=>""}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered welcome/_menu (1.8ms)
+Completed in 17ms (View: 15, DB: 0) | 200 OK [http://127.0.0.1/?locale=]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-02 00:05:44) [GET]
+  Parameters: {"locale"=>""}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered welcome/_menu (1.9ms)
+Completed in 17ms (View: 15, DB: 0) | 200 OK [http://127.0.0.1/?locale=]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-02 00:05:59) [GET]
+  Parameters: {"locale"=>""}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered welcome/_menu (1.7ms)
+Completed in 17ms (View: 15, DB: 0) | 200 OK [http://127.0.0.1/?locale=]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-02 00:06:12) [GET]
+  Parameters: {"locale"=>""}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered welcome/_menu (1.9ms)
+Completed in 18ms (View: 16, DB: 0) | 200 OK [http://127.0.0.1/?locale=]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-02 00:06:13) [GET]
+  Parameters: {"locale"=>""}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered welcome/_menu (1.8ms)
+Completed in 19ms (View: 17, DB: 0) | 200 OK [http://127.0.0.1/?locale=]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-02 00:06:23) [GET]
+  Parameters: {"locale"=>""}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;36;1mUser Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered welcome/_menu (1.6ms)
+Completed in 16ms (View: 14, DB: 0) | 200 OK [http://127.0.0.1/?locale=]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-02 00:06:23) [GET]
+  Parameters: {"locale"=>""}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered welcome/_menu (1.8ms)
+Completed in 71ms (View: 68, DB: 0) | 200 OK [http://127.0.0.1/?locale=]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-02 00:08:17) [GET]
+  Parameters: {"locale"=>""}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;35;1mUser Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered welcome/_menu (2.6ms)
+Completed in 19ms (View: 17, DB: 0) | 200 OK [http://127.0.0.1/?locale=]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-02 00:08:23) [GET]
+  Parameters: {"locale"=>""}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered welcome/_menu (2.3ms)
+Completed in 19ms (View: 17, DB: 0) | 200 OK [http://127.0.0.1/?locale=]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-02 00:08:24) [GET]
+  Parameters: {"locale"=>""}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;35;1mUser Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered welcome/_menu (2.0ms)
+Completed in 17ms (View: 15, DB: 0) | 200 OK [http://127.0.0.1/?locale=]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-02 00:08:25) [GET]
+  Parameters: {"locale"=>""}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered welcome/_menu (2.3ms)
+Completed in 18ms (View: 16, DB: 0) | 200 OK [http://127.0.0.1/?locale=]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-02 00:17:57) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-03-02 00:18:01) [GET]
+
+
+ActionController::RoutingError (No route matches "/images/favicon.ico" with {:method=>:get}):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/route_set.rb:386:in `recognize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:182:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:54:in `serve_rails'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:74:in `call'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:63:in `pre_process'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:54:in `process'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:39:in `receive_data'
+    /usr/lib/ruby/gems/1.8/gems/eventmachine-0.12.4/lib/eventmachine.rb:237:in `run_machine'
+    /usr/lib/ruby/gems/1.8/gems/eventmachine-0.12.4/lib/eventmachine.rb:237:in `run'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/backends/base.rb:57:in `start'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/server.rb:150:in `start'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/controllers/controller.rb:80:in `start'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `send'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `run_command'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:139:in `run!'
+    /usr/lib/ruby/gems/1.8/gems/thin-1.0.0/bin/thin:6
+    /usr/bin/thin:19:in `load'
+    /usr/bin/thin:19
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-03-02 00:18:09) [POST]
+  Parameters: {"authenticity_token"=>"036a5ad37ba59ee49ae03165119fd51601b62579", "login"=>"mick", "password"=>"9182"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`login` = 'mick') LIMIT 1[0m
+Rendering template within layouts/general
+Rendering sessions/new
+Completed in 16ms (View: 5, DB: 1) | 200 OK [http://127.0.0.1/session]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-03-02 00:18:15) [POST]
+  Parameters: {"authenticity_token"=>"036a5ad37ba59ee49ae03165119fd51601b62579", "login"=>"mick", "password"=>"918273"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`login` = 'mick') LIMIT 1[0m
+Redirected to /
+Completed in 11ms (DB: 1) | 302 Found [http://127.0.0.1/session]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-02 00:18:15) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered welcome/_menu (2.0ms)
+Completed in 17ms (View: 15, DB: 0) | 200 OK [http://127.0.0.1/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-02 00:18:28) [GET]
+  Parameters: {"locale"=>""}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered welcome/_menu (2.2ms)
+Completed in 17ms (View: 16, DB: 0) | 200 OK [http://127.0.0.1/?locale=]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-03-02 00:18:29) [GET]
+  Parameters: {"locale"=>""}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;36;1mUser Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered welcome/_menu (1.9ms)
+Completed in 17ms (View: 15, DB: 0) | 200 OK [http://127.0.0.1/?locale=]

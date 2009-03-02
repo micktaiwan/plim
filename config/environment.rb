@@ -76,3 +76,12 @@ Rails::Initializer.run do |config|
   #config.active_record.observers = :user_observer
 
 end
+
+I18n.default_locale = 'zh'
+ 
+LOCALES_DIRECTORY = "#{RAILS_ROOT}/config/locales"
+LOCALES_AVAILABLE = Dir["#{LOCALES_DIRECTORY}/*.{rb,yml}"].collect do |locale_file|
+  I18n.load_path << locale_file
+  File.basename(File.basename(locale_file, ".rb"), ".yml")
+end.uniq.sort
+

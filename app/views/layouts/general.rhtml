@@ -24,6 +24,8 @@
 <% if logged_in? %>
 Welcome <%=current_user['login']%>.<br/>
 <br/>
+<%= render :partial => "menu" %>
+<br/>
 <% else %>
 
 <h3>Login</h3>
