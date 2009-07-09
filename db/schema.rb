@@ -9,16 +9,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20090224174611) do
+
+  create_table "roles", :force => true do |t|
+    t.string "name"
+  end
+
+  add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "user_roles", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login"
-    t.string   "name"
-    t.string   "email",                          :null => false
-    t.string   "crypted_password", :limit => 40, :null => false
-    t.string   "lost_key"
-    t.datetime "last_login"
+    t.string   "email"
+    t.string   "crypted_password",          :limit => 40
+    t.string   "salt",                      :limit => 40
     t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "remember_token"
+    t.datetime "remember_token_expires_at"
   end
 
 end

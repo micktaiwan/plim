@@ -18,42 +18,43 @@
 <div id="logo">Plim</div>
 <% cur = @controller.class.controller_path -%>
 <ul id="header">
-<span id="clock"><%=Date.today.strftime('%A %b %d %Y')%></span>
-</ul>
+<span id="clock"><%=Date.today.strftime('%A %b %d %Y')%></span></ul>
+
 <div id="side">
 <% if logged_in? %>
 Welcome <%=current_user['login']%>.<br/>
+role: <%= #current_user['role']['name']
+%>.<br/>
 <br/>
-<%= render :partial => "menu" %>
+<%= render :partial => "welcome/menu" %>
 <br/>
 <% else %>
 
-<h3>Login</h3>
-<%=link_to "Nouveau compte", :controller=>'signup'%><br/>
+<h3><%= I18n.t(:login) %></h3>
 <br/>
 <div title="Account login" id="loginform" class="form">
 <% form_tag :controller=>'session' do %>
-	Login:
+	<%= I18n.t(:account) %>:
    <input type="text" name="login" id="user_login" size="10" value=""/><br/>
-   Pwd :
+	<%= I18n.t(:pwd) %>:
    <input type="password" name="password" id="user_password" size="10"/><br/>
-   <input type="submit" value="Login &#187;" class="submitbutton" /> <% if @message %><div id="notice"><%= @message %></div><% end %>
+   <input type="submit" value="<%= I18n.t(:login) %> &#187;" class="submitbutton" /> <% if @message %><div id="notice"><%= @message %></div><% end %>
 <% end %>
 <br/>
 </div>
 
 <% end %>
 <br/>
-
 
 <div id="notice"><% if flash[:notice] -%><h3>Notice</h3><%= flash[:notice] %><% end -%></div>
 <div id="info"><% if flash[:info] -%><h3>Info</h3><%= flash[:info] %><% end -%></div>  
 <div id="members"><% if flash[:members] -%><%= flash[:members] %><% end -%></div>  
 
+<p><a href="?locale=">Change language</a></p>
+
 </div>
 
 <div id="content">
-
 
 <div id="yield">
 <%= yield %>
