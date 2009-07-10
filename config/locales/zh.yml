@@ -11,4 +11,5 @@ zh:
   confirm_pwd:  "Confirm password"
   create_new_user:  "Create a new user"
   loggued_out:  "You have been logged out."
-    
+  role:         "Role"
+   

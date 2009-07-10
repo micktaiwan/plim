@@ -1,23 +1,25 @@
 class Start < ActiveRecord::Migration
   def self.up
 
-    create_table :roles do |t|
-      t.column :name, :string
+    create_table "users", :force => true do |t|
+      t.column :login,                     :string
+      t.column :email,                     :string
+      t.column :crypted_password,          :string, :limit => 40
+      t.column :salt,                      :string, :limit => 40
+      t.column :created_at,                :datetime
+      t.column :updated_at,                :datetime
+      t.column :remember_token,            :string
+      t.column :remember_token_expires_at, :datetime
+      t.column :role_id,                   :integer
     end
-
-    create_table :user_roles do |t|
-      t.column :user_id, :integer
-      t.column :role_id, :integer
-      t.column :created_at, :datetime
-    end
-
-    add_index :roles, :name
-    Role.create(:name => 'Admin')
+    
+    u = User.new(:role_id=>100, :login=>'admin', :password=>'admin', :email=>'to_change')
+    u.save
+    
   end
 
   def self.down
-    drop_table :roles
-    drop_table :user_roles
+    drop_table "users"
   end
 end
 

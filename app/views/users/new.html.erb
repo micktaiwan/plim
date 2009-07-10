@@ -13,8 +13,9 @@
 <%= f.password_field :password_confirmation %></p>
 
 <p><label for="role"><%= I18n.t(:role) %></label>
-<%= select_tag(:role, options_for_select(ROLES)) %></p>
+<%= f.select(:role, options_for_select(ROLES)) %></p>
 
 <p><label>&nbsp;</label>
-<%= submit_tag I18n.t(:signup) %></p>
+<%= submit_tag I18n.t(:create_new_user) %></p>
 <% end -%>
+

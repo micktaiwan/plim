@@ -23,8 +23,7 @@
 <div id="side">
 <% if logged_in? %>
 Welcome <%=current_user['login']%>.<br/>
-role: <%= #current_user['role']['name']
-%>.<br/>
+role: <%= current_user['role']==nil %>.<br/>
 <br/>
 <%= render :partial => "welcome/menu" %>
 <br/>

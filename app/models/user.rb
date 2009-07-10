@@ -1,8 +1,6 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
 
-  has_one :role
-  
   # Virtual attribute for the unencrypted password
   attr_accessor :password
 
