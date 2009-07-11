@@ -2,4 +2,14 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 zh:
-  menu_users: "用戶"
+  menu_users:   "用戶"
+  new_account:  "New account zh"
+  login:        "Login"
+  account:      "Account"
+  pwd:          "Password"
+  email:        "Email"
+  confirm_pwd:  "Confirm password"
+  create_new_user:  "Create a new user"
+  loggued_out:  "You have been logged out."
+  role:         "Role"
+   
