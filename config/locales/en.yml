@@ -21,6 +21,8 @@ en:
   login_failed:     "Login failed"
   logout:           "Logout"
   notice:           "Notice"
+  jobs:             "Jobs"
+  job_input:        "New job"  
   activerecord:
     errors:
       models:

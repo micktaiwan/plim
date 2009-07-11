@@ -21,6 +21,8 @@ zh:
   login_failed:     "登錄失敗"
   logout:           "登出"
   notice:           "通知"  
+  jobs:             "聯單"  
+  job_input:        "聯單鍵檔"  
   activerecord:
     errors:
       models:
