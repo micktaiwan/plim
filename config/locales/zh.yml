@@ -23,6 +23,7 @@ zh:
   notice:           "通知"  
   jobs:             "聯單"  
   job_input:        "聯單鍵檔"  
+  language:         "語言"  
   activerecord:
     errors:
       models:

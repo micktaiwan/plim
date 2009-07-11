@@ -23,6 +23,7 @@ en:
   notice:           "Notice"
   jobs:             "Jobs"
   job_input:        "New job"  
+  language:         "Language"  
   activerecord:
     errors:
       models:

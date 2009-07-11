@@ -19,9 +19,14 @@ class ApplicationController < ActionController::Base
   
  
   def set_locale
-    return if not params[:locale]
-    locale = session[:locale] || I18n.default_locale
-    locale = (locale=='en'? 'zh':'en')
+    p = params[:locale]
+    return if not p
+    if p == ''
+      locale = session[:locale] || I18n.default_locale
+      locale = (locale=='en'? 'zh':'en')
+    else
+      locale = p
+    end
     session[:locale] = I18n.locale = locale
     
     # TODO

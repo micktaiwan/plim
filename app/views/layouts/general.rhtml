@@ -25,7 +25,7 @@
 <%= I18n.t(:welcome) %> <%=current_user['login']%>.<br/>
 <br/>
 <%= render :partial => "welcome/menu" %>
-<br/>
+
 <% else %>
 
 <h3><%= I18n.t(:login) %></h3>
@@ -42,11 +42,14 @@
 </div>
 
 <% end %>
+<div class="menu_sec"><%= I18n.t(:language) %></div>
+
+<p><a href="/?locale=en">English</a></p>
+<p><a href="/?locale=zh">	中文</a></p>
+
 <br/>
 
-<div id="notice"><% if flash[:notice] -%><h3><%= I18n.t(:notice) %></h3><%= flash[:notice] %><% end -%></div>
-<br/>
-<p><a href="/?locale=">Change language</a></p>
+<div id="notice"><% if flash[:notice] -%><h3><%= I18n.t(:notice) %></h3><%= flash[:notice] %><br/><% end -%></div>
 
 </div>
 
