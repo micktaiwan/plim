@@ -55,7 +55,7 @@ Rails::Initializer.run do |config|
   # Make sure the secret is at least 30 characters and all random, 
   # no regular words or you'll be exposed to dictionary attacks.
   config.action_controller.session = {
-    :session_key => '_dienhwa_session',
+    :session_key => '_plim_session',
     :secret      => '1af833a3e6e9e6d9d01203293346f9d74eeb50dfa0b520f3f5f783c38268f26e5802d83b7618a283f2675978dd6eccddcd8b945a3ecbcfbf9ae906286dc1e5fb'
   }
 
