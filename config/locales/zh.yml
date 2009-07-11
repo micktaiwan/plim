@@ -2,14 +2,45 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 zh:
-  menu_users:   "用戶"
-  new_account:  "New account zh"
-  login:        "Login"
-  account:      "Account"
-  pwd:          "Password"
-  email:        "Email"
-  confirm_pwd:  "Confirm password"
-  create_new_user:  "Create a new user"
-  loggued_out:  "You have been logged out."
-  role:         "Role"
-   
+  site_title:       "PLIM - 電話線安裝經理"
+  welcome:          "歡迎"
+  menu_users:       "網站帳戶"
+  admin_menu_section: "網站管理"
+  new_account:      "New account zh"
+  login:            "登錄帳戶"
+  account:          "登錄帳戶"
+  pwd:              "密碼"
+  email:            "電子郵件"
+  confirm_pwd:      "確認密碼"
+  create_new_user:  "創建一個新網站的帳戶"
+  logged_out:       "您已經登出"
+  logged_in:        "您已經登錄"
+  role:             "作用"
+  user_created_msg: "帳戶創建了"
+  edit_user:        "編輯帳戶"
+  login_failed:     "登錄失敗"
+  logout:           "登出"
+  notice:           "通知"  
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: "不能空白"
+              too_short: "太短"
+              confirmation: "不匹配"
+            password_confirmation:
+              blank: "不能空白"
+            email:
+              taken: "已經採取"
+              blank: "不能空白"
+              too_short: "太短"
+            login:
+              taken: "已經採取"
+              blank: "不能空白"
+              too_short: "太短"
+      template:
+        header: "一些錯誤發生"
+        body: "請更正這些錯誤"
+

@@ -2,14 +2,45 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  menu_users:   "users"
-  new_account:  "New account"
-  login:        "Login"
-  account:      "Account"
-  pwd:          "Password"
-  email:        "Email"
-  confirm_pwd:  "Confirm password"
+  site_title:       "PLIM - Phone Line Installation Manager"
+  welcome:          "Welcome"
+  menu_users:       "users"
+  admin_menu_section: "Administration"
+  new_account:      "New account"
+  login:            "Login"
+  account:          "Account"
+  pwd:              "Password"
+  email:            "Email"
+  confirm_pwd:      "Confirm password"
   create_new_user:  "Create a new user"
-  loggued_out:  "You have been logged out."
-  role:         "Role"
-  
+  logged_out:       "You have been logged out."
+  logged_in:        "You are logged in."
+  role:             "Role"
+  user_created_msg: "User created"
+  edit_user:        "Edit account"
+  login_failed:     "Login failed"
+  logout:           "Logout"
+  notice:           "Notice"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: "can not be blank"
+              too_short: "is too short"
+              confirmation: "does not match the confirmation"
+            password_confirmation:
+              blank: "can not be blank"
+            email:
+              taken: "is already taken"
+              blank: "can not be blank"
+              too_short: "is too short"
+            login:
+              taken: "is already taken"
+              blank: "can not be blank"
+              too_short: "is too short"
+      template:
+        header: "Some errors occured"
+        body: "Please correct these errors."
+

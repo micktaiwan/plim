@@ -6,7 +6,7 @@
 	<meta name="keywords" content="phone" />
 	<meta name="description" content="Phone line installation manager" />
 	<meta name="robots" content="all" />
-	<title>Plim</title>
+	<title><%= I18n.t(:site_title) %></title>
 	<%= javascript_include_tag "application", "prototype", "effects", "controls" %>
 	<style type="text/css" title="currentStyle" media="screen">
 		@import '/stylesheets/styles.css';
@@ -15,15 +15,14 @@
 </head>
 <body>
 <div id="container">
-<div id="logo">Plim</div>
+<div id="logo"><%= I18n.t(:site_title) %></div>
 <% cur = @controller.class.controller_path -%>
 <ul id="header">
 <span id="clock"><%=Date.today.strftime('%A %b %d %Y')%></span></ul>
 
 <div id="side">
 <% if logged_in? %>
-Welcome <%=current_user['login']%>.<br/>
-role: <%= current_user['role']==nil %>.<br/>
+<%= I18n.t(:welcome) %> <%=current_user['login']%>.<br/>
 <br/>
 <%= render :partial => "welcome/menu" %>
 <br/>
@@ -45,11 +44,9 @@ role: <%= current_user['role']==nil %>.<br/>
 <% end %>
 <br/>
 
-<div id="notice"><% if flash[:notice] -%><h3>Notice</h3><%= flash[:notice] %><% end -%></div>
-<div id="info"><% if flash[:info] -%><h3>Info</h3><%= flash[:info] %><% end -%></div>  
-<div id="members"><% if flash[:members] -%><%= flash[:members] %><% end -%></div>  
-
-<p><a href="?locale=">Change language</a></p>
+<div id="notice"><% if flash[:notice] -%><h3><%= I18n.t(:notice) %></h3><%= flash[:notice] %><% end -%></div>
+<br/>
+<p><a href="/?locale=">Change language</a></p>
 
 </div>
 

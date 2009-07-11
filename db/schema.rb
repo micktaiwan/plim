@@ -11,6 +11,10 @@
 
 ActiveRecord::Schema.define(:version => 20090224162928) do
 
+  create_table "companies", :force => true do |t|
+    t.string "name"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "login"
     t.string   "email"
@@ -21,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20090224162928) do
     t.string   "remember_token"
     t.datetime "remember_token_expires_at"
     t.integer  "role_id"
+    t.integer  "company_id"
   end
 
 end

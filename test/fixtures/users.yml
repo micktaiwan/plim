@@ -1,19 +1,32 @@
-quentin:
+admin:
   id: 1
-  login: quentin
+  login: admin
   email: quentin@example.com
   salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
   crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
   created_at: <%= 5.days.ago.to_s :db %>
+  role_id: 100
+  company_id: 1
 
 
 
-aaron:
+editor:
   id: 2
-  login: aaron
+  login: editor
   email: aaron@example.com
   salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
   crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
   created_at: <%= 1.days.ago.to_s :db %>
+  role_id: 200
+  company_id: 1
 
+viewer:
+  id: 3
+  login: viewer
+  email: viewer@example.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 1.days.ago.to_s :db %>
+  role_id: 300
+  company_id: 1
 

@@ -1,7 +1,7 @@
 html, body {
     height:100%;
     background-color: #444;
-    font-family: Tahoma, Arial, sans-serif;;
+    font-family: Tahoma, Arial, sans-serif;
     font-size: 12px;
     margin: 0px 0px 0px 0px;
     color: #555;
@@ -55,7 +55,7 @@ div#footer a {
 
 h1, h2, h3 {
   letter-spacing: -1px;
-  margin: 0;
+  margin: 10px 0 10px 0;
 }
 
 h2 {
@@ -84,7 +84,8 @@ img {
 }
 
 p {
-    padding: 2px;
+    padding: 0;
+    margin:  0;
 }
 
 a {
@@ -316,4 +317,10 @@ div.auto_complete ul strong.highlight {
   margin-top: 5px;
   background-color: #FFE;
   }
+  
+.menu_sec {
+  margin: 10px 0 5px 0;
+  background: #226;
+  color: white;
+}
 

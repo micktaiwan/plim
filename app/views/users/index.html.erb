@@ -1,2 +1,4 @@
 <%=link_to I18n.t(:create_new_user), :controller=>'signup'%><br/>
+<br/>
+<%= render(:partial=>'user', :collection=>@users) %>
 

@@ -1,16 +1,1 @@
-Pas utilisée ?
-
-<% form_tag session_path do -%>
-<p><label for="login">Login</label>
-<%= text_field_tag 'login' %></p>
-
-<p><label for="password">Password</label>
-<%= password_field_tag 'password' %></p>
-
-
-<p><label for="remember_me">Remember me:</label>
-<%= check_box_tag 'remember_me' %></p>
-
-
-<p><%= submit_tag 'Log in' %></p>
-<% end -%>
+<%= I18n.t(:login_failed) %>
