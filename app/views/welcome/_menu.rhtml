@@ -1,12 +1,13 @@
 <% if self.current_user.role_id == 100 %>
+
 <div class="menu_sec"><%= I18n.t(:admin_menu_section) %></div>
 <%= link_to(I18n.t(:menu_users), :controller=>'users')%><br/>
-<% end %>
+<%= link_to(I18n.t(:menu_employees), :controller=>'employees')%><br/>
 
+<% end %>
 
 <div class="menu_sec"><%= I18n.t(:jobs) %></div>
 <%= I18n.t(:job_input) %><br/>
-
 
 <div class="menu_sec"><%= I18n.t(:logout) %></div>
 <a href="/sessions/destroy"><%= I18n.t(:logout) %></a><br/>

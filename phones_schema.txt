@@ -1,0 +1,627 @@
+CREATE TABLE [dbo].[BANNERS] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[NAME] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[MAXVIEW] [int] NOT NULL ,
+	[URL] [varchar] (150) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[PLACE] [int] NULL ,
+	[FROMDATE] [datetime] NULL ,
+	[TIMELIMIT] [int] NOT NULL ,
+	[TODATE] [datetime] NULL ,
+	[FILEPATH] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[NBVIEW] [int] NOT NULL ,
+	[NBCLICK] [int] NOT NULL ,
+	[ENTERDATE] [datetime] NOT NULL ,
+	[DISABLED] [int] NOT NULL ,
+	[RESETDATE] [datetime] NOT NULL ,
+	[TYPE] [int] NOT NULL ,
+	[TEXT] [text] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[MEMBERID] [char] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[COMID] [char] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[APPROVED] [int] NOT NULL ,
+	[APPROVEDDATE] [datetime] NULL 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[BOMADMIN] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[JOBID] [int] NULL ,
+	[DATEA] [datetime] NULL ,
+	[DATEB] [datetime] NULL ,
+	[DATEC] [datetime] NULL ,
+	[MONEYREQ] [int] NULL ,
+	[TEAMID] [int] NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[BOMASCODE] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[CODE] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[DESCR] [text] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[PERC] [int] NULL ,
+	[NB] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[BOMDATA] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[IDNUMBER] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[NAME] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[RESPONSIBLE] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[YEAR] [int] NULL ,
+	[DATEFROM] [datetime] NULL ,
+	[DATETO] [datetime] NULL ,
+	[DAYS] [int] NULL ,
+	[SUPPLIER] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[NB] [int] NULL ,
+	[PRICE] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[CALCULTYPE] [int] NULL ,
+	[TAXTYPE] [int] NULL ,
+	[NBPERIOD] [int] NULL ,
+	[MANAGERID] [int] NULL ,
+	[FINISHEDDATE] [datetime] NULL ,
+	[INSTALL] [int] NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[BOMINV] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[TYPE] [int] NOT NULL ,
+	[DATE] [varchar] (8) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[WORKID] [int] NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[BOMINVTABLES] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[SUB] [text] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[MAT] [text] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[TEAM] [text] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[INVID] [int] NOT NULL 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[BOMINVTDATA] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[INVTID] [int] NOT NULL ,
+	[DATA] [text] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[BOMITEMS] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[ITEM] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[CODE] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[SUBJECT] [text] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[PRICE] [int] NULL ,
+	[UNIT] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[POINTS] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[BOMJOB] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[WORKID] [int] NOT NULL ,
+	[JOBCODE] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[OURCODE] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[PLACE] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[GETDATE] [datetime] NULL ,
+	[EXPECTEDDATE] [datetime] NULL ,
+	[POINTS] [int] NULL ,
+	[URGENTDATE] [datetime] NULL ,
+	[TEAM] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[TEAMGETDATE] [datetime] NULL ,
+	[TEAMFINISHEDDATE] [datetime] NULL ,
+	[TEAMPICDATE] [datetime] NULL ,
+	[DATEA] [datetime] NULL ,
+	[DATEB] [datetime] NULL ,
+	[DATEC] [datetime] NULL ,
+	[CANCELDATE] [datetime] NULL ,
+	[CANCELREASON] [ntext] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[MEMO] [ntext] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[BOMJOB_OLD] (
+	[ID] [int] NOT NULL ,
+	[GETDATE] [datetime] NULL ,
+	[EXPECTEDDATE] [datetime] NULL ,
+	[CODE] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[JOBCODE] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[PLACE] [ntext] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[ABORTDATE] [datetime] NULL ,
+	[REASON] [ntext] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[CODEB] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[DIFF] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[BOMMATERIAL] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[NAME] [varchar] (150) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[UNIT] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[CODE] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[SUPPLIER] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[CHECKCODE] [varchar] (2) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[BOMREQUEST] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[DATE] [datetime] NULL ,
+	[CODE] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[MATERIALID] [int] NULL ,
+	[WORKID] [int] NULL ,
+	[REQUESTEDNB] [int] NULL ,
+	[GIVENNB] [int] NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[BOMTEAM] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[WORKID] [int] NULL ,
+	[TEAM] [varchar] (20) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[DATEA] [datetime] NULL ,
+	[DATEB] [datetime] NULL ,
+	[JOBID] [int] NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[BOMTEAMJOB] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[TEAM] [varchar] (5) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[DATE] [datetime] NULL ,
+	[WORKID] [int] NULL ,
+	[JOBID] [int] NULL ,
+	[PICTURECODE] [varchar] (15) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[TYPE] [int] NULL ,
+	[MONEYTYPE] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[MATTYPE] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[SUBJECTID] [int] NULL ,
+	[QTY] [int] NULL ,
+	[ASID] [int] NULL ,
+	[MATID] [int] NULL ,
+	[USEDQTY] [int] NULL ,
+	[SURPLUS] [int] NULL ,
+	[LOSS] [int] NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[BOMTEAMMAT] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[DATE] [datetime] NULL ,
+	[MATERIALID] [int] NULL ,
+	[REALNB] [int] NULL ,
+	[PAYNB] [int] NULL ,
+	[TEAM] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[CALENDAR] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[MEMBERID] [int] NOT NULL ,
+	[TITLE] [text] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[DESCR] [text] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[DAY] [int] NOT NULL ,
+	[MONTH] [int] NOT NULL ,
+	[YEAR] [int] NOT NULL ,
+	[PUB] [int] NOT NULL ,
+	[COMPANYID] [int] NULL ,
+	[ALERTTYPE] [int] NULL ,
+	[ALERTHOUR] [int] NULL ,
+	[ALERTMINUTE] [int] NULL ,
+	[ALERTSENT] [datetime] NULL 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[CANCEL] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[NAME] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[CODE] [varchar] (5) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[NEW] [int] NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[CASES] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[ORGAN] [char] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[NAME] [char] (200) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[NUMBER] [char] (40) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[OPENDATE] [datetime] NULL ,
+	[BIDLIMIT] [datetime] NULL ,
+	[APPOINTLIMIT] [text] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[DEPOSIT] [int] NULL ,
+	[CHARGES] [int] NULL ,
+	[BUDGET] [int] NULL ,
+	[BASEPRICE] [int] NULL ,
+	[PRICE] [int] NULL ,
+	[UNITCOUNT] [int] NULL ,
+	[UNIT] [float] NULL ,
+	[UNITBASE] [float] NULL ,
+	[FACTORY] [char] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[ANNOUNCEDATE] [datetime] NULL ,
+	[INSERTDATE] [datetime] NULL ,
+	[DL] [int] NULL 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[CHAT] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[NAME] [ntext] COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[TEXT] [ntext] COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[DATE] [datetime] NOT NULL 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[COMPLAINS] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[VISITID] [int] NOT NULL ,
+	[NAME] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[HPHONE] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[OPHONE] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[CPHONE] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[MEMO] [text] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[CONTACTGROUPS] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[NAME] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[MEMBERID] [int] NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[CONTACTS] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[MEMBERID] [int] NOT NULL ,
+	[PUB] [int] NOT NULL ,
+	[NAME] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[EMAIL] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[PHONE] [text] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[WEB] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[NOTES] [text] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[ADDRESS] [text] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[COMPANY] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[GROUPID] [int] NOT NULL ,
+	[COMPANYID] [int] NULL ,
+	[SMSPHONE] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[DISPATCH] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[NAME] [varchar] (20) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[CODE] [varchar] (5) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[GIFTGIVEN] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[VISITID] [int] NOT NULL ,
+	[MAINID] [int] NOT NULL ,
+	[NB] [int] NOT NULL ,
+	[INSERTDATE] [datetime] NOT NULL ,
+	[MAC] [char] (17) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[GIFTS] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[NAME] [varchar] (30) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[CODE] [varchar] (30) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[HOLIDAYS] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[TEAMID] [int] NULL ,
+	[TYPE] [int] NULL ,
+	[REASON] [ntext] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[REPLACANT] [ntext] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[FROMDATE] [datetime] NULL ,
+	[TODATE] [datetime] NULL ,
+	[ENTERDATE] [datetime] NOT NULL ,
+	[MEMO] [ntext] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[ENTERID] [int] NULL 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[INFO] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[TITLE] [text] COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[DESCR] [text] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[IMAGE] [varchar] (80) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[MEMBERID] [int] NOT NULL ,
+	[DATE] [datetime] NOT NULL ,
+	[COMPANYID] [int] NOT NULL 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[KPROBLEM] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[CODE] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[NAME] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[LOGINS] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[REPORTERID] [int] NOT NULL ,
+	[DATE] [datetime] NOT NULL ,
+	[IP] [varchar] (16) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[NAME] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[MAT] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[NAME] [char] (20) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[CODE] [char] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[TYPE] [int] NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[MATUSED] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[VISITID] [int] NOT NULL ,
+	[MAINID] [int] NOT NULL ,
+	[NB] [int] NOT NULL ,
+	[INSERTDATE] [datetime] NOT NULL ,
+	[MAC] [char] (17) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[MESSAGES] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[MEMBERID] [int] NOT NULL ,
+	[SENDERID] [int] NOT NULL ,
+	[MESSAGE] [text] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[DATE] [datetime] NOT NULL ,
+	[NEW] [int] NULL ,
+	[EMAIL] [int] NULL ,
+	[READDATE] [datetime] NULL 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[MISSIONS] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[TEAMID] [int] NULL ,
+	[REASON] [ntext] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[PLACE] [ntext] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[FROMDATE] [datetime] NULL ,
+	[TODATE] [datetime] NULL ,
+	[ENTERDATE] [datetime] NULL ,
+	[ENTERID] [int] NULL ,
+	[MEMO] [ntext] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[PAGEVIEWS] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[DATE] [datetime] NOT NULL ,
+	[MEMBERID] [int] NOT NULL ,
+	[PAGE] [varchar] (200) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[IP] [varchar] (16) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[PERSONNEL] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[NAME] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[PHONES] [text] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[TEAM] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[WORKID] [varchar] (20) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[BIRTHDAY] [varchar] (20) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[TAIWANID] [varchar] (20) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[ADDRESS] [varchar] (200) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[ARRIVAL] [varchar] (20) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[DEPARTURE] [varchar] (20) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[MEMO] [varchar] (300) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[HPHONE] [text] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[CODE] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[PHOTO] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[IDPHOTO] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[COMPANYID] [int] NOT NULL 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[PROBLEM] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[NAME] [varchar] (20) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[CODE] [varchar] (5) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[REPAIR] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[NAME] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[CODE] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[REPAIRLOG] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[CONFIRMDATE] [datetime] NULL ,
+	[PHONE] [varchar] (12) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[REPORTER] [varchar] (30) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[REPORTDATE] [datetime] NULL ,
+	[PHONEID] [varchar] (20) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[BOXID] [varchar] (20) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[REASON] [varchar] (40) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[ADDRESS] [varchar] (200) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[MEMO] [varchar] (300) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[VISITSERIAL] [varchar] (15) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[VISITID] [int] NULL ,
+	[COMPLAINHPHONE] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[COMPLAINOPHONE] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[COMPLAINCPHONE] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[COMPLAINMEMO] [text] COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[COMPLAINNAME] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[REPAIRDATE] [datetime] NULL ,
+	[COMPLAINSEX] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[CORRECTED] [int] NOT NULL ,
+	[SMS] [int] NULL 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[REPORTERGROUPS] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[NAME] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[COMPANYID] [int] NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[REPORTERS] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[CODE] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[NAME] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[PASS] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[ADMIN] [int] NOT NULL ,
+	[SMSLEFT] [int] NOT NULL ,
+	[SMSHNID] [int] NOT NULL ,
+	[TOTALSMS] [int] NOT NULL ,
+	[SMSPHONE] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[GROUPID] [int] NOT NULL ,
+	[BOM] [int] NOT NULL ,
+	[COMPANYID] [int] NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[REPTEAM] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[TEAM] [int] NOT NULL ,
+	[REP] [int] NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[REPZONES] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[ZONE] [int] NOT NULL ,
+	[REP] [int] NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[SMS] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[SENTDATE] [datetime] NOT NULL ,
+	[MESSAGE] [text] COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[PHONE] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[RESULT] [int] NULL ,
+	[NAME] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[MEMBERID] [int] NOT NULL ,
+	[DELETED] [int] NOT NULL ,
+	[LASTTRACKDATE] [datetime] NULL ,
+	[MSGID] [varchar] (8) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[ERROR] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[TRACKING] [int] NOT NULL ,
+	[TRACKMSG] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[LEN] [int] NULL ,
+	[SENDDATE] [datetime] NULL ,
+	[USINGTIMING] [int] NULL ,
+	[VISITID] [int] NULL ,
+	[REPAIRID] [int] NULL ,
+	[PERSONNELID] [int] NULL ,
+	[SMSHNID] [int] NOT NULL ,
+	[TYPE] [int] NOT NULL ,
+	[ADID] [int] NOT NULL ,
+	[ADTEXT] [varchar] (120) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[COMPANYID] [int] NOT NULL 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[SMSHN] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[HN] [varchar] (8) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[PASS] [varchar] (8) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[NAME] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[COMPANYID] [int] NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[STAFF] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[NAME] [varchar] (20) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[CODE] [varchar] (5) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[STATS] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[PATH] [ntext] COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[GENDATE] [datetime] NOT NULL ,
+	[FROM] [datetime] NOT NULL ,
+	[TO] [datetime] NOT NULL ,
+	[ZONE] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[ROWCOUNT] [int] NOT NULL 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[TIME] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[NAME] [varchar] (20) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[CODE] [varchar] (5) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[VISITORS] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[VISID] [int] NOT NULL ,
+	[NAME] [varchar] (40) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[DATE] [datetime] NOT NULL ,
+	[COMPANYID] [int] NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[VISITS] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[DATE] [datetime] NOT NULL ,
+	[ZONE] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[TEAM] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[SERIAL] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[PHONE] [varchar] (14) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[AMPM] [varchar] (20) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[RESULT] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[RESPONSIBLE] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[REASON] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[MEMO] [varchar] (300) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[CUSTNAME] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[CUSTADDRESS] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[CONTACTPHONE] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[CONTACTNAME] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[KPROBLEMID] [int] NULL ,
+	[ZAIPAIID] [int] NOT NULL ,
+	[JOBTYPE] [int] NOT NULL ,
+	[COMPANYID] [int] NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[VISITSB] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[DATE] [datetime] NOT NULL ,
+	[ZONE] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[TEAM] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[PHONE] [varchar] (14) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[RESULT] [int] NULL ,
+	[RESPONSIBLE] [varchar] (50) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[REASON] [int] NULL ,
+	[MEMO] [varchar] (300) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[UP] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL ,
+	[DOWN] [varchar] (10) COLLATE Chinese_Taiwan_Stroke_CI_AS NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[ZAIPAI] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[ZAIPAIID] [int] NOT NULL ,
+	[VISID] [int] NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[ZONES] (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[NAME] [varchar] (20) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[CODE] [varchar] (5) COLLATE Chinese_Taiwan_Stroke_CI_AS NOT NULL ,
+	[COMPANYID] [int] NOT NULL 
+) ON [PRIMARY]
+GO
+
+

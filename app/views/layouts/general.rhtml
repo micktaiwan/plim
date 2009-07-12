@@ -22,7 +22,7 @@
 
 <div id="side">
 <% if logged_in? %>
-<%= I18n.t(:welcome) %> <%=current_user['login']%>.<br/>
+<%= I18n.t(:welcome) %> <%=current_user['name']%><br/>
 <br/>
 <%= render :partial => "welcome/menu" %>
 

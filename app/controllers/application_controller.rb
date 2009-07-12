@@ -34,4 +34,9 @@ class ApplicationController < ActionController::Base
     #locale = AVAILABLE_LOCALES.keys.include?(locale) ? locale : I18n.default_locale
     #session[:locale] = I18n.locale = locale
   end
+  
+  def verify_role
+    render(:text=>'401 - Unauthorized', :status=>:unauthorized) if self.current_user==nil or self.current_user.role_id != 100
+  end
+
 end

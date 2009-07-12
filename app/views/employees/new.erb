@@ -1,0 +1,9 @@
+<h1><%= I18n.t(:create_new_employee) %></h1>
+
+<%= error_messages_for :employee %>
+<% form_for :@employee, :url=>{:action=>'create'} do |f| -%>
+  <%= render(:partial => f) %>
+  <p><label>&nbsp;</label>
+  <%= submit_tag I18n.t(:create_new_employee) %></p>
+<% end -%>
+

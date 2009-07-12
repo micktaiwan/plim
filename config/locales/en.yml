@@ -4,7 +4,8 @@
 en:
   site_title:       "PLIM - Phone Line Installation Manager"
   welcome:          "Welcome"
-  menu_users:       "users"
+  menu_users:       "Site accounts"
+  menu_employees:   "Employees"
   admin_menu_section: "Administration"
   new_account:      "New account"
   login:            "Login"
@@ -24,6 +25,20 @@ en:
   jobs:             "Jobs"
   job_input:        "New job"  
   language:         "Language"  
+  name:             "Name"
+  user_edited_msg:  "Account edited"
+  employee_created_msg: "Employee created"
+  employee_edited_msg:  "Employee edited"
+  edit_employee:        "Edit employee"
+  create_new_employee:  "Create employee"
+  team:             "Team"
+  taiwanid:         "ID number"
+  birthday:         "Birthday"
+  cell:             "Cell number"
+  memo:             "Memo"
+  home_phone:       "Home phone"
+  address:          "Address"
+
   activerecord:
     errors:
       models:
@@ -43,6 +58,14 @@ en:
               taken: "is already taken"
               blank: "can not be blank"
               too_short: "is too short"
+        employee:
+          attributes:
+            name:
+              blank: "can not be blank"
+            team:
+              taken: "is already taken"
+            taiwanid:
+              taken: "is already taken"
       template:
         header: "Some errors occured"
         body: "Please correct these errors."

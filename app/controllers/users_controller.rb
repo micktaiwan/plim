@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
-  include AuthenticatedSystem
+  # include AuthenticatedSystem
   
   before_filter :verify_role
 
@@ -47,12 +47,6 @@ class UsersController < ApplicationController
     else
       render :action => 'edit_form'
     end
-  end
-
-private
-  
-  def verify_role
-    render(:text=>'401 - Unauthorized', :status=>:unauthorized) if self.current_user==nil or self.current_user.role_id != 100
   end
 
 end

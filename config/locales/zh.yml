@@ -5,6 +5,7 @@ zh:
   site_title:       "PLIM - 電話線安裝經理"
   welcome:          "歡迎"
   menu_users:       "網站帳戶"
+  menu_employees:   "公司職員"
   admin_menu_section: "網站管理"
   new_account:      "New account zh"
   login:            "登錄帳戶"
@@ -12,7 +13,7 @@ zh:
   pwd:              "密碼"
   email:            "電子郵件"
   confirm_pwd:      "確認密碼"
-  create_new_user:  "創建一個新網站的帳戶"
+  create_new_user:  "創建新網站帳戶"
   logged_out:       "您已經登出"
   logged_in:        "您已經登錄"
   role:             "作用"
@@ -24,6 +25,20 @@ zh:
   jobs:             "聯單"  
   job_input:        "聯單鍵檔"  
   language:         "語言"  
+  name:             "姓名"
+  user_edited_msg:  "帳戶已編輯了"
+  employee_created_msg: "職員已創建了"
+  employee_edited_msg:  "職員已編輯了"
+  edit_employee:        "編輯職員"
+  create_new_employee:  "創建新職員"
+  team:             "班別"
+  taiwanid:         "身分證字號"
+  birthday:         "出生年月日"
+  cell:             "行動電話"
+  memo:             "備註"
+  home_phone:       "居家電話"
+  address:          "地址"
+
   activerecord:
     errors:
       models:
@@ -43,6 +58,14 @@ zh:
               taken: "已經採取"
               blank: "不能空白"
               too_short: "太短"
+        employee:
+          attributes:
+            name:
+              blank: "不能空白"
+            team:
+              taken: "已經採取"
+            taiwanid:
+              taken: "已經採取"
       template:
         header: "一些錯誤發生"
         body: "請更正這些錯誤"
