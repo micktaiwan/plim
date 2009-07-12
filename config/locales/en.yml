@@ -38,6 +38,10 @@ en:
   memo:             "Memo"
   home_phone:       "Home phone"
   address:          "Address"
+  viewer:           "Viewer"
+  editor:           "Editor"
+  admin:            "Admin"
+  send_data:        "Send"
 
   activerecord:
     errors:

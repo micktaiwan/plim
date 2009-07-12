@@ -2,7 +2,7 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 zh:
-  site_title:       "PLIM - 電話線安裝經理"
+  site_title:       "PLIM - 電話線安裝管理系統"
   welcome:          "歡迎"
   menu_users:       "網站帳戶"
   menu_employees:   "公司職員"
@@ -13,7 +13,7 @@ zh:
   pwd:              "密碼"
   email:            "電子郵件"
   confirm_pwd:      "確認密碼"
-  create_new_user:  "創建新網站帳戶"
+  create_new_user:  "新建網站帳戶"
   logged_out:       "您已經登出"
   logged_in:        "您已經登錄"
   role:             "作用"
@@ -30,7 +30,7 @@ zh:
   employee_created_msg: "職員已創建了"
   employee_edited_msg:  "職員已編輯了"
   edit_employee:        "編輯職員"
-  create_new_employee:  "創建新職員"
+  create_new_employee:  "新建職員"
   team:             "班別"
   taiwanid:         "身分證字號"
   birthday:         "出生年月日"
@@ -38,7 +38,11 @@ zh:
   memo:             "備註"
   home_phone:       "居家電話"
   address:          "地址"
-
+  viewer:           "流覽者"
+  editor:           "編輯者"
+  admin:            "管理者"
+  send_data:        "確認"
+  
   activerecord:
     errors:
       models:

@@ -1,6 +1,6 @@
 # Methods added to this helper will be available to all templates in the application.
 
-ROLES = [['Viewer',300],['Editor',200],['Admin',100]]
+ROLES = [[I18n.t(:viewer),300],[I18n.t(:editor),200],[I18n.t(:admin),100]]
 
 module ApplicationHelper
 
