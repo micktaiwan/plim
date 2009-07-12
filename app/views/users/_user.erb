@@ -1,5 +1,6 @@
 <%= image_tag(self.role_to_text(user.role_id)+".png") %>
 <%= link_to(image_tag("edit.gif"), :action=>'edit_form', :id=>user.id) %>
-<%= user.login %>
+<%= user.name %>
+(<%= user.login %>)
 <br/>
 

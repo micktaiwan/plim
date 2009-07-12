@@ -1,0 +1,100 @@
+Questions
+
+jobs (visits)
+  pourquoi eles serial et les numéros de tel peuvent contenir des lettres ?
+  les serials ne sont pas uniques dans la base des jobs ?
+    faire une tables de serial ?
+    faire une tables de phones ?
+  joints
+    job types
+    lines
+      Est-ce que les serial sont des serial de lignes qui ne changent jamais ?
+        pas de lignes je pense mais plutôt un ID de job
+      dois-je faire une DB de lines  les jobs ?
+    customers
+    zaipai, à mon avis sert à rien
+    repair log
+
+======================
+Detailled TODO
+
+il faut plus de roles
+  il y a ceux qui mettre les résultats
+  les konpan ne font que des recherches ?
+  
+faire les jobs
+  un user doit pouvoir être affecté à un groupe de zones
+  Tables
+    customers
+    job type
+    results
+  Tables ou pas ?
+    si pas de table, est-ce que le system est revendable ?
+    avec des tables on peut configurer la longueur des numéros
+  Utiliser RJS
+
+repairlog
+  liés à un job  
+
+======================
+TODO
+
+P1 visits
+ same drop boxes
+P1 prints
+P1 search
+ 1
+ 10
+ 2
+ 4
+ 5
+ 6
+ 7
+ gifts
+P1 visits input (results)
+ ok junkon
+ gifts
+ remove
+ tue
+ zaipai
+P1 codes
+repairlog
+ sms
+cases
+informations
+messages
+personnel
+
+reset de password ?
+
+======================
+DONE
+
+P1 accounts
+P1 roles
+ chaque fonctionalité doit être attribuable
+P1 zones
+
+======================
+Ne pas faire tout de suite
+
+gestion du matériel
+  pouvoir imprimer par case
+
+======================
+
+Il faut pouvoir gérer plusieurs sociétés
+Pour chaque société, il faut un admin qui puisse rajouter des logins
+Il faut un super admin PLIM pour gérer les sociétés
+Est-ce qu'un login peut appartenir à plusieurs société ?
+  on va dire que non et que le super admin ne peut faire que gérer les société,
+  il faut un autre login pour entrer dans la société
+  donc pas besoin d'un login pour le super admin, mais d'une page spéciale avec un password
+Il devrait y avoir un nom pour les comptes
+Si les roles sont simples, pourquoi avoir uine tables de roles ?
+ seulement utile si je fais des cases à cocher pour chaque option
+ sinon je fais des UserOptions, avec des accès par fonction
+ ou sinon des roles éditables => pourquoi je me prendrais la tête ?
+
+======================
+

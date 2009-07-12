@@ -3,11 +3,12 @@
 <div class="menu_sec"><%= I18n.t(:admin_menu_section) %></div>
 <%= link_to(I18n.t(:menu_users), :controller=>'users')%><br/>
 <%= link_to(I18n.t(:menu_employees), :controller=>'employees')%><br/>
+<%= link_to(I18n.t(:menu_zones), :controller=>'zones')%><br/>
 
 <% end %>
 
 <div class="menu_sec"><%= I18n.t(:jobs) %></div>
-<%= I18n.t(:job_input) %><br/>
+<%= link_to(I18n.t(:job_input), :controller=>'jobs')%>
 
 <div class="menu_sec"><%= I18n.t(:logout) %></div>
 <a href="/sessions/destroy"><%= I18n.t(:logout) %></a><br/>

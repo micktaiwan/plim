@@ -29,7 +29,6 @@
 <% else %>
 
 <h3><%= I18n.t(:login) %></h3>
-<br/>
 <div title="Account login" id="loginform" class="form">
 <% form_tag :controller=>'session' do %>
 	<%= I18n.t(:account) %>:
@@ -40,15 +39,12 @@
 <% end %>
 <br/>
 </div>
-
 <% end %>
-<div class="menu_sec"><%= I18n.t(:language) %></div>
 
+<div class="menu_sec"><%= I18n.t(:language) %></div>
 <p><a href="/?locale=en">English</a></p>
 <p><a href="/?locale=zh">	中文</a></p>
-
 <br/>
-
 <div id="notice"><% if flash[:notice] -%><h3><%= I18n.t(:notice) %></h3><%= flash[:notice] %><br/><% end -%></div>
 
 </div>
@@ -62,11 +58,11 @@
 <p><br/></p>
 </div>
 
-<div id="footer">
-Plim |
-Tested mainly with firefox |
-&copy; Mickael Faivre-Maçon 2009
-</div>
+  <div id="footer">
+  Plim |
+  Tested mainly with firefox |
+  &copy; Mickael Faivre-Maçon 2001-2009
+  </div>
 
 </div>
 

@@ -1,2 +1,5 @@
 database.yml
+Capfile
+config/deploy.rb
+log/
 

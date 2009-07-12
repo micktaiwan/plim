@@ -27,11 +27,11 @@ div#side {
   float: left;
   margin: 0px 20px 50px 10px;
   font-size: 1.05em;
-  width: 180px;
+  width: 100px;
 }
 
 div#content {
-  margin-left: 200px;
+  margin-left: 120px;
   margin-right: 5px;
   background-color: #fff;
   border-left: 1px solid #eee;

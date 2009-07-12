@@ -4,29 +4,40 @@
 en:
   site_title:       "PLIM - Phone Line Installation Manager"
   welcome:          "Welcome"
-  menu_users:       "Site accounts"
-  menu_employees:   "Employees"
   admin_menu_section: "Administration"
-  new_account:      "New account"
   login:            "Login"
-  account:          "Account"
   pwd:              "Password"
-  email:            "Email"
-  confirm_pwd:      "Confirm password"
-  create_new_user:  "Create a new user"
   logged_out:       "You have been logged out."
   logged_in:        "You are logged in."
-  role:             "Role"
-  user_created_msg: "User created"
-  edit_user:        "Edit account"
   login_failed:     "Login failed"
   logout:           "Logout"
-  notice:           "Notice"
-  jobs:             "Jobs"
-  job_input:        "New job"  
   language:         "Language"  
+  person_name:      "Name"
   name:             "Name"
+  code:             "Code"
+  send_data:        "Send"
+  notice:           "Notice"
+  email:            "Email"
+
+# users
+
+  menu_users:       "Site accounts"
+  create_new_user:  "Create a new user"
+  user_created_msg: "User created"
   user_edited_msg:  "Account edited"
+  edit_user:        "Edit account"
+
+  person_name:      "Name"
+  account:          "Account"
+  confirm_pwd:      "Confirm password"
+  role:             "Role"
+  viewer:           "Viewer"
+  editor:           "Editor"
+  admin:            "Admin"
+
+# employees
+
+  menu_employees:   "Employees"
   employee_created_msg: "Employee created"
   employee_edited_msg:  "Employee edited"
   edit_employee:        "Edit employee"
@@ -38,10 +49,21 @@ en:
   memo:             "Memo"
   home_phone:       "Home phone"
   address:          "Address"
-  viewer:           "Viewer"
-  editor:           "Editor"
-  admin:            "Admin"
-  send_data:        "Send"
+
+# zone
+
+  menu_zones:        "Regions"
+  create_new_zone:  "Create region"
+  zone_created_msg: "Region created"
+  zone_edited_msg:  "Region edited"
+  edit_zone:        "Edit region"
+  zone:             "Region"
+
+# jobs
+
+  jobs:             "Jobs"
+  job_input:        "New job"  
+
 
   activerecord:
     errors:
@@ -67,9 +89,16 @@ en:
             name:
               blank: "can not be blank"
             team:
-              taken: "is already taken"
+              taken: "already exists"
             taiwanid:
               taken: "is already taken"
+        zone:
+          attributes:
+            name:
+              too_short: "is too short"
+            code:
+              too_short: "is too short"
+              taken: "already exists"
       template:
         header: "Some errors occured"
         body: "Please correct these errors."
