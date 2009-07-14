@@ -14,7 +14,7 @@ class EmployeesController < ApplicationController
     @employee.save
     if @employee.errors.empty?
       redirect_back_or_default('/employees')
-      flash[:notice] = I18n.t(:employee_created_msg)
+      flash[:notice] = I18n.t(:created_msg)
     else
       render :action => 'new'
     end
@@ -30,7 +30,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(id)
     if @employee.update_attributes(params[:employee]) # do a save
       redirect_back_or_default('/employees')
-      flash[:notice] = I18n.t(:employee_edited_msg)
+      flash[:notice] = I18n.t(:edited_msg)
     else
       render :action => 'edit_form'
     end

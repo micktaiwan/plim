@@ -1,0 +1,5 @@
+<%=link_to I18n.t(:create_new_result), :action=>'new'%><br/>
+<ul>
+<%= render(:partial=>'result', :collection=>@results) %>
+</ul>
+

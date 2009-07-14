@@ -18,13 +18,18 @@ en:
   send_data:        "Send"
   notice:           "Notice"
   email:            "Email"
+  order:            "Order"
+  created_msg:      "Created!"
+  edited_msg:       "Edited!"
+  confirm_action:   "Are you sure ?"
+  menu_home:        "Home"
+  site_menu_section: "Site"
+
 
 # users
 
   menu_users:       "Site accounts"
   create_new_user:  "Create a new user"
-  user_created_msg: "User created"
-  user_edited_msg:  "Account edited"
   edit_user:        "Edit account"
 
   person_name:      "Name"
@@ -38,8 +43,6 @@ en:
 # employees
 
   menu_employees:   "Employees"
-  employee_created_msg: "Employee created"
-  employee_edited_msg:  "Employee edited"
   edit_employee:        "Edit employee"
   create_new_employee:  "Create employee"
   team:             "Team"
@@ -54,10 +57,22 @@ en:
 
   menu_zones:        "Regions"
   create_new_zone:  "Create region"
-  zone_created_msg: "Region created"
-  zone_edited_msg:  "Region edited"
   edit_zone:        "Edit region"
   zone:             "Region"
+
+# job types
+
+  menu_job_types:       "Job types"
+  create_new_job_type:  "Create Job type"
+  edit_job_type:        "Edit Job type"
+  job_type:             "Job type"
+  
+# results
+
+  menu_results:         "Results"
+  create_new_result:    "Create result"
+  edit_result:         "Edit results"
+  results:              "Results"
 
 # jobs
 

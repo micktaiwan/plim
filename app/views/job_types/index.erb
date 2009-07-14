@@ -1,0 +1,5 @@
+<%=link_to I18n.t(:create_new_job_type), :action=>'new'%><br/>
+<ul>
+<%= render(:partial=>'jobtype', :collection=>@jobtypes) %>
+</ul>
+

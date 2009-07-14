@@ -1,4 +1,5 @@
 <%=link_to I18n.t(:create_new_zone), :action=>'new'%><br/>
-<br/>
+<ul>
 <%= render(:partial=>'zone', :collection=>@zones) %>
+</ul>
 

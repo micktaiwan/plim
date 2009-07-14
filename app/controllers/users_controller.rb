@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     if @user.errors.empty?
       # self.current_user = @user
       redirect_back_or_default('/users')
-      flash[:notice] = I18n.t(:user_created_msg)
+      flash[:notice] = I18n.t(:created_msg)
     else
       render :action => 'new'
     end
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(params[:user]) # do a save
       # self.current_user = @user
       redirect_back_or_default('/users')
-      flash[:notice] = I18n.t(:user_edited_msg)
+      flash[:notice] = I18n.t(:edited_msg)
     else
       render :action => 'edit_form'
     end

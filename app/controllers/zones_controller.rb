@@ -14,7 +14,7 @@ class ZonesController < ApplicationController
     @zone.save
     if @zone.errors.empty?
       redirect_back_or_default('/zones')
-      flash[:notice] = I18n.t(:zone_created_msg)
+      flash[:notice] = I18n.t(:created_msg)
     else
       render :action => 'new'
     end
@@ -30,10 +30,16 @@ class ZonesController < ApplicationController
     @zone = Zone.find(id)
     if @zone.update_attributes(params[:zone]) # do a save
       redirect_back_or_default('/zones')
-      flash[:notice] = I18n.t(:zone_edited_msg)
+      flash[:notice] = I18n.t(:edited_msg)
     else
       render :action => 'edit_form'
     end
+  end
+  
+  def destroy
+    id = params[:id]
+    Zone.destroy(id)
+    render(:nothing=>true)
   end
 
 end

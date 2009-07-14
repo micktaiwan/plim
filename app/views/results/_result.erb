@@ -1,0 +1,7 @@
+<li id="el_<%=result.id%>">
+<%= link_to(image_tag("edit.gif"), :action=>'edit_form', :id=>result.id) %>
+<%= result.sort %>
+<%= result.name %>
+<%= link_to_remote(image_tag("trashcan.gif"), :url=>{:action=>'destroy', :id=>result.id}, :confirm=>I18n.t(:confirm_action), :success=>"$('el_#{result.id}').fade()", :failure=>"alert('Can not delete this result, as it is already used')") %>
+</li>
+

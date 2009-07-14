@@ -19,14 +19,18 @@ zh:
   name:             "名字"
   code:             "代碼"
   language:         "語言"  
+  created_msg:      "已創建了"
+  edited_msg:       "已編輯了"
+  order:            "順序"
+  confirm_action:   "您確定?"
+  menu_home:        "回到首頁"
+  site_menu_section: "網站"
 
 # user
 
   menu_users:       "網站帳戶"
   create_new_user:  "新建網站帳戶"
-  user_created_msg: "帳戶創建了"
   edit_user:        "編輯帳戶"
-  user_edited_msg:  "帳戶已編輯了"
   account:          "登錄帳戶"
   role:             "作用"
   viewer:           "流覽者"
@@ -37,8 +41,6 @@ zh:
 
   menu_employees:   "公司職員"
   create_new_employee:  "新建職員"
-  employee_created_msg: "職員已創建了"
-  employee_edited_msg:  "職員已編輯了"
   edit_employee:        "編輯職員"
   team:             "班別"
   taiwanid:         "身分證字號"
@@ -50,12 +52,24 @@ zh:
 
 # zones
 
-  menu_zones:        "地區管理"
+  menu_zones:       "地區管理"
   create_new_zone:  "新建地區"
-  zone_created_msg: "地區已創建了"
-  zone_edited_msg:  "地區已編輯了"
   edit_zone:        "編輯地區"
   zone:             "地區"
+
+# job types
+
+  menu_job_types:       "聯單類型"
+  create_new_job_type:  "新建聯單類型"
+  edit_job_type:        "編輯聯單類型"
+  job_type:             "聯單類型"
+
+# results
+
+  menu_results:         "結果管理"
+  create_new_result:    "新建結果"
+  edit_result:          "編輯結果"
+  results:              "結果"
 
 # jobs
 

@@ -1,15 +1,19 @@
+<div class="menu_sec"><%= I18n.t(:site_menu_section) %></div>
+<%= link_to(I18n.t(:menu_home), :controller=>'/')%><br/>
+<a href="/sessions/destroy"><%= I18n.t(:logout) %></a><br/>
+
 <% if self.current_user.role_id == 100 %>
 
 <div class="menu_sec"><%= I18n.t(:admin_menu_section) %></div>
 <%= link_to(I18n.t(:menu_users), :controller=>'users')%><br/>
 <%= link_to(I18n.t(:menu_employees), :controller=>'employees')%><br/>
 <%= link_to(I18n.t(:menu_zones), :controller=>'zones')%><br/>
+<%= link_to(I18n.t(:menu_job_types), :controller=>'job_types')%><br/>
+<%= link_to(I18n.t(:menu_results), :controller=>'results')%><br/>
 
 <% end %>
 
 <div class="menu_sec"><%= I18n.t(:jobs) %></div>
 <%= link_to(I18n.t(:job_input), :controller=>'jobs')%>
 
-<div class="menu_sec"><%= I18n.t(:logout) %></div>
-<a href="/sessions/destroy"><%= I18n.t(:logout) %></a><br/>
 

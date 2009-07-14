@@ -1,0 +1,13 @@
+<h1><%= I18n.t(:edit_result) %></h1>
+
+<%= error_messages_for :result %>
+<% form_for :result, :url=>{:action=>'update', :id=>@result.id} do |f| -%>
+  <%= render(:partial => f) %>
+  <p><label>&nbsp;</label>
+  <%= submit_tag I18n.t(:send_data) %></p>
+<% end -%>
+
+<ul>
+<%= render(:partial=>'jobs/job', :collection=>@jobs, :limit=>10, :order=>"id desc") %>
+</ul>
+

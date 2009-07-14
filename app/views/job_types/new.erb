@@ -1,0 +1,9 @@
+<h1><%= I18n.t(:create_new_job_type) %></h1>
+
+<%= error_messages_for :jobtype %>
+<% form_for :@jobtype, :url=>{:action=>'create'} do |f| -%>
+  <%= render(:partial => f) %>
+  <p><label>&nbsp;</label>
+  <%= submit_tag I18n.t(:send_data) %></p>
+<% end -%>
+

@@ -23,7 +23,6 @@
 <div id="side">
 <% if logged_in? %>
 <%= I18n.t(:welcome) %> <%=current_user['name']%><br/>
-<br/>
 <%= render :partial => "welcome/menu" %>
 
 <% else %>
@@ -50,6 +49,11 @@
 </div>
 
 <div id="content">
+
+<%= image_tag('beta.png', :align=>:left) %>
+測試版<br/>
+請測試，但請記住資料任何時間可被刪除<br/>
+<br/>
 
 <div id="yield">
 <%= yield %>
