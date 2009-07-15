@@ -26,8 +26,6 @@ faire les jobs
   un user doit pouvoir être affecté à un groupe de zones
   Tables
     customers
-    job type
-    results
   Tables ou pas ?
     si pas de table, est-ce que le system est revendable ?
     avec des tables on peut configurer la longueur des numéros

@@ -25,6 +25,7 @@ zh:
   confirm_action:   "您確定?"
   menu_home:        "回到首頁"
   site_menu_section: "網站"
+  date:             "日期"
 
 # user
 
@@ -74,7 +75,10 @@ zh:
 # jobs
 
   jobs:             "聯單"  
-  job_input:        "聯單鍵檔"  
+  job_input:        "聯單鍵檔"
+  serial:           "聯單"
+  phone:            "電話"
+  ampm:             "上下"
   
   activerecord:
     errors:

@@ -24,6 +24,7 @@ en:
   confirm_action:   "Are you sure ?"
   menu_home:        "Home"
   site_menu_section: "Site"
+  date:             "Date"
 
 
 # users
@@ -78,6 +79,9 @@ en:
 
   jobs:             "Jobs"
   job_input:        "New job"  
+  serial:           "Serial"
+  phone:            "Phone"
+  ampm:             "AMPM"
 
 
   activerecord:
