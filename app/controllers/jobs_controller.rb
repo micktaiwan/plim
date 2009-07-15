@@ -1,5 +1,7 @@
 class JobsController < ApplicationController
 
+  before_filter :verify_role
+
   def index
     redirect_to(new_job_url)
   end
