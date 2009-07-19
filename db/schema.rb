@@ -9,7 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090714184556) do
+ActiveRecord::Schema.define(:version => 20090719170620) do
+
+  create_table "action_logs", :force => true do |t|
+    t.string   "controller"
+    t.string   "action"
+    t.string   "controller_action"
+    t.string   "browser"
+    t.string   "ip"
+    t.string   "session_id"
+    t.integer  "user_id"
+    t.integer  "company_id"
+    t.text     "params"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "companies", :force => true do |t|
     t.string "name"

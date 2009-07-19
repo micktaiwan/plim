@@ -10,10 +10,12 @@ class JobsController < ApplicationController
     @zones = Zone.find(:all,:conditions=>["company_id=?",current_user.company_id],:order=>"code")
     @types = JobType.find(:all,:conditions=>["company_id=?",current_user.company_id],:order=>"sort")
     @employees =  Employee.find(:all,:conditions=>["company_id=?",current_user.company_id],:order=>"team")
+    @job = Job.new
+    @job.date = Date.today
   end
   
   def create
-    render(:nothing=>true)
+    render :action => "create.js.rjs" 
   end
 
 end

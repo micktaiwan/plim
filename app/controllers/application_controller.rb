@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   layout 'general'
   before_filter :set_locale
+  before_filter :log_action
   include AuthenticatedSystem
 
 
@@ -29,7 +30,7 @@ class ApplicationController < ActionController::Base
     end
     session[:locale] = I18n.locale = locale
     
-    # TODO
+    #OPTIMIZE better locales handling
     #locale = params[:locale] || session[:locale] || (this_user.site_language if is_logged_in?) || I18n.default_locale
     #locale = AVAILABLE_LOCALES.keys.include?(locale) ? locale : I18n.default_locale
     #session[:locale] = I18n.locale = locale
@@ -39,4 +40,21 @@ class ApplicationController < ActionController::Base
     render(:text=>'401 - Unauthorized', :status=>:unauthorized) if self.current_user==nil or self.current_user.role_id != 100
   end
 
+  def log_action
+    @action_log = ActionLog.new
+    # who is doing the activity?
+    @action_log.session_id = session.session_id #record the session
+    @action_log.browser = request.env['HTTP_USER_AGENT']
+    @action_log.ip = request.env['REMOTE_ADDR']
+    # what are they doing?
+    @action_log.controller        = controller_name
+    @action_log.action            = action_name
+    @action_log.controller_action = controller_name + "/" + action_name
+    @action_log.params            = params.inspect # wrap this in an unless block if it might contain a password
+    @action_log.user_id           = session[:user_id]
+    @action_log.company_id        = current_user.company_id if session[:user_id]
+    @action_log.save!
+  end  
+
 end
+
