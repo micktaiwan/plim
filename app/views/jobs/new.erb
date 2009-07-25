@@ -1,4 +1,4 @@
-<% form_remote_for(:job, @job, {:url => {:action=>:create}}, {:loading=>"$('loading').show()"}) do |f| -%>
+<% form_remote_for(:job, @job, :url => {:action=>:create}, :loading=>"$('loading').show()") do |f| -%>
 
 <label><%=I18n.t(:mdate)%></label>
 <%= f.text_field(:date) %><br/>
@@ -13,19 +13,19 @@
 <%= f.collection_select(:employee, @employees, :id, :team_and_name) %><br/>
 
 <label><%=I18n.t(:serial)%></label>
-<%= f.text_field(:serial_id) %><br/>
+<%= f.text_field(:serial) %><br/>
 
 <label><%=I18n.t(:phone)%></label>
-<%= f.text_field(:phone_id) %><br/>
+<%= f.text_field(:phone) %><br/>
 
 <label><%=I18n.t(:ampm)%></label>
-<%= f.text_field(:ampm_id) %><br/>
+<%= f.text_field(:ampm) %><br/>
 
 <label>&nbsp;</label>
 <%= f.submit(I18n.t(:send_data)) %>
 
 <% end %>
 
-<div id="loading" style="display:none;">In construction...</div>
+<div id="loading" style="display:none;">Saving...</div>
 
 

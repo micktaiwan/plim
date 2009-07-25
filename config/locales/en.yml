@@ -121,6 +121,14 @@ en:
             code:
               too_short: "is too short"
               taken: "already exists"
+        serial:
+          attributes:
+            serial:
+              blank: "can not be blank"
+        phone:
+          attributes:
+            phone:
+              blank: "can not be blank"
       template:
         header: "Some errors occured"
         body: "Please correct these errors."

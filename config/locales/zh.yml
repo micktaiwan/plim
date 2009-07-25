@@ -119,6 +119,14 @@ zh:
             code:
               too_short: "太短"
               taken: "已經存在"
+        serial:
+          attributes:
+            serial:
+              blank: "不能空白"
+        phone:
+          attributes:
+            phone:
+              blank: "不能空白"
       template:
         header: "一些錯誤發生"
         body: "請更正這些錯誤"

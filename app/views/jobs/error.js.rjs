@@ -1,0 +1,4 @@
+page.hide 'loading'
+page.alert('Error: '+@e)
+page[:job_serial].focus()
+
