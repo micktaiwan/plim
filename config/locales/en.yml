@@ -25,7 +25,10 @@ en:
   menu_home:        "Home"
   site_menu_section: "Site"
   mdate:            "Date"
-
+  error:            "Error"
+  all:              "All"
+  sort_by:          "Sort by"
+  edit:             "Edit"
 
 # users
 
@@ -82,6 +85,9 @@ en:
   serial:           "Serial"
   phone:            "Phone"
   ampm:             "AMPM"
+  job_already_exists: "This job already exists"
+  job_search:       "Search"
+  help_search:      "blank fieds values means all (do not filter)"
 
 # action_log
 

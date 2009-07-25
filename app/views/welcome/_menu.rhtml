@@ -15,6 +15,7 @@
 <% end %>
 
 <div class="menu_sec"><%= I18n.t(:jobs) %></div>
-<%= link_to(I18n.t(:job_input), :controller=>'jobs')%>
+<%= link_to(I18n.t(:job_input),  :controller=>'jobs')%><br/>
+<%= link_to(I18n.t(:job_search), :controller=>'jobs', :action=>'search')%><br/>
 
 

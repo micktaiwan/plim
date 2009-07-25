@@ -1,4 +1,4 @@
 page.hide 'loading'
-page.alert('Error: '+@e)
+page.alert(I18n.t(:error)+': '+@e)
 page[:job_serial].focus()
 

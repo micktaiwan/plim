@@ -26,6 +26,10 @@ zh:
   menu_home:        "回到首頁"
   site_menu_section: "網站"
   mdate:            "日期"
+  error:            "錯誤"
+  all:              "所有"
+  sort_by:          "排序"
+  edit:             "編輯"
 
 # user
 
@@ -79,6 +83,9 @@ zh:
   serial:           "聯單"
   phone:            "電話"
   ampm:             "上下"
+  job_already_exists: "資料已經存在"
+  job_search:       "聯單查詢"
+  help_search:      "空白等於所有"
 
 # action_log
 

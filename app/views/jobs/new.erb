@@ -1,3 +1,4 @@
+<h1><%=I18n.t(:job_input)%></h1>
 <% form_remote_for(:job, @job, :url => {:action=>:create}, :loading=>"$('loading').show()") do |f| -%>
 
 <label><%=I18n.t(:mdate)%></label>
