@@ -95,6 +95,8 @@ en:
   serial_not_found: "Serial not found"
   phone_not_found:  "Phone not found"
   no_record_found:  "No record found"
+  last_edit_time:   "Edit time"
+  create_time:      "Creation time"
 
 # action_log
 

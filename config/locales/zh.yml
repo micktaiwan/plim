@@ -93,7 +93,7 @@ zh:
   serial_not_found: "找不到這個聯單號碼"
   phone_not_found:  "找不到這個電話號碼"
   no_record_found:  "使用這些條件找不到聯單記錄"
-  last_edit_time:   "最後編輯時間"
+  last_edit_time:   "編輯時間"
   create_time:      "新建時間"
 
 # action_log

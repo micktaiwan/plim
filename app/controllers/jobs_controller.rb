@@ -57,7 +57,9 @@ class JobsController < ApplicationController
       @job.serial_id    = Serial.get_or_create(p[:serial][:serial])
       @job.phone_id     = Phone.get_or_create(p[:phone][:phone])
       @job.ampm         = p[:ampm] # FIXME check value
-      @job.result_id    = p[:result_id].to_i    
+      result = p[:result_id].to_i
+      result = nil if result == 0
+      @job.result_id    = result
       @job.memo         = p[:memo]
       @job.save!
       @job_tr = render_to_string(:partial=>'job')
@@ -71,7 +73,7 @@ class JobsController < ApplicationController
 
   def search
     set_dropboxes
-    @sort = [[I18n.t(:mdate),'date'], [I18n.t(:team),'employees.team'], [I18n.t(:zone),'zones.code'], [I18n.t(:serial),'serials.serial'], [I18n.t(:phone),'phones.phone'], [I18n.t(:job_type),'job_types.sort']]
+    @sort = [[I18n.t(:mdate),'date, employees.team'], [I18n.t(:team),'employees.team, date'], [I18n.t(:zone),'zones.code, date, employees.team'], [I18n.t(:serial),'serials.serial'], [I18n.t(:phone),'phones.phone'], [I18n.t(:job_type),'job_types.sort'], [I18n.t(:result),'results.sort'], [I18n.t(:create_time),'id'], [I18n.t(:last_edit_time),'updated_at']]
   end
   
   def do_search
