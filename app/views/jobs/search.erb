@@ -7,17 +7,19 @@
   form_remote_tag(:url => {:action => "do_search"}, :loading=>"$('loading').show();", :success=>"results" ) do
 %>
 
-<label><%=I18n.t(:mdate)%></label>
-<%= text_field_tag(:date) %><br/>
+<label><%=I18n.t(:fromdate)%></label>
+<%= text_field_tag(:fromdate) %><br/>
+<label><%=I18n.t(:todate)%></label>
+<%= text_field_tag(:todate) %><br/>
 
 <label><%=I18n.t(:zone)%></label>
-<%= collection_select(:zone, :zone, @zones, :id, :name, {:include_blank => I18n.t(:all)}) %><br/>
+<%= collection_select(:s, :zone, @zones, :id, :name, {:include_blank => I18n.t(:all)}) %><br/>
 
 <label><%=I18n.t(:job_type)%></label>
-<%= collection_select(:job_type, :job_type, @types, :id, :name, {:include_blank => I18n.t(:all)}) %><br/>
+<%= collection_select(:s, :job_type, @types, :id, :name, {:include_blank => I18n.t(:all)}) %><br/>
 
 <label><%=I18n.t(:team)%></label>
-<%= collection_select(:employee, :employee, @employees, :id, :team_and_name, {:include_blank => I18n.t(:all)}) %><br/>
+<%= collection_select(:s, :team, @employees, :id, :team_and_name, {:include_blank => I18n.t(:all)}) %><br/>
 
 <label><%=I18n.t(:serial)%></label>
 <%= text_field_tag(:serial) %><br/>

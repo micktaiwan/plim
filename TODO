@@ -18,27 +18,25 @@ jobs (visits)
 ======================
 Detailled TODO
 
+finir le search
+visits edit
+visits input
+rajouter les results dans le search
+print
+
 il faut plus de roles
   il y a ceux qui mettre les résultats
   les konpan ne font que des recherches ?
-  
-faire les jobs
-  un user doit pouvoir être affecté à un groupe de zones
-  Tables
-    customers
-  Tables ou pas ?
-    si pas de table, est-ce que le system est revendable ?
-    avec des tables on peut configurer la longueur des numéros
-  Utiliser RJS
+
+un user doit pouvoir être affecté à un groupe de zones
 
 repairlog
   liés à un job  
-
+  customers
+  
 ======================
 TODO
 
-P1 visits
- same drop boxes
 P1 prints
 P1 search
  1
@@ -56,6 +54,7 @@ P1 visits input (results)
  tue
  zaipai
 P1 codes
+============
 repairlog
  sms
 cases
@@ -72,6 +71,8 @@ P1 accounts
 P1 roles
  chaque fonctionalité doit être attribuable
 P1 zones
+P1 visits
+ same drop boxes
 
 ======================
 Ne pas faire tout de suite

@@ -29,6 +29,8 @@ en:
   all:              "All"
   sort_by:          "Sort by"
   edit:             "Edit"
+  fromdate:         "From date"
+  todate:           "To date"
 
 # users
 

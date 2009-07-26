@@ -30,7 +30,12 @@ zh:
   all:              "所有"
   sort_by:          "排序"
   edit:             "編輯"
-
+  fromdate:         "從日期"
+  todate:           "到日期"
+  serial_not_found: "找不到這個聯單號碼"
+  phone_not_found:  "找不到這個電話號碼"
+  no_record_found:  "使用這些條件找不到聯單記錄"
+  
 # user
 
   menu_users:       "網站帳戶"

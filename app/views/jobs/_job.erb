@@ -1,7 +1,7 @@
 <tr>
 <td><%= link_to(image_tag("edit.gif"), :controller=>'jobs', :action=>'edit_form', :id=>job.id) %></td>
 <td><%= job.date %></td>
-<td><%= job.employee.name %></td>
+<td><%= job.employee.team %> <%= job.employee.name %></td>
 <td><%= job.zone.name %></td>
 </tr>
 
