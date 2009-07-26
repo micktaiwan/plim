@@ -28,7 +28,7 @@ class JobTypesController < ApplicationController
   def edit_form
     id = params[:id]
     @jobtype = JobType.find(id)
-    @jobs = Job.find(:all, :conditions=>["type_id=?",id])
+    @jobs = Job.find(:all, :conditions=>["job_type_id=?",id])
   end
   
   def update
@@ -44,7 +44,7 @@ class JobTypesController < ApplicationController
   
   def destroy
     id = params[:id]
-    render(:text=>"Can not delete this type, as it is already used", :status=>:forbidden) and return if Job.find(:all, :conditions=>["type_id=?",id]).size > 0
+    render(:text=>"Can not delete this type, as it is already used", :status=>:forbidden) and return if Job.find(:all, :conditions=>["job_type_id=?",id]).size > 0
     JobType.destroy(id)
     render(:nothing=>true)
   end
