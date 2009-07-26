@@ -352,8 +352,8 @@ table tr.heading {
   top: 180px;
   left: 200px;
   z-index: 100;
-  border: 1px solid #DDD;
+  border: 2px solid #FE9A2E;
   padding: 10px;
-  background-color: white;
+  background-color: #F2F5A9;
 }
 

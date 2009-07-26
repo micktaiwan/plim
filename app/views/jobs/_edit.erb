@@ -1,4 +1,5 @@
 <%= link_to_function(image_tag('close.png'), "$('edit').hide();") %>
+
 <% form_remote_for(:job, @job, :url => {:action=>:edit, :id=>@job.id}, :loading=>"$('edit_loading').show()") do |f| %>
 
 <label><%=I18n.t(:mdate)%></label>
@@ -26,10 +27,18 @@
 <label><%=I18n.t(:ampm)%></label>
 <%= f.text_field(:ampm) %><br/>
 
+<label><%=I18n.t(:result)%></label>
+<%= select(:job, :result_id, @results) %><br/>
+
 <label>&nbsp;</label>
 <%= f.submit(I18n.t(:send_data)) %>
-
 <% end %>
-
+<br/>
+<label><%= I18n.t(:create_time) %></label>
+<%= @job.created_at %>
+(<%= time_ago_in_words(@job.created_at) %>)<br/>
+<label><%= I18n.t(:last_edit_time) %></label>
+<%= @job.updated_at %>
+(<%= time_ago_in_words(@job.updated_at) %>)
 <div id="edit_loading" style="display:none;">Saving...</div>
 

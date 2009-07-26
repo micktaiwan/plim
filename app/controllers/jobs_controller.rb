@@ -37,9 +37,7 @@ class JobsController < ApplicationController
   def edit_form
     id = params[:id]
     @job = Job.find(id)
-    @zones      = Zone.find(:all,:conditions=>["company_id=?",current_user.company_id],:order=>"code")
-    @types      = JobType.find(:all,:conditions=>["company_id=?",current_user.company_id],:order=>"sort")
-    @employees  = Employee.find(:all,:conditions=>["company_id=?",current_user.company_id],:order=>"team")
+    set_dropboxes
     render(:partial=>'edit')
   end
 
@@ -48,14 +46,15 @@ class JobsController < ApplicationController
       id = params[:id]
       p = params[:job]
       @job = Job.find(id)
-      @job.date        = p[:date]
-      @job.zone_id     = p[:zone_id].to_i    
-      @job.employee_id = p[:employee_id].to_i    
-      @job.user_id     = current_user.id    
-      @job.job_type_id     = p[:job_type_id].to_i    
-      @job.serial_id   = Serial.get_or_create(p[:serial][:serial])
-      @job.phone_id    = Phone.get_or_create(p[:phone][:phone])
-      @job.ampm        = p[:ampm] # FIXME check value
+      @job.date         = p[:date]
+      @job.zone_id      = p[:zone_id].to_i    
+      @job.employee_id  = p[:employee_id].to_i    
+      @job.user_id      = current_user.id    
+      @job.job_type_id  = p[:job_type_id].to_i    
+      @job.serial_id    = Serial.get_or_create(p[:serial][:serial])
+      @job.phone_id     = Phone.get_or_create(p[:phone][:phone])
+      @job.ampm         = p[:ampm] # FIXME check value
+      @job.result_id    = p[:result_id].to_i    
       @job.save!
       @job_tr = render_to_string(:partial=>'job')
       #render :action => "edit.js.rjs" 
@@ -67,9 +66,7 @@ class JobsController < ApplicationController
 
 
   def search
-    @zones      = Zone.find(:all,:conditions=>["company_id=?",current_user.company_id],:order=>"code")
-    @types      = JobType.find(:all,:conditions=>["company_id=?",current_user.company_id],:order=>"sort")
-    @employees  = Employee.find(:all,:conditions=>["company_id=?",current_user.company_id],:order=>"team")
+    set_dropboxes
     @sort = [[I18n.t(:mdate),'date'], [I18n.t(:team),'employees.team'], [I18n.t(:zone),'zones.code'], [I18n.t(:serial),'serials.serial'], [I18n.t(:phone),'phones.phone'], [I18n.t(:job_type),'job_types.sort']]
   end
   
@@ -83,12 +80,20 @@ class JobsController < ApplicationController
       team      = params[:s][:team]
       serial    = params[:serial]
       phone     = params[:phone]
+      result    = params[:job][:result_id]
       cond = []
       cond << "date>='#{fromdate}'"   if fromdate != ''
       cond << "date<='#{todate}'"     if todate != ''
       cond << "zone_id='#{zone}'"     if zone != ''
       cond << "job_type_id='#{job_type}'" if job_type != ''
       cond << "employee_id='#{team}'" if team != ''
+      if result != ''
+        if result=="nil"
+          cond << "result_id is null"
+        else
+          cond << "result_id='#{result}'"
+        end  
+      end          
       if serial != ''
         serial_id = Serial.find_by_serial(serial)
         if not serial_id
@@ -122,6 +127,17 @@ class JobsController < ApplicationController
       @results = e.message
     end  
   end
+  
+private
+
+  def set_dropboxes
+    @zones      = Zone.find(:all,:conditions=>["company_id=?",current_user.company_id],:order=>"code")
+    @types      = JobType.find(:all,:conditions=>["company_id=?",current_user.company_id],:order=>"sort")
+    @employees  = Employee.find(:all,:conditions=>["company_id=?",current_user.company_id],:order=>"team")
+    @results    = Result.find(:all,:conditions=>["company_id=?",current_user.company_id],:order=>"sort").map {|r| [r.name, r.id]}
+    @results.insert(0,[I18n.t(:nil_result),"nil"])
+  end
+  
 
 end
 

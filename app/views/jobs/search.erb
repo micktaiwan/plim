@@ -27,6 +27,9 @@
 <label><%=I18n.t(:phone)%></label>
 <%= text_field_tag(:phone) %><br/>
 
+<label><%=I18n.t(:result)%></label>
+<%= select(:job, :result_id, @results, {:include_blank=>I18n.t(:all)}) %><br/>
+
 <label><%=I18n.t(:sort_by)%></label>
 <%= select_tag(:sort, options_for_select(@sort)) %><br/>
 
