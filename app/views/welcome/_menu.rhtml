@@ -15,7 +15,11 @@
 <% end %>
 
 <div class="menu_sec"><%= I18n.t(:jobs) %></div>
+
+<% if self.current_user.role_id <= 200 %>
 <%= link_to(I18n.t(:job_input),  :controller=>'jobs')%><br/>
+<% end %>
+
 <%= link_to(I18n.t(:job_search), :controller=>'jobs', :action=>'search')%><br/>
 
 

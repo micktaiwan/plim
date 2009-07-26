@@ -1,5 +1,8 @@
 class JobsController < ApplicationController
 
+  before_filter { |c| c.verify_role(200) if not ['search','do_search'].include?(c.action_name) }
+
+
   def index
     redirect_to(new_job_url)
   end
