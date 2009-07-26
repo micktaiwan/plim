@@ -55,6 +55,7 @@ class JobsController < ApplicationController
       @job.phone_id     = Phone.get_or_create(p[:phone][:phone])
       @job.ampm         = p[:ampm] # FIXME check value
       @job.result_id    = p[:result_id].to_i    
+      @job.memo         = p[:memo]
       @job.save!
       @job_tr = render_to_string(:partial=>'job')
       #render :action => "edit.js.rjs" 
@@ -72,7 +73,7 @@ class JobsController < ApplicationController
   
   def do_search
     begin  
-      sort = params[:sort]
+      sort      = params[:sort]
       fromdate  = params[:fromdate]
       todate    = params[:todate]
       zone      = params[:s][:zone]
@@ -82,11 +83,11 @@ class JobsController < ApplicationController
       phone     = params[:phone]
       result    = params[:job][:result_id]
       cond = []
-      cond << "date>='#{fromdate}'"   if fromdate != ''
-      cond << "date<='#{todate}'"     if todate != ''
-      cond << "zone_id='#{zone}'"     if zone != ''
+      cond << "date>='#{fromdate}'"       if fromdate != ''
+      cond << "date<='#{todate}'"         if todate != ''
+      cond << "zone_id='#{zone}'"         if zone != ''
       cond << "job_type_id='#{job_type}'" if job_type != ''
-      cond << "employee_id='#{team}'" if team != ''
+      cond << "employee_id='#{team}'"     if team != ''
       if result != ''
         if result=="nil"
           cond << "result_id is null"
@@ -96,31 +97,18 @@ class JobsController < ApplicationController
       end          
       if serial != ''
         serial_id = Serial.find_by_serial(serial)
-        if not serial_id
-          @results = I18n.t(:serial_not_found)
-          return
-        end
+        @results = I18n.t(:serial_not_found) and return if not serial_id
         cond << "serial_id='#{serial_id.id}'"
       end
       if phone != ''
         phone_id = Phone.find_by_phone(phone)
-        if not phone_id
-          @results = I18n.t(:phone_not_found)
-          return
-        end
-        cond << "phone_id='#{phone_id.id}'" if phone_id
+        @results = I18n.t(:phone_not_found) and return if not phone_id
+        cond << "phone_id='#{phone_id.id}'"
       end
 
       inc = ['zone','employee','result','phone','serial','job_type']    
-      if cond.size > 0
-        @jobs = Job.find(:all, :conditions=>cond.join(" and "), :include=>inc, :order=>sort)
-      else
-        @jobs = Job.find(:all, :include=>inc, :order=>sort)
-      end
-      if @jobs.size == 0
-        @results = I18n.t(:no_record_found)
-        return
-      end
+      @jobs = Job.find(:all, :include=>inc, :order=>sort, :conditions=>(cond.size>0 ? cond.join(" and ") : nil))
+      @results = I18n.t(:no_record_found) and return if @jobs.size == 0
       @results = render_to_string(:partial=>'results.erb')
       #render :action => "do_search.js.rjs"
     rescue Exception=>e

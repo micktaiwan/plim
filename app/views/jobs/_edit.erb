@@ -30,6 +30,10 @@
 <label><%=I18n.t(:result)%></label>
 <%= select(:job, :result_id, @results) %><br/>
 
+<label><%=I18n.t(:memo)%></label>
+<%= f.text_area(:memo, :rows=>3) %><br/>
+
+
 <label>&nbsp;</label>
 <%= f.submit(I18n.t(:send_data)) %>
 <% end %>
