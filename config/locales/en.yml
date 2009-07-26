@@ -26,11 +26,6 @@ en:
   site_menu_section: "Site"
   mdate:            "Date"
   error:            "Error"
-  all:              "All"
-  sort_by:          "Sort by"
-  edit:             "Edit"
-  fromdate:         "From date"
-  todate:           "To date"
 
 # users
 
@@ -79,6 +74,8 @@ en:
   create_new_result:    "Create result"
   edit_result:         "Edit results"
   results:              "Results"
+  result:               "Result"
+  nil_result:           "no result"
 
 # jobs
 
@@ -90,6 +87,14 @@ en:
   job_already_exists: "This job already exists"
   job_search:       "Search"
   help_search:      "blank fieds values means all (do not filter)"
+  all:              "All"
+  sort_by:          "Sort by"
+  edit:             "Edit"
+  fromdate:         "From date"
+  todate:           "To date"
+  serial_not_found: "Serial not found"
+  phone_not_found:  "Phone not found"
+  no_record_found:  "No record found"
 
 # action_log
 

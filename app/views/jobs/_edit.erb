@@ -1,0 +1,35 @@
+<%= link_to_function(image_tag('close.png'), "$('edit').hide();") %>
+<% form_remote_for(:job, @job, :url => {:action=>:edit, :id=>@job.id}, :loading=>"$('edit_loading').show()") do |f| %>
+
+<label><%=I18n.t(:mdate)%></label>
+<%= f.text_field(:date) %><br/>
+
+<label><%=I18n.t(:zone)%></label>
+<%= f.collection_select(:zone_id, @zones, :id, :name) %><br/>
+
+<label><%=I18n.t(:job_type)%></label>
+<%= f.collection_select(:job_type_id, @types, :id, :name) %><br/>
+
+<label><%=I18n.t(:team)%></label>
+<%= f.collection_select(:employee_id, @employees, :id, :team_and_name) %><br/>
+
+<% f.fields_for(:serial, @job.serial) do |s| %>
+  <label><%=I18n.t(:serial)%></label>
+  <%= s.text_field(:serial) %><br/>
+<% end %>
+
+<% f.fields_for(:phone, @job.phone) do |s| %>
+  <label><%=I18n.t(:phone)%></label>
+  <%= s.text_field(:phone) %><br/>
+<% end %>
+
+<label><%=I18n.t(:ampm)%></label>
+<%= f.text_field(:ampm) %><br/>
+
+<label>&nbsp;</label>
+<%= f.submit(I18n.t(:send_data)) %>
+
+<% end %>
+
+<div id="edit_loading" style="display:none;">Saving...</div>
+

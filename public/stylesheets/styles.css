@@ -324,3 +324,36 @@ div.auto_complete ul strong.highlight {
   color: white;
 }
 
+
+table {
+	border-width: 1px 1px 1px 1px;
+	border-spacing: 0px;
+	border-style: none none none none;
+	border-collapse: collapse;
+	background-color: #EEE;
+	color: black;
+}
+
+table td {
+	border-width: 1px 1px 1px 1px;
+	padding: 1px 1px 1px 1px;
+	border-style: inset inset inset inset;
+	border-color: #ABC;
+	-moz-border-radius: 0px 0px 0px 0px;
+	padding: 0 10px 0 10px;
+  }
+
+table tr.heading {
+	background-color: #ABC;
+}
+
+.edit_form {
+  position:absolute;
+  top: 180px;
+  left: 200px;
+  z-index: 100;
+  border: 1px solid #DDD;
+  padding: 10px;
+  background-color: white;
+}
+

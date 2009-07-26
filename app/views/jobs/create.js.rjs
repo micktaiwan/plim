@@ -4,6 +4,3 @@ page[:job_phone].value = ''
 page[:job_ampm].value = ''
 page[:job_serial].focus()
 
-
-
-

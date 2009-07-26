@@ -1,0 +1,3 @@
+page.hide 'edit_loading'
+page.alert(I18n.t(:error)+': '+@e)
+
