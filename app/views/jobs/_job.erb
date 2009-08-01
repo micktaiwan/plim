@@ -2,7 +2,7 @@
 <td><%= link_to_remote(image_tag("edit.gif"), :url=>{:controller=>'jobs', :action=>'edit_form', :id=>job.id}, :loading=>"$('edit').update('Loading...');$('edit').top=this.top;$('edit').show();", :update=>'edit') %></td>
 <td><%= h job.date %></td>
 <td><%= h job.employee.team %> <%= job.employee.name %></td>
-<td><%= h job.zone.code %> <%= job.zone.name %></td>
+<td><% if job.zone %><%= h job.zone.code %> <%= job.zone.name %><% else %>deleted<% end %></td>
 <td><%= h job.serial.serial %></td>
 <td><%= h job.phone.phone %></td>
 <td><%= h job.job_type.name %></td>
