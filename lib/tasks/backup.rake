@@ -36,9 +36,9 @@ namespace :db do
       ActiveRecord::Base.establish_connection(abcs[RAILS_ENV])
       File.open("db/#{RAILS_ENV}_data.sql", "w+") do |f|
         if abcs[RAILS_ENV]["password"].blank?
-          f << `mysqldump -h #{abcs[RAILS_ENV]["host"]} -u #{abcs[RAILS_ENV]["username"]} #{abcs[RAILS_ENV]["database"]}`
+          f << `mysqldump -h #{"localhost" unless abcs[RAILS_ENV]["host"]} -u #{abcs[RAILS_ENV]["username"]} #{abcs[RAILS_ENV]["database"]}`
         else
-          f << `mysqldump -h #{abcs[RAILS_ENV]["host"]} -u #{abcs[RAILS_ENV]["username"]} -p#{abcs[RAILS_ENV]["password"]} #{abcs[RAILS_ENV]["database"]}`
+          f << `mysqldump -h #{"localhost" unless abcs[RAILS_ENV]["host"]} -u #{abcs[RAILS_ENV]["username"]} -p#{abcs[RAILS_ENV]["password"]} #{abcs[RAILS_ENV]["database"]}`
         end
       end
     else
@@ -61,9 +61,9 @@ namespace :db do
     when 'mysql'
       ActiveRecord::Base.establish_connection(abcs[RAILS_ENV])
       if abcs[RAILS_ENV]["password"].blank?
-        `mysql -h #{abcs[RAILS_ENV]["host"]} -u #{abcs[RAILS_ENV]["username"]} #{abcs[RAILS_ENV]["database"]} < db/production_data.sql`
+        `mysql -u #{abcs[RAILS_ENV]["username"]} -D #{abcs[RAILS_ENV]["database"]} < db/production_data.sql`
       else
-        `mysql -h #{abcs[RAILS_ENV]["host"]} -u #{abcs[RAILS_ENV]["username"]} -p#{abcs[RAILS_ENV]["password"]} #{abcs[RAILS_ENV]["database"]} < db/production_data.sql`
+        `mysql -u #{abcs[RAILS_ENV]["username"]} -p#{abcs[RAILS_ENV]["password"]} -D #{abcs[RAILS_ENV]["database"]} < db/production_data.sql`
       end
     else
       raise "Task not supported by '#{abcs[RAILS_ENV]['adapter']}'" 
