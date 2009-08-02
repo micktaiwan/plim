@@ -36,9 +36,9 @@ namespace :db do
       ActiveRecord::Base.establish_connection(abcs[RAILS_ENV])
       File.open("db/#{RAILS_ENV}_data.sql", "w+") do |f|
         if abcs[RAILS_ENV]["password"].blank?
-          f << `mysqldump -h #{"localhost" unless abcs[RAILS_ENV]["host"]} -u #{abcs[RAILS_ENV]["username"]} #{abcs[RAILS_ENV]["database"]}`
+          f << `mysqldump -h "localhost" -u #{abcs[RAILS_ENV]["username"]} #{abcs[RAILS_ENV]["database"]}`
         else
-          f << `mysqldump -h #{"localhost" unless abcs[RAILS_ENV]["host"]} -u #{abcs[RAILS_ENV]["username"]} -p#{abcs[RAILS_ENV]["password"]} #{abcs[RAILS_ENV]["database"]}`
+          f << `mysqldump -h "localhost" -u #{abcs[RAILS_ENV]["username"]} -p#{abcs[RAILS_ENV]["password"]} #{abcs[RAILS_ENV]["database"]}`
         end
       end
     else
