@@ -17,3 +17,11 @@ module ApplicationHelper
 
 end
 
+class MyLinkRenderer < WillPaginate::LinkRenderer
+
+  def page_link(page, text, attributes = {})
+    @template.link_to_remote(text, {:url=>{:action=>'do_search', :page=>page}}, attributes)
+  end
+
+end
+

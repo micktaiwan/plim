@@ -78,15 +78,27 @@ class JobsController < ApplicationController
   
   def do_search
     begin  
-      sort      = params[:sort]
-      fromdate  = params[:fromdate]
-      todate    = params[:todate]
-      zone      = params[:s][:zone]
-      job_type  = params[:s][:job_type]
-      team      = params[:s][:team]
-      serial    = params[:serial]
-      phone     = params[:phone]
-      result    = params[:job][:result_id]
+      sort      = params[:sort]     || session['search_sort']
+      fromdate  = params[:fromdate] || session['search_fromdate']
+      todate    = params[:todate]   || session['search_todate']
+      zone      = (params[:s] ? params[:s][:zone] : nil)      || session['search_zone']
+      job_type  = (params[:s] ? params[:s][:job_type] : nil)  || session['search_job_type']
+      team      = (params[:s] ? params[:s][:team] : nil)      || session['search_team']
+      serial    = params[:serial]   || session['search_serial']
+      phone     = params[:phone]    || session['search_phone']
+      result    = (params[:job] ? params[:job][:result_id] : nil) || session['search_result']
+
+      # for pagination
+      session['search_sort']      = sort
+      session['search_fromdate']  = fromdate
+      session['search_todate']    = todate
+      session['search_zone']      = zone
+      session['search_job_type']  = job_type
+      session['search_team']      = team
+      session['search_serial']    = serial
+      session['search_phone']     = phone
+      session['search_result']    = result
+      
       cond = []
       cond << "date>='#{fromdate}'"       if fromdate != ''
       cond << "date<='#{todate}'"         if todate != ''
@@ -112,7 +124,7 @@ class JobsController < ApplicationController
       end
 
       inc = ['zone','employee','result','phone','serial','job_type']    
-      @jobs = Job.find(:all, :include=>inc, :order=>sort, :conditions=>(cond.size>0 ? cond.join(" and ") : nil))
+      @jobs = Job.paginate(:all, :include=>inc, :order=>sort, :conditions=>(cond.size>0 ? cond.join(" and ") : nil), :page=>params[:page], :per_page=>10)
       @results = I18n.t(:no_record_found) and return if @jobs.size == 0
       @results = render_to_string(:partial=>'results.erb')
       #render :action => "do_search.js.rjs"
@@ -131,6 +143,5 @@ private
     @results.insert(0,[I18n.t(:nil_result),"nil"])
   end
   
-
 end
 
