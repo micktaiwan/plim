@@ -27,7 +27,10 @@ zh:
   site_menu_section: "網站"
   mdate:            "日期"
   error:            "錯誤"
-  
+  choose:           "=選擇="
+  can_not_be_blank: "不能空白"
+  too_many_records: "錯誤: 用這些條件返回太多記錄"
+   
 # user
 
   menu_users:       "網站帳戶"
@@ -95,6 +98,7 @@ zh:
   no_record_found:  "使用這些條件找不到聯單記錄"
   last_edit_time:   "編輯時間"
   create_time:      "新建時間"
+  result_input:     "結果鍵檔"
 
 # action_log
 

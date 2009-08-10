@@ -133,6 +133,37 @@ class JobsController < ApplicationController
     end  
   end
   
+  # display a page that give user choices
+  def result_input
+    @employees  = Employee.find(:all,:conditions=>["company_id=?",current_user.company_id],:order=>"team")
+    @results    = Result.find(:all,:conditions=>["company_id=?",current_user.company_id],:order=>"sort").map {|r| [r.name, r.id]}
+  end
+  
+  def do_result_input
+    result_id = params[:job][:result_id]
+    team      = params[:job][:team]
+    date      = params[:date]
+    phone     = params[:phone]
+    error = ""
+    error += I18n.t(:result)+" "+I18n.t(:can_not_be_blank)+"<br/>" if result_id == ""
+    error += I18n.t(:team)  +" "+I18n.t(:can_not_be_blank)+"<br/>" if team == ""
+    error += I18n.t(:mdate) +" "+I18n.t(:can_not_be_blank)+"<br/>" if date == ""
+    error += I18n.t(:phone) +" "+I18n.t(:can_not_be_blank)+"<br/>" if phone == ""
+    @result = error and return if error != ""
+    # search the record
+    phone_id = Phone.find_by_phone(phone)
+    jobs = Job.find(:all, :conditions=>["employee_id=? and date=? and phone_id=?", team, date, phone_id])
+    @result = I18n.t(:no_record_found) and return if jobs.size == 0
+    @result = I18n.t(:too_many_records) and return if jobs.size > 1 # should not happen if there is one phone for one date
+    # change the result
+    job = jobs.first
+    old = job.result_id
+    job.result_id = result_id
+    job.save
+    @result = "OK (#{old} => #{result_id})"
+  end
+  
+  
 private
 
   def set_dropboxes

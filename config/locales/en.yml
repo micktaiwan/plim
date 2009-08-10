@@ -26,6 +26,9 @@ en:
   site_menu_section: "Site"
   mdate:            "Date"
   error:            "Error"
+  choose:           "= Choose ="
+  can_not_be_blank: "can not be blank"
+  too_many_records: "Error! Too many records for this search"
 
 # users
 
@@ -97,6 +100,7 @@ en:
   no_record_found:  "No record found"
   last_edit_time:   "Edit time"
   create_time:      "Creation time"
+  result_input:     "Result input"
 
 # action_log
 

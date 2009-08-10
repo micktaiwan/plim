@@ -1,0 +1,3 @@
+page.hide 'loading'
+page['result'].update @result
+
