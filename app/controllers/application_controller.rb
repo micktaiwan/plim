@@ -4,6 +4,7 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   layout 'general'
+  before_filter :set_globals
   before_filter :set_locale
   before_filter :log_action
   include AuthenticatedSystem
@@ -55,6 +56,11 @@ class ApplicationController < ActionController::Base
     @action_log.company_id        = current_user.company_id if session[:user_id]
     @action_log.save!
   end  
+
+  def set_globals
+    @current_action     = action_name
+    @current_controller = controller_name
+  end
 
 end
 

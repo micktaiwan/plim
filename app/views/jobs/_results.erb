@@ -1,6 +1,5 @@
 <%= page_entries_info @jobs %>
 
-
 <table>
 <tr class="heading">
 <td><%= I18n.t(:edit) %></td>
@@ -15,7 +14,7 @@
 <td><%= I18n.t(:memo) %></td>
 </tr>
 
-<%= render(:partial=>'job', :collection=>@jobs) %>
+<%= render(:partial=>'jobs/job', :collection=>@jobs) %>
 
 </table>
 <br/>
