@@ -1,10 +1,10 @@
 --- 
 javascripts: 
 - base: 
-  - application
+  - prototype
   - controls
   - effects
-  - prototype
+  - application
 stylesheets: 
 - base: 
   - styles
