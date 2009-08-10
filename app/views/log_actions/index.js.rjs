@@ -1,3 +1,2 @@
-page.hide 'loading'
 page['results'].update @results
 
