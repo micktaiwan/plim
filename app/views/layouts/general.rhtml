@@ -7,9 +7,7 @@
 	<meta name="description" content="Phone line installation manager" />
 	<meta name="robots" content="all" />
 	<title><%= I18n.t(:site_title) %></title>
-	<style type="text/css" title="currentStyle" media="screen">
-		@import '/stylesheets/styles.css';
-	</style>
+  <%= stylesheet_link_merged :base %>	
 	<link rel="Shortcut Icon" type="image/x-icon" href="/images/favicon.ico" />	
 </head>
 <body>
@@ -72,7 +70,7 @@
 
 </div>
 
-	<%= javascript_include_tag "application", "prototype", "effects", "controls", :cache => true %>
-
+  <%= javascript_include_merged :base %>
+  
 </body>
 </html>
