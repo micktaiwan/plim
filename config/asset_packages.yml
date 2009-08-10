@@ -2,8 +2,8 @@
 javascripts: 
 - base: 
   - prototype
-  - controls
   - effects
+  - controls
   - application
 stylesheets: 
 - base: 
