@@ -76,7 +76,7 @@ class JobsController < ApplicationController
     @sort = [[I18n.t(:mdate),'date, employees.team'], [I18n.t(:team),'employees.team, date'], [I18n.t(:zone),'zones.code, date, employees.team'], [I18n.t(:serial),'serials.serial'], [I18n.t(:phone),'phones.phone'], [I18n.t(:job_type),'job_types.sort'], [I18n.t(:result),'results.sort'], [I18n.t(:create_time),'id'], [I18n.t(:last_edit_time),'updated_at']]
   end
   
-  def do_search
+  def do_search(print=nil)
     begin  
       sort      = params[:sort]     || session['search_sort']
       fromdate  = params[:fromdate] || session['search_fromdate']
@@ -124,7 +124,12 @@ class JobsController < ApplicationController
       end
 
       inc = ['zone','employee','result','phone','serial','job_type']    
-      @jobs = Job.paginate(:all, :include=>inc, :order=>sort, :conditions=>(cond.size>0 ? cond.join(" and ") : nil), :page=>params[:page], :per_page=>10)
+      if(print)
+        size = 1000
+      else
+        size = 10
+      end        
+      @jobs = Job.paginate(:all, :include=>inc, :order=>sort, :conditions=>(cond.size>0 ? cond.join(" and ") : nil), :page=>params[:page], :per_page=>size)
       @results = I18n.t(:no_record_found) and return if @jobs.size == 0
       @results = render_to_string(:partial=>'results.erb')
       #render :action => "do_search.js.rjs"
@@ -163,6 +168,10 @@ class JobsController < ApplicationController
     @result = "OK (#{old} => #{result_id})"
   end
   
+  def print
+    do_search(true)
+    render(:layout=>'print')
+  end  
   
 private
 

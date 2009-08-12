@@ -9,4 +9,5 @@ stylesheets:
 - base: 
   - styles
   - pagination
-
+- print:
+  - print

@@ -1,5 +1,5 @@
 <tr id="tr<%=job.id%>">
-<td><%= link_to_remote(image_tag("edit.gif"), :url=>{:controller=>'jobs', :action=>'edit_form', :id=>job.id}, :loading=>"$('edit').update('Loading...');$('edit').top=this.top;$('edit').show();", :update=>'edit') %></td>
+<td class="print"><%= link_to_remote(image_tag("edit.gif"), :url=>{:controller=>'jobs', :action=>'edit_form', :id=>job.id}, :loading=>"$('edit').update('Loading...');$('edit').top=this.top;$('edit').show();", :update=>'edit') %></td>
 <td><%= h job.date %></td>
 <td><%= h job.employee.team %> <%= job.employee.name %></td>
 <td><%= h job.friendly_zone %></td>

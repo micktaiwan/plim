@@ -1,6 +1,5 @@
 <h1><%=I18n.t(:job_search)%></h1>
 
-
 <%=I18n.t(:help_search)%><br/>
 <br/>
 <% 
@@ -41,6 +40,8 @@
 <br/>
 <br/>
 <div id="loading" style="display:none;">Searching...</div>
+
+<div id="print" style="display:none;"><%= link_to(image_tag('print.jpg'), 'print', :target=>'_blank') %></div>
 
 <div id="results"></div>
 
