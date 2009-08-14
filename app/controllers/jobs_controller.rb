@@ -88,7 +88,7 @@ class JobsController < ApplicationController
       phone     = params[:phone]    || session['search_phone']
       result    = (params[:job] ? params[:job][:result_id] : nil) || session['search_result']
 
-      # for pagination
+      # for pagination and print
       session['search_sort']      = sort
       session['search_fromdate']  = fromdate
       session['search_todate']    = todate
