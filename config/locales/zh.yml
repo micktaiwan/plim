@@ -68,6 +68,8 @@ zh:
   create_new_job_type:  "新建聯單類型"
   edit_job_type:        "編輯聯單類型"
   job_type:             "聯單類型"
+  phone_length:         "電話長度"
+  serial_length:        "聯單長度"
 
 # results
 

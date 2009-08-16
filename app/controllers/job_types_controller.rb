@@ -28,7 +28,7 @@ class JobTypesController < ApplicationController
   def edit_form
     id = params[:id]
     @jobtype = JobType.find(id)
-    @jobs = Job.find(:all, :conditions=>["job_type_id=?",id])
+    @jobs_size = Job.find(:all, :conditions=>["job_type_id=?",id]).size
   end
   
   def update

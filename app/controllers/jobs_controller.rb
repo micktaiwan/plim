@@ -13,6 +13,12 @@ class JobsController < ApplicationController
     @employees  = Employee.find(:all,:conditions=>["company_id=?",current_user.company_id],:order=>"team")
     @job        = Job.new
     @job.date   = Date.today
+    @serial_cases = ""
+    @phone_cases = ""
+    @types.each { |t| 
+      @serial_cases += "case \"#{t.id}\": return #{t.serial_length};"
+      @phone_cases += "case \"#{t.id}\": return #{t.phone_length};"
+      }
   end
   
   def create

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090726125154) do
+ActiveRecord::Schema.define(:version => 20090814110458) do
 
   create_table "action_logs", :force => true do |t|
     t.string   "controller"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(:version => 20090726125154) do
     t.string  "name"
     t.integer "sort"
     t.integer "company_id"
+    t.integer "serial_length", :default => 12
+    t.integer "phone_length",  :default => 8
   end
 
   create_table "jobs", :force => true do |t|

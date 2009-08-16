@@ -1,5 +1,18 @@
+<script>
+function get_serial_len(job_type) {
+  switch(job_type) {
+<%= @serial_cases %>
+    }
+  }
+function get_phone_len(job_type) {
+  switch(job_type) {
+<%= @phone_cases %>
+    }
+  }
+</script>
+
 <h1><%=I18n.t(:job_input)%></h1>
-<% form_remote_for(:job, @job, :url => {:action=>:create}, :loading=>"$('loading').show()") do |f| -%>
+<% form_remote_for(:job, @job, {:url => {:action=>:create}, :loading=>"$('loading').show()" , :html=>{:name=>'addform'}}) do |f| -%>
 
 <label><%=I18n.t(:mdate)%></label>
 <%= f.text_field(:date) %><br/>
@@ -14,19 +27,17 @@
 <%= f.collection_select(:employee, @employees, :id, :team_and_name) %><br/>
 
 <label><%=I18n.t(:serial)%></label>
-<%= f.text_field(:serial) %><br/>
+<%= f.text_field(:serial, :onkeyup=>"job_input_key(event, this);") %><br/>
 
 <label><%=I18n.t(:phone)%></label>
-<%= f.text_field(:phone) %><br/>
+<%= f.text_field(:phone, :onkeyup=>"job_input_key(event, this);") %><br/>
 
 <label><%=I18n.t(:ampm)%></label>
-<%= f.text_field(:ampm) %><br/>
+<%= f.text_field(:ampm, :onkeyup=>"job_input_key(event, this);") %><br/>
 
 <label>&nbsp;</label>
 <%= f.submit(I18n.t(:send_data)) %>
+<%= image_tag('loading.gif', :id=>"loading", :style=> "display:none;") %>
 
 <% end %>
-
-<div id="loading" style="display:none;">Saving...</div>
-
 

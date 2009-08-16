@@ -70,6 +70,8 @@ en:
   create_new_job_type:  "Create Job type"
   edit_job_type:        "Edit Job type"
   job_type:             "Job type"
+  phone_length:         "Phone length"
+  serial_length:        "Serial length"
   
 # results
 
