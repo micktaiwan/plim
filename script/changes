@@ -1,0 +1,24 @@
+# emails daily projects changes to users
+
+# call this script in a cron task:
+# MAILTO="admin@yoursite.com"
+# 0 0 * * 0 cd /home/protask/ptm/script && /usr/local/bin/ruby runner -e production changes
+
+h = Hash.new
+Company.find(:all).each { |c|
+  a = []
+  # number of connected users
+  a << User.find(:all, :conditions=>["company_id=? and last_login>=?",c.id,Time.now()-1.day]).size
+  # number of viewed pages
+  a << ActionLog.find(:all, :conditions=>["company_id=? and created_at>=?",c.id,Time.now()-1.day]).size
+  # number of job
+  a << Job.find(:all, :conditions=>["company_id=?",c.id]).size
+  # number of new/edited job
+  a << Job.find(:all, :conditions=>["company_id=? and updated_at>=?",c.id,Time.now()-1.day]).size
+  h[c.id] = a
+  }
+
+User.find(:all, :conditions=>"email != '' and role_id=100").each { |u|
+  AppMailer.deliver_changes(u, h[u.company_id])
+  }
+

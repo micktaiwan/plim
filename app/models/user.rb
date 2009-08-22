@@ -24,7 +24,12 @@ class User < ActiveRecord::Base
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.authenticate(login, password)
     u = find_by_login(login) # need to get the salt
-    u && u.authenticated?(password) ? u : nil
+    u = (u && u.authenticated?(password)) ? u : nil
+    if u
+      u.last_login = Time.now
+      u.save!
+    end
+    u
   end
 
   # Encrypts some data with the salt.

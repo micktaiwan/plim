@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090814110458) do
+ActiveRecord::Schema.define(:version => 20090822185348) do
 
   create_table "action_logs", :force => true do |t|
     t.string   "controller"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(:version => 20090814110458) do
     t.integer  "role_id"
     t.integer  "company_id"
     t.string   "name"
+    t.datetime "last_login",                              :default => '2009-08-21 20:57:08'
   end
 
   create_table "zones", :force => true do |t|
