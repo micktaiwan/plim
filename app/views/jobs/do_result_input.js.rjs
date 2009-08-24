@@ -1,4 +1,4 @@
 page.hide 'loading'
 page['result'].update @result
-page << "$('phone').value = ''"
+page << "$('phone').value = ''" if @jobs and @jobs.size == 1
 

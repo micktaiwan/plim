@@ -163,15 +163,15 @@ class JobsController < ApplicationController
     @result = error and return if error != ""
     # search the record
     phone_id = Phone.find_by_phone(phone)
-    jobs = Job.find(:all, :conditions=>["employee_id=? and date=? and phone_id=?", team, date, phone_id])
-    @result = I18n.t(:no_record_found) and return if jobs.size == 0
-    @result = I18n.t(:too_many_records) and return if jobs.size > 1 # should not happen if there is one phone for one date
+    @jobs = Job.find(:all, :conditions=>["employee_id=? and date=? and phone_id=?", team, date, phone_id])
+    @result = I18n.t(:no_record_found)  and return if @jobs.size == 0
+    @result = I18n.t(:too_many_records) and return if @jobs.size > 1 # should not happen if there is one phone for one date
     # change the result
-    job = jobs.first
+    job = @jobs.first
     old = job.result_id
     job.result_id = result_id
     job.save
-    @result = "OK (#{old} => #{result_id})"
+    @result = "OK<br/><br/>" + render_to_string(:partial=>'all_results')    
   end
   
   def print

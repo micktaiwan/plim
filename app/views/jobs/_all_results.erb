@@ -1,0 +1,19 @@
+<table>
+<tr class="heading">
+<td class="print"><%= I18n.t(:edit) %></td>
+<td><%= I18n.t(:mdate) %></td>
+<td><%= I18n.t(:team) %></td>
+<td><%= I18n.t(:zone) %></td>
+<td><%= I18n.t(:serial) %></td>
+<td><%= I18n.t(:phone) %></td>
+<td><%= I18n.t(:job_type) %></td>
+<td><%= I18n.t(:result) %></td>
+<td><%= I18n.t(:ampm) %></td>
+<td><%= I18n.t(:memo) %></td>
+</tr>
+
+<%= render(:partial=>'jobs/job', :collection=>@jobs) %>
+
+</table>
+<br/>
+

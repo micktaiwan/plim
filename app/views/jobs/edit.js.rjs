@@ -1,4 +1,4 @@
 page.hide 'edit'
 page["tr#{@job.id}"].replace @job_tr
-page["tr#{@job.id}"].highlight
+page["tr#{@job.id}"].highlight(:duration=>5)
 

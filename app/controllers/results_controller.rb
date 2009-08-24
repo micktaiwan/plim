@@ -28,7 +28,7 @@ class ResultsController < ApplicationController
   def edit_form
     id = params[:id]
     @result = Result.find(id)
-    @jobs = Job.find(:all, :conditions=>["result_id=?",id])
+    @jobs = Job.paginate(:all, :conditions=>["result_id=?",id], :page=>params[:page], :per_page=>10)
   end
   
   def update
