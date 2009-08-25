@@ -6,7 +6,15 @@
 <td><%= h job.friendly_serial %></td>
 <td><%= h job.friendly_phone %></td>
 <td><%= h job.friendly_job_type %></td>
-<td><%= h job.friendly_result %></td>
+<td><%= h job.friendly_result %>
+<% if job.can_be_adjourned? %>
+<span id="adj_div_<%=job.id%>">
+<%= link_to_remote(I18n.t('adjourn'), {:url=>{:controller=>'jobs', :action=>'adjourn', :id=>job.id}, :loading=>"$('adj_load_#{job.id}').show();", :update=>"adj_div_#{job.id}"}) %>
+<%= image_tag('loading.gif', :id=>"adj_load_#{job.id}", :style=>"display:none;") %>
+</span>
+<% end %>
+
+</td>
 <td><%= h job.ampm %></td>
 <td><%= h job.memo %></td>
 </tr>

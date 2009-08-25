@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090822185348) do
+ActiveRecord::Schema.define(:version => 20090825192801) do
 
   create_table "action_logs", :force => true do |t|
     t.string   "controller"
@@ -24,6 +24,10 @@ ActiveRecord::Schema.define(:version => 20090822185348) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "action_logs", ["company_id"], :name => "index_action_logs_on_company_id"
+  add_index "action_logs", ["session_id"], :name => "index_action_logs_on_session_id"
+  add_index "action_logs", ["user_id"], :name => "index_action_logs_on_user_id"
 
   create_table "companies", :force => true do |t|
     t.string "name"
@@ -43,6 +47,8 @@ ActiveRecord::Schema.define(:version => 20090822185348) do
     t.datetime "updated_at"
   end
 
+  add_index "employees", ["company_id"], :name => "index_employees_on_company_id"
+
   create_table "job_types", :force => true do |t|
     t.string  "name"
     t.integer "sort"
@@ -50,6 +56,8 @@ ActiveRecord::Schema.define(:version => 20090822185348) do
     t.integer "serial_length", :default => 12
     t.integer "phone_length",  :default => 8
   end
+
+  add_index "job_types", ["company_id"], :name => "index_job_types_on_company_id"
 
   create_table "jobs", :force => true do |t|
     t.integer  "user_id"
@@ -67,7 +75,20 @@ ActiveRecord::Schema.define(:version => 20090822185348) do
     t.text     "memo"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "adjourn_id"
   end
+
+  add_index "jobs", ["adjourn_id"], :name => "index_jobs_on_adjourn_id"
+  add_index "jobs", ["company_id"], :name => "index_jobs_on_company_id"
+  add_index "jobs", ["customer_id"], :name => "index_jobs_on_customer_id"
+  add_index "jobs", ["employee_id"], :name => "index_jobs_on_employee_id"
+  add_index "jobs", ["job_type_id"], :name => "index_jobs_on_job_type_id"
+  add_index "jobs", ["phone_id"], :name => "index_jobs_on_phone_id"
+  add_index "jobs", ["reason_id"], :name => "index_jobs_on_reason_id"
+  add_index "jobs", ["result_id"], :name => "index_jobs_on_result_id"
+  add_index "jobs", ["serial_id"], :name => "index_jobs_on_serial_id"
+  add_index "jobs", ["user_id"], :name => "index_jobs_on_user_id"
+  add_index "jobs", ["zone_id"], :name => "index_jobs_on_zone_id"
 
   create_table "phones", :force => true do |t|
     t.string   "phone"
@@ -79,7 +100,10 @@ ActiveRecord::Schema.define(:version => 20090822185348) do
     t.string  "name"
     t.integer "sort"
     t.integer "company_id"
+    t.boolean "is_adjourner", :default => false
   end
+
+  add_index "results", ["company_id"], :name => "index_results_on_company_id"
 
   create_table "serials", :force => true do |t|
     t.string   "serial"
@@ -99,8 +123,11 @@ ActiveRecord::Schema.define(:version => 20090822185348) do
     t.integer  "role_id"
     t.integer  "company_id"
     t.string   "name"
-    t.datetime "last_login",                              :default => '2009-08-21 20:57:08'
+    t.datetime "last_login",                              :default => '2009-08-21 19:30:51'
   end
+
+  add_index "users", ["company_id"], :name => "index_users_on_company_id"
+  add_index "users", ["role_id"], :name => "index_users_on_role_id"
 
   create_table "zones", :force => true do |t|
     t.string   "code"
@@ -109,5 +136,7 @@ ActiveRecord::Schema.define(:version => 20090822185348) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "zones", ["company_id"], :name => "index_zones_on_company_id"
 
 end

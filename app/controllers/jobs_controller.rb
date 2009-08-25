@@ -34,7 +34,6 @@ class JobsController < ApplicationController
       job.serial_id   = Serial.get_or_create(p[:serial])
       job.phone_id    = Phone.get_or_create(p[:phone])
       job.ampm        = p[:ampm] # FIXME check value
-      job.verify
       job.save!
       #render :action => "create.js.rjs" 
     rescue Exception => e
@@ -178,6 +177,21 @@ class JobsController < ApplicationController
     do_search(true)
     render(:layout=>'print')
   end  
+  
+  def adjourn
+    begin
+      id = params[:id]
+      to_copy = Job.find(id)
+      new = Job.new(to_copy.attributes)
+      new.date = Date.today + 1.day
+      new.result = nil
+      new.adjourn_id = to_copy.id
+      new.save
+      render(:text=>"OK (#{new.date})")
+    rescue Exception=>e
+      render(:text=>e.message)
+    end  
+  end
   
 private
 

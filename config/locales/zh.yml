@@ -79,6 +79,8 @@ zh:
   results:              "結果"
   result:               "結果"
   nil_result:           "不明"
+  is_adjourner:         "使用這個結果的聯單可以延遲"
+  adjourn:              "延遲"
 
 # jobs
 

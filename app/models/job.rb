@@ -8,13 +8,28 @@ class Job < ActiveRecord::Base
   belongs_to :result
   belongs_to :job_type
   
-  def verify
-    # verify duplicate for this date, team, phone and serial
+  before_save {|job| job.verify!}
+  
+  def verify!
+    # verify duplicate for this date and phone  
     raise I18n.t(:job_already_exists) if  duplicate?
   end
   
   def duplicate?
-    Job.find(:first, :conditions=>["date=? and phone_id=?", self.date, self.phone_id])
+    if self.id != nil
+      cond = ["id!=? and date=? and phone_id=?", self.id, self.date, self.phone_id]
+    else
+      cond = ["date=? and phone_id=?", self.date, self.phone_id]
+    end
+    Job.find(:first, :conditions=>cond)
+  end
+  
+  def can_be_adjourned?
+    return (self.result and self.result.is_adjourner and not get_adjourned)
+  end
+  
+  def get_adjourned
+    Job.find(:first, :conditions=>["adjourn_id=?", self.id])
   end
   
   def friendly_zone

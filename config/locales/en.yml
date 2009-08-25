@@ -81,7 +81,9 @@ en:
   results:              "Results"
   result:               "Result"
   nil_result:           "unclear"
-
+  is_adjourner:         "this result is an adjourner"
+  adjourn:              "adjourn"
+  
 # jobs
 
   jobs:             "Jobs"
