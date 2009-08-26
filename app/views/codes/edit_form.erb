@@ -1,0 +1,17 @@
+<h1><%= I18n.t(:edit_code_list) %></h1>
+
+<%= error_messages_for :code_list %>
+<% form_for :code_list, :url=>{:action=>'update', :id=>@code_list.id} do |f| -%>
+  <%= render(:partial => f) %>
+  <p><label>&nbsp;</label>
+  <%= submit_tag I18n.t(:send_data) %></p>
+<% end %>
+
+<h1><%= I18n.t(:codes) %> (<%=@code_list.name %>)</h1>
+
+<%=link_to I18n.t(:create_new_code), :action=>'new_code', :id=>@code_list.id %><br/>
+<ul>
+<%= render(:partial=>'code', :collection=>@codes) %>
+</ul>
+
+

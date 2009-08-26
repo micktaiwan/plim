@@ -1,0 +1,5 @@
+<%=link_to I18n.t(:create_new_code_list), :action=>'new'%><br/>
+<ul>
+<%= render(:partial=>'code_list', :collection=>@code_lists) %>
+</ul>
+

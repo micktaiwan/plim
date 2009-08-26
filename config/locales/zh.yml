@@ -19,8 +19,8 @@ zh:
   name:             "名字"
   code:             "代碼"
   language:         "語言"  
-  created_msg:      "已創建了"
-  edited_msg:       "已編輯了"
+  created_msg:      "已建立"
+  edited_msg:       "已編輯"
   order:            "順序"
   confirm_action:   "您確定?"
   menu_home:        "回到首頁"
@@ -30,6 +30,7 @@ zh:
   choose:           "=選擇="
   can_not_be_blank: "不能空白"
   too_many_records: "錯誤: 用這些條件返回太多記錄"
+  #adjourn_reason:   "延遲原因"
    
 # user
 
@@ -103,10 +104,22 @@ zh:
   last_edit_time:   "編輯時間"
   create_time:      "新建時間"
   result_input:     "結果鍵檔"
+  reason:           "原因"
 
 # action_log
 
   menu_action_log:  "網站訪問"
+
+# codes
+
+  menu_codes:           "原因管理"
+  create_new_code_list: "新建代碼目錄"
+  edit_code_list:       "編輯代碼目錄"
+  code_list:            "代碼目錄"
+
+  create_new_code:   "新建代碼"
+  edit_code:         "編輯代碼"
+  codes:             "代碼"
 
   
   activerecord:
@@ -117,7 +130,7 @@ zh:
             password:
               blank: "不能空白"
               too_short: "太短"
-              confirmation: "不匹配"
+              confirmation: "不相配"
             password_confirmation:
               blank: "不能空白"
             email:

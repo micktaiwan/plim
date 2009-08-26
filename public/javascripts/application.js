@@ -47,3 +47,8 @@ function job_input_key(event,object) {
   return true;
   }
 
+
+function result_change(id) {
+  new Ajax.Updater('reason', '/jobs/select_reason_list_from_result/'+id);
+  }
+

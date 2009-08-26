@@ -1,0 +1,9 @@
+<h1><%= I18n.t(:edit_code) %></h1>
+
+<%= error_messages_for :code %>
+<% form_for :code, :url=>{:action=>'update_code', :id=>@code.id} do |f| -%>
+  <%= render(:partial => 'code_form', :locals=>{:f=>f}) %>
+  <p><label>&nbsp;</label>
+  <%= submit_tag I18n.t(:send_data) %></p>
+<% end %>
+

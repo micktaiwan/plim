@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090825192801) do
+ActiveRecord::Schema.define(:version => 20090826182556) do
 
   create_table "action_logs", :force => true do |t|
     t.string   "controller"
@@ -28,6 +28,25 @@ ActiveRecord::Schema.define(:version => 20090825192801) do
   add_index "action_logs", ["company_id"], :name => "index_action_logs_on_company_id"
   add_index "action_logs", ["session_id"], :name => "index_action_logs_on_session_id"
   add_index "action_logs", ["user_id"], :name => "index_action_logs_on_user_id"
+
+  create_table "code_lists", :force => true do |t|
+    t.string   "name"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "code_lists", ["company_id"], :name => "index_code_lists_on_company_id"
+
+  create_table "codes", :force => true do |t|
+    t.integer  "code_list_id"
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "codes", ["code_list_id"], :name => "index_codes_on_code_list_id"
 
   create_table "companies", :force => true do |t|
     t.string "name"

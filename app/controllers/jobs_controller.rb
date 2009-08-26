@@ -169,6 +169,7 @@ class JobsController < ApplicationController
     job = @jobs.first
     old = job.result_id
     job.result_id = result_id
+    job.memo = (job.memo || '') + "\n" + params[:memo]
     job.save
     @result = "OK<br/><br/>" + render_to_string(:partial=>'all_results')    
   end
@@ -191,6 +192,11 @@ class JobsController < ApplicationController
     rescue Exception=>e
       render(:text=>e.message)
     end  
+  end
+  
+  def select_reason_list_from_result
+    id = params[:id]
+    render(:text=>options_for_select('r'=>id))
   end
   
 private

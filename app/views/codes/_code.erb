@@ -1,0 +1,7 @@
+<li id="el_<%=code.id%>">
+<%= link_to(image_tag("edit.gif"), :action=>'edit_code_form', :id=>code.id) %>
+<%= code.code %>
+<%= code.name %>
+<%= link_to_remote(image_tag("trashcan.gif"), :url=>{:action=>'destroy_code', :id=>code.id}, :confirm=>I18n.t(:confirm_action), :success=>"$('el_#{code.id}').fade()") %>
+</li>
+

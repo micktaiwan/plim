@@ -104,7 +104,7 @@ label {
     display: block
 }
 
-input, select {
+input, select, textarea {
     font-family: Arial;
     font-size: 10pt;
     border: 1px solid #DDDDD0;

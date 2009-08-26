@@ -29,6 +29,7 @@ en:
   choose:           "= Choose ="
   can_not_be_blank: "can not be blank"
   too_many_records: "Error! Too many records for this search"
+  #adjourn_reason:   "Adjourn reasons"
 
 # users
 
@@ -105,10 +106,22 @@ en:
   last_edit_time:   "Edit time"
   create_time:      "Creation time"
   result_input:     "Result input"
-
+  reason:           "Reason"
+  
 # action_log
 
   menu_action_log:      "Activity log"
+
+# codes
+
+  menu_codes:           "Codes"
+  create_new_code_list: "Create a new code list"
+  edit_code_list:       "Editing code list"
+  code_list:            "Code list"
+
+  create_new_code:   "Create a new code"
+  edit_code:         "Editing code"
+  codes:             "Codes"
 
   activerecord:
     errors:
