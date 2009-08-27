@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
 
   before_filter { |c| c.verify_role(200) if not ['search','do_search'].include?(c.action_name) }
+  protect_from_forgery :except => [:select_reason_list_from_result]
 
 
   def index
@@ -151,14 +152,16 @@ class JobsController < ApplicationController
   
   def do_result_input
     result_id = params[:job][:result_id]
+    reason_id = params[:reason_id]
     team      = params[:job][:team]
     date      = params[:date]
     phone     = params[:phone]
     error = ""
-    error += I18n.t(:result)+" "+I18n.t(:can_not_be_blank)+"<br/>" if result_id == ""
-    error += I18n.t(:team)  +" "+I18n.t(:can_not_be_blank)+"<br/>" if team == ""
-    error += I18n.t(:mdate) +" "+I18n.t(:can_not_be_blank)+"<br/>" if date == ""
-    error += I18n.t(:phone) +" "+I18n.t(:can_not_be_blank)+"<br/>" if phone == ""
+    error += I18n.t(:result) +" "+I18n.t(:can_not_be_blank)+"<br/>" if result_id == ""
+    error += I18n.t(:team)   +" "+I18n.t(:can_not_be_blank)+"<br/>" if team == ""
+    error += I18n.t(:mdate)  +" "+I18n.t(:can_not_be_blank)+"<br/>" if date == ""
+    error += I18n.t(:phone)  +" "+I18n.t(:can_not_be_blank)+"<br/>" if phone == ""
+    error += I18n.t(:reason) +" "+I18n.t(:can_not_be_blank)+"<br/>" if reason_id == "0"
     @result = error and return if error != ""
     # search the record
     phone_id = Phone.find_by_phone(phone)
@@ -169,7 +172,8 @@ class JobsController < ApplicationController
     job = @jobs.first
     old = job.result_id
     job.result_id = result_id
-    job.memo = (job.memo || '') + "\n" + params[:memo]
+    job.reason_id = reason_id=="" ? nil : reason_id.to_i
+    job.memo = (job.memo || '') + "\n#{Date.today}: " + params[:memo]
     job.save
     @result = "OK<br/><br/>" + render_to_string(:partial=>'all_results')    
   end
@@ -195,8 +199,11 @@ class JobsController < ApplicationController
   end
   
   def select_reason_list_from_result
-    id = params[:id]
-    render(:text=>options_for_select('r'=>id))
+    result_id = params[:id]
+    r = Result.find(result_id)
+    render(:text=>"<option value="">#{I18n.t(:none)}</option>") and return if r.reason_list_id == nil
+    codes = Code.find(:all, :conditions=>["code_list_id=?", r.reason_list_id], :order=>'code')
+    render(:text=>options_for_select(codes))
   end
   
 private
@@ -207,6 +214,11 @@ private
     @employees  = Employee.find(:all,:conditions=>["company_id=?",current_user.company_id],:order=>"team")
     @results    = Result.find(:all,:conditions=>["company_id=?",current_user.company_id],:order=>"sort").map {|r| [r.name, r.id]}
     @results.insert(0,[I18n.t(:nil_result),"nil"])
+  end
+  
+  def options_for_select(options)
+    rv = "<option value=\"0\">#{I18n.t(:choose)}</option>"
+    options.inject(rv) { |rv, o| rv += "<option value=\"#{o.id}\">#{o.code} #{o.name}</option>"}
   end
   
 end

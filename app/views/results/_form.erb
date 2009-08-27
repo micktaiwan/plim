@@ -9,4 +9,6 @@
 <%= I18n.t(:is_adjourner) %>
 </p>
 
+<p><label for="reason_list_id"><%= I18n.t(:reason_list) %></label>
+<%= select(:result, :reason_list_id, @lists, {:include_blank=>I18n.t(:none)}) %></p>
 

@@ -31,6 +31,8 @@ zh:
   can_not_be_blank: "不能空白"
   too_many_records: "錯誤: 用這些條件返回太多記錄"
   #adjourn_reason:   "延遲原因"
+  none:              "==無=="
+
    
 # user
 
@@ -82,6 +84,7 @@ zh:
   nil_result:           "不明"
   is_adjourner:         "使用這個結果的聯單可以延遲"
   adjourn:              "延遲"
+  reason_list:          "原因目錄"
 
 # jobs
 

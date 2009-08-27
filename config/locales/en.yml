@@ -30,6 +30,7 @@ en:
   can_not_be_blank: "can not be blank"
   too_many_records: "Error! Too many records for this search"
   #adjourn_reason:   "Adjourn reasons"
+  none:              "==None=="
 
 # users
 
@@ -84,6 +85,7 @@ en:
   nil_result:           "unclear"
   is_adjourner:         "this result is an adjourner"
   adjourn:              "adjourn"
+  reason_list:          "Reason list"
   
 # jobs
 

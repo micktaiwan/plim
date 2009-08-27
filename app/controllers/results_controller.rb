@@ -11,6 +11,7 @@ class ResultsController < ApplicationController
   def new
     @result = Result.new
     @result.sort = Result.find(:all, :conditions=>["company_id=?",self.current_user.company_id]).size    
+    get_lists
   end
 
   def create
@@ -29,6 +30,7 @@ class ResultsController < ApplicationController
     id = params[:id]
     @result = Result.find(id)
     @jobs = Job.paginate(:all, :conditions=>["result_id=?",id], :page=>params[:page], :per_page=>10)
+    get_lists
   end
   
   def update
@@ -49,5 +51,10 @@ class ResultsController < ApplicationController
     render(:nothing=>true)
   end
 
+private
+
+  def get_lists
+    @lists = CodeList.find(:all, :conditions=>["company_id=?",self.current_user.company_id]).collect{|l| [l.name, l.id]}
+  end
 end
 

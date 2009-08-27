@@ -49,6 +49,7 @@ function job_input_key(event,object) {
 
 
 function result_change(id) {
-  new Ajax.Updater('reason', '/jobs/select_reason_list_from_result/'+id);
+  if(id=="") return;
+  new Ajax.Updater('reason_id', '/jobs/select_reason_list_from_result/'+id);
   }
 

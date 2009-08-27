@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090826182556) do
+ActiveRecord::Schema.define(:version => 20090827190839) do
 
   create_table "action_logs", :force => true do |t|
     t.string   "controller"
@@ -119,7 +119,8 @@ ActiveRecord::Schema.define(:version => 20090826182556) do
     t.string  "name"
     t.integer "sort"
     t.integer "company_id"
-    t.boolean "is_adjourner", :default => false
+    t.boolean "is_adjourner",   :default => false
+    t.integer "reason_list_id"
   end
 
   add_index "results", ["company_id"], :name => "index_results_on_company_id"
