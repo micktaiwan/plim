@@ -32,7 +32,8 @@ zh:
   too_many_records: "錯誤: 用這些條件返回太多記錄"
   #adjourn_reason:   "延遲原因"
   none:              "==無=="
-
+  phone_length_error: "電話長度錯誤"
+  serial_length_error: "聯單長度錯誤"
    
 # user
 

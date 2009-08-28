@@ -31,6 +31,8 @@ en:
   too_many_records: "Error! Too many records for this search"
   #adjourn_reason:   "Adjourn reasons"
   none:              "==None=="
+  phone_length_error: "Phone length error"
+  serial_length_error: "Serial length error"
 
 # users
 

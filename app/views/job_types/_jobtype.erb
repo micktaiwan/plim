@@ -2,6 +2,10 @@
 <%= link_to(image_tag("edit.gif"), :action=>'edit_form', :id=>jobtype.id) %>
 <%= jobtype.sort %>
 <%= jobtype.name %>
+(
+<%= jobtype.serial_length %>,
+<%= jobtype.phone_length %>
+)
 <%= link_to_remote(image_tag("trashcan.gif"), :url=>{:action=>'destroy', :id=>jobtype.id}, :confirm=>I18n.t(:confirm_action), :success=>"$('el_#{jobtype.id}').fade()", :failure=>"alert('Can not delete this type, as it is already used')") %>
 </li>
 

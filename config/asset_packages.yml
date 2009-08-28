@@ -5,9 +5,11 @@ javascripts:
   - effects
   - controls
   - application
+  - locales
 stylesheets: 
 - base: 
   - styles
   - pagination
 - print:
   - print
+

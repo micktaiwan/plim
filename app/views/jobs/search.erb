@@ -7,9 +7,9 @@
 %>
 
 <label><%=I18n.t(:fromdate)%></label>
-<%= text_field_tag(:fromdate) %><br/>
+<%= text_field_tag(:fromdate, Date.today()) %><br/>
 <label><%=I18n.t(:todate)%></label>
-<%= text_field_tag(:todate) %><br/>
+<%= text_field_tag(:todate, Date.today()) %><br/>
 
 <label><%=I18n.t(:zone)%></label>
 <%= collection_select(:s, :zone, @zones, :id, :name, {:include_blank => I18n.t(:all)}) %><br/>

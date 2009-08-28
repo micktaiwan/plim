@@ -12,7 +12,7 @@ function get_phone_len(job_type) {
 </script>
 
 <h1><%=I18n.t(:job_input)%></h1>
-<% form_remote_for(:job, @job, {:url => {:action=>:create}, :loading=>"$('loading').show()" , :html=>{:name=>'addform'}}) do |f| -%>
+<% form_for(:job, @job, {:url=>{:action=>""}, :loading=>"$('loading').show()" , :html=>{:name=>'addform', :onSubmit=>'return verify();'}}) do |f| -%>
 
 <label><%=I18n.t(:mdate)%></label>
 <%= f.text_field(:date) %><br/>
@@ -27,13 +27,16 @@ function get_phone_len(job_type) {
 <%= f.collection_select(:employee, @employees, :id, :team_and_name) %><br/>
 
 <label><%=I18n.t(:serial)%></label>
-<%= f.text_field(:serial, :onkeyup=>"job_input_key(event, this);") %><br/>
+<%= f.text_field(:serial, :onkeyup=>"job_input_key(event, this);") %>
+<img id='error_serial' style="display:none;" src="/images/error.png"><br/>
 
 <label><%=I18n.t(:phone)%></label>
-<%= f.text_field(:phone, :onkeyup=>"job_input_key(event, this);") %><br/>
+<%= f.text_field(:phone, :onkeyup=>"job_input_key(event, this);") %>
+<img id='error_phone' style="display:none;" src="/images/error.png"><br/>
 
 <label><%=I18n.t(:ampm)%></label>
-<%= f.text_field(:ampm, :onkeyup=>"job_input_key(event, this);") %><br/>
+<%= f.text_field(:ampm, :onkeyup=>"job_input_key(event, this);") %>
+<img id='error_ampm' style="display:none;" src="/images/error.png"><br/>
 
 <label>&nbsp;</label>
 <%= f.submit(I18n.t(:send_data)) %>
@@ -41,3 +44,4 @@ function get_phone_len(job_type) {
 
 <% end %>
 
+<div id='debug'></div>

@@ -12,7 +12,7 @@ class Job < ActiveRecord::Base
   
   def verify!
     # verify duplicate for this date and phone  
-    raise I18n.t(:job_already_exists) if  duplicate?
+    raise "#{I18n.t(:job_already_exists)} (#{self.date} / #{self.phone.phone})" if  duplicate?
   end
   
   def duplicate?

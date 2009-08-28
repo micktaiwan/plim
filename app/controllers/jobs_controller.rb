@@ -31,12 +31,12 @@ class JobsController < ApplicationController
       job.zone_id     = p[:zone].to_i    
       job.employee_id = p[:employee].to_i    
       job.user_id     = current_user.id    
-      job.job_type_id     = p[:job_type].to_i    
+      job.job_type_id = p[:job_type].to_i    
       job.serial_id   = Serial.get_or_create(p[:serial])
       job.phone_id    = Phone.get_or_create(p[:phone])
       job.ampm        = p[:ampm] # FIXME check value
       job.save!
-      #render :action => "create.js.rjs" 
+      #renders "create.js.rjs" 
     rescue Exception => e
       @e = e
       render :action => "error.js.rjs"
@@ -173,7 +173,7 @@ class JobsController < ApplicationController
     old = job.result_id
     job.result_id = result_id
     job.reason_id = reason_id=="" ? nil : reason_id.to_i
-    job.memo = (job.memo || '') + "\n#{Date.today}: " + params[:memo]
+    job.memo = (job.memo || '') + "\n#{Date.today}: " + params[:memo] if params[:memo] != ""
     job.save
     @result = "OK<br/><br/>" + render_to_string(:partial=>'all_results')    
   end
