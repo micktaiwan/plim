@@ -5,11 +5,9 @@ class Serial < ActiveRecord::Base
 
   def self.get_or_create(name)
     s = find_by_serial(name)
-    if not s
-      s = create!(:serial=>name)
-    end
+    s = create(:serial=>name) if not s
     s
   end
-  
 
 end
+

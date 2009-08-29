@@ -5,9 +5,7 @@ class Phone < ActiveRecord::Base
   
   def self.get_or_create(name)
     s = find_by_phone(name)
-    if not s
-      s = create!(:phone=>name)
-    end
+    s = create(:phone=>name) if not s
     s
   end
 

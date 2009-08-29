@@ -329,3 +329,11 @@ table tr.heading {
   background-color: #F2F5A9;
 }
 
+.error {
+  border: 1px solid #AA0;
+  padding: 3px;
+  background-color: #FF0;
+  display:inline;
+  font-weight: bold;
+}
+

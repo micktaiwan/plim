@@ -1,13 +1,14 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
-function verify () {
+function verify() {
 
   var form = document.addform;
   var job = form.job_job_type.value;
   var serial_len = get_serial_len(job); // generated
   var phone_len  = get_phone_len(job);  // generated
 
+  $('error_frame').hide();     
   $('error_serial').hide();     
   $('error_phone').hide();     
   //$('error_ampm').hide();     
