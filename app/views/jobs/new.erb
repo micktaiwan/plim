@@ -34,9 +34,11 @@ function get_phone_len(job_type) {
 <%= f.text_field(:phone, :onkeyup=>"job_input_key(event, this);") %>
 <img id='error_phone' style="display:none;" src="/images/error.png"><br/>
 
+<!--
 <label><%=I18n.t(:ampm)%></label>
 <%= f.text_field(:ampm, :onkeyup=>"job_input_key(event, this);") %>
 <img id='error_ampm' style="display:none;" src="/images/error.png"><br/>
+-->
 
 <label>&nbsp;</label>
 <%= f.submit(I18n.t(:send_data)) %>

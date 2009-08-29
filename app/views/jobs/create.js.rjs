@@ -1,6 +1,6 @@
 page.hide 'loading'
 page[:job_serial].value = ''
 page[:job_phone].value = ''
-page[:job_ampm].value = ''
+#page[:job_ampm].value = ''
 page[:job_serial].focus()
 

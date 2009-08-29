@@ -10,7 +10,7 @@ function verify () {
 
   $('error_serial').hide();     
   $('error_phone').hide();     
-  $('error_ampm').hide();     
+  //$('error_ampm').hide();     
 
   if(String(form.job_serial.value).length != serial_len) {
     $('error_serial').show();
@@ -24,6 +24,7 @@ function verify () {
     form.job_phone.focus();
     return false;
     }
+/*
   if(String(form.job_ampm.value).length != 2) {
     $('error_ampm').show();
     //alert(I18n.t('phone_length_error'));
@@ -31,6 +32,7 @@ function verify () {
     return false;
     }
   if(String(form.job_ampm.value)=='00') form.job_ampm.value = '';
+*/
 
   new Ajax.Request('/jobs/create', {asynchronous:true, evalScripts:true, onLoading:function(request){$('loading').show()}, parameters:Form.serialize(form)});
   return false;
@@ -63,15 +65,17 @@ function job_input_key(event,object) {
       if(String(object.value).length <= phone_len) $('error_phone').hide();
       else $('error_phone').show();     
       if(String(object.value).length >= phone_len) {
-        form.job_ampm.focus();
-        return false;
+        return verify();
+        //form.job_ampm.focus();
         }
       break;
+/*
     case "job[ampm]" : 
       if(String(object.value).length >= 2 || event.keyCode==13) {
         return verify();
         }
       break;
+*/
     default:
       alert('unknown object.name = ' + object.name);
     }
