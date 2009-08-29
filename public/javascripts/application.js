@@ -7,26 +7,31 @@ function verify () {
   var job = form.job_job_type.value;
   var serial_len = get_serial_len(job); // generated
   var phone_len  = get_phone_len(job);  // generated
+
+  $('error_serial').hide();     
+  $('error_phone').hide();     
+  $('error_ampm').hide();     
+
   if(String(form.job_serial.value).length != serial_len) {
     $('error_serial').show();
     //alert(I18n.t('serial_length_error'));
+    form.job_serial.focus();
     return false;
     }
   if(String(form.job_phone.value).length != phone_len) {
     $('error_phone').show();
     //alert(I18n.t('phone_length_error'));
+    form.job_phone.focus();
     return false;
     }
   if(String(form.job_ampm.value).length != 2) {
     $('error_ampm').show();
     //alert(I18n.t('phone_length_error'));
+    form.job_ampm.focus();
     return false;
     }
   if(String(form.job_ampm.value)=='00') form.job_ampm.value = '';
 
-  $('error_serial').hide();     
-  $('error_phone').hide();     
-  $('error_ampm').hide();     
   new Ajax.Request('/jobs/create', {asynchronous:true, evalScripts:true, onLoading:function(request){$('loading').show()}, parameters:Form.serialize(form)});
   return false;
    
