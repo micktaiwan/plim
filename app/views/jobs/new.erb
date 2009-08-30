@@ -1,10 +1,10 @@
 <script>
-function get_serial_len(job_type) {
+function get_serial_len(job_type, zone) {
   switch(job_type) {
 <%= @serial_cases %>
     }
   }
-function get_phone_len(job_type) {
+function get_phone_len(job_type, zone) {
   switch(job_type) {
 <%= @phone_cases %>
     }
@@ -12,7 +12,7 @@ function get_phone_len(job_type) {
 </script>
 
 <h1><%=I18n.t(:job_input)%></h1>
-<% form_for(:job, @job, {:url=>{:action=>""}, :loading=>"$('loading').show()" , :html=>{:name=>'addform', :onSubmit=>'return verify();'}}) do |f| -%>
+<% form_for(:job, @job, {:url=>{:action=>""}, :loading=>"$('loading').show()" , :html=>{:name=>'addform', :onSubmit=>'return false;'}}) do |f| -%>
 
 <label><%=I18n.t(:mdate)%></label>
 <%= f.text_field(:date) %><br/>
@@ -41,7 +41,7 @@ function get_phone_len(job_type) {
 -->
 
 <label>&nbsp;</label>
-<%= f.submit(I18n.t(:send_data)) %>
+<%= button_to_function(I18n.t(:send_data), 'return verify()') %>
 <%= image_tag('loading.gif', :id=>"loading", :style=> "display:none;") %>
 
 <% end %>

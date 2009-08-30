@@ -4,8 +4,11 @@
 <%= jobtype.name %>
 (
 <%= jobtype.serial_length %>,
-<%= jobtype.phone_length %>
+<%= jobtype.phone_length %>,
+<%= I18n.t(:exceptions) %>
+<%= jobtype.length_exceptions.size %>
 )
+
 <%= link_to_remote(image_tag("trashcan.gif"), :url=>{:action=>'destroy', :id=>jobtype.id}, :confirm=>I18n.t(:confirm_action), :success=>"$('el_#{jobtype.id}').fade()", :failure=>"alert('Can not delete this type, as it is already used')") %>
 </li>
 

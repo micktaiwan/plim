@@ -3,10 +3,11 @@
 
 function verify() {
 
-  var form = document.addform;
-  var job = form.job_job_type.value;
-  var serial_len = get_serial_len(job); // generated
-  var phone_len  = get_phone_len(job);  // generated
+  var form  = document.addform;
+  var job   = form.job_job_type.value;
+  var zone  = form.job_zone.value;
+  var serial_len = get_serial_len(job,zone); // generated
+  var phone_len  = get_phone_len(job,zone);  // generated
 
   $('error_frame').hide();     
   $('error_serial').hide();     
@@ -50,8 +51,9 @@ function job_input_key(event,object) {
 
   var form = document.addform;
   var job = form.job_job_type.value;
-  var serial_len = get_serial_len(job); // generated
-  var phone_len  = get_phone_len(job);  // generated
+  var zone = form.job_zone.value;
+  var serial_len = get_serial_len(job,zone); // generated
+  var phone_len  = get_phone_len(job,zone);  // generated
 
   switch(object.name) {
     case "job[serial]" :

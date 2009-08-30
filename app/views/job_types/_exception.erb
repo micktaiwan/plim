@@ -1,0 +1,7 @@
+<li id="exception_<%=exception.id%>">
+<%= exception.origin_field %>
+<%= I18n.t(:serial_length) %>: <%= exception.serial_length %>
+<%= I18n.t(:phone_length) %>:  <%= exception.phone_length %>
+<%= link_to_remote(image_tag("trashcan.gif"), :url=>{:action=>'destroy_exception', :id=>exception.id}, :confirm=>I18n.t(:confirm_action), :success=>"$('exception_#{exception.id}').fade()", :failure=>"alert('Error')") %>
+</li>
+

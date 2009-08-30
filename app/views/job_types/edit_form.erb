@@ -9,3 +9,20 @@
 
 <%= I18n.t(:jobs) %>: <%= @jobs_size %>
 
+
+<h2><%= I18n.t(:length_exceptions_by_zone) %></h2>
+<%= link_to_remote(I18n.t(:add_exception),
+  {:url=>{:action=>:add_length_exception, :id=>@jobtype.id, :type_id=>LengthException::TYPE_ZONE},
+   :update=>'exceptions',
+   :loading=> "$('loading').show();",
+   :complete=>"$('loading').hide();"
+   }) %>
+<img src="/images/loading.gif" id="loading" style="display:none;"><br/>
+<br/>
+<ul id="exceptions">
+<%= render(:partial=>'exception', :collection=>@exceptions) %>
+</ul>
+
+<br/>
+
+

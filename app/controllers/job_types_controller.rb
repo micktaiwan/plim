@@ -29,6 +29,7 @@ class JobTypesController < ApplicationController
     id = params[:id]
     @jobtype = JobType.find(id)
     @jobs_size = Job.find(:all, :conditions=>["job_type_id=?",id]).size
+    @exceptions = LengthException.find(:all, :conditions=>["job_type_id=?", @jobtype.id])
   end
   
   def update
@@ -48,5 +49,35 @@ class JobTypesController < ApplicationController
     JobType.destroy(id)
     render(:nothing=>true)
   end
+  
+  # should be in a exception controller.....
+  
+  def add_length_exception
+    @exception = LengthException.new
+    @exception.job_type_id = params[:id].to_i
+    @exception.type_id = params[:type_id].to_i
+    case @exception.type_id
+      when LengthException::TYPE_ZONE
+        @rows = Zone.find(:all, :conditions=>["company_id=?",current_user.company_id]).map {|r| ["#{r.code} #{r.name}", r.id]}
+      else
+        raise "unknown exception type"
+    end
+    render(:partial=>"new_exception")
+  end
 
+  def create_exception
+    e = LengthException.new(params[:exception])
+    render(:text=>"duplicate !") and return if e.duplicate?
+    e.save
+    @exceptions = LengthException.find(:all, :conditions=>["job_type_id=?", e.job_type_id])
+    render(:partial=>'exception', :collection=>@exceptions)
+  end
+
+  def destroy_exception
+    id = params[:id]
+    LengthException.destroy(id)
+    render(:nothing=>true)
+  end
+  
 end
+

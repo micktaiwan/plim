@@ -7,6 +7,7 @@ class Job < ActiveRecord::Base
   belongs_to :phone
   belongs_to :result
   belongs_to :job_type
+  belongs_to :reason, :class_name=>'Code'
   
   before_save {|job| job.verify!}
   
@@ -55,6 +56,11 @@ class Job < ActiveRecord::Base
   def friendly_result
     return I18n.t(:nil_result) if not result
     result.name
+  end
+
+  def friendly_reason
+    return "" if not reason
+    reason.name
   end
   
 end

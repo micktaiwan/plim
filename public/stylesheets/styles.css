@@ -25,7 +25,7 @@ div#container {
 div#side {
   height:100%;
   float: left;
-  margin: 0px 20px 50px 10px;
+  padding: 0px 10px 50px 10px;
   font-size: 1.05em;
   width: 100px;
 }
@@ -53,21 +53,28 @@ div#footer a {
     color: #8ef;
 }
 
-h1, h2, h3 {
+h1, h2 {
   letter-spacing: -1px;
-  margin: 10px 0 10px 0;
+  margin: 10px 0px 10px 0px;
+  padding: 2px 5px 2px 5px;
+  color: #FFF;
+  background: #FFF url('/images/title-background.gif');
+}
+
+
+h1 {
+  width: 100%;
 }
 
 h2 {
   width: 100%;
   font-size: 1.6em;
-  color: #444;
-  border-bottom: solid 1px #777;
-  background: #eee/*#cf3;*/
 }
 
 h3, h4 {
-    color: #666;
+  color: #FFF;
+  background: #006;
+  margin: 10px 0 10px 0;
 }
 
 h3 {

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090827190839) do
+ActiveRecord::Schema.define(:version => 20090830105755) do
 
   create_table "action_logs", :force => true do |t|
     t.string   "controller"
@@ -109,6 +109,20 @@ ActiveRecord::Schema.define(:version => 20090827190839) do
   add_index "jobs", ["user_id"], :name => "index_jobs_on_user_id"
   add_index "jobs", ["zone_id"], :name => "index_jobs_on_zone_id"
 
+  create_table "length_exceptions", :force => true do |t|
+    t.integer  "job_type_id"
+    t.integer  "type_id"
+    t.integer  "row_id"
+    t.integer  "serial_length"
+    t.integer  "phone_length"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "length_exceptions", ["job_type_id"], :name => "index_length_exceptions_on_job_type_id"
+  add_index "length_exceptions", ["row_id"], :name => "index_length_exceptions_on_row_id"
+  add_index "length_exceptions", ["type_id"], :name => "index_length_exceptions_on_type_id"
+
   create_table "phones", :force => true do |t|
     t.string   "phone"
     t.datetime "created_at"
@@ -124,6 +138,7 @@ ActiveRecord::Schema.define(:version => 20090827190839) do
   end
 
   add_index "results", ["company_id"], :name => "index_results_on_company_id"
+  add_index "results", ["reason_list_id"], :name => "index_results_on_reason_list_id"
 
   create_table "serials", :force => true do |t|
     t.string   "serial"

@@ -14,12 +14,7 @@ class JobsController < ApplicationController
     @employees  = Employee.find(:all,:conditions=>["company_id=?",current_user.company_id],:order=>"team")
     @job        = Job.new
     @job.date   = Date.today
-    @serial_cases = ""
-    @phone_cases = ""
-    @types.each { |t| 
-      @serial_cases += "case \"#{t.id}\": return #{t.serial_length};"
-      @phone_cases += "case \"#{t.id}\": return #{t.phone_length};"
-      }
+    set_lengths
   end
   
   def create
@@ -188,8 +183,13 @@ class JobsController < ApplicationController
       id = params[:id]
       to_copy = Job.find(id)
       new = Job.new(to_copy.attributes)
-      new.date = Date.today + 1.day
-      new.result = nil
+      if Date.today.wday == 6 # saturday
+        new.date = Date.today + 2.day
+      else  
+        new.date = Date.today + 1.day
+      end  
+      new.result_id = nil
+      new.reason_id = nil
       new.adjourn_id = to_copy.id
       new.save
       render(:text=>"OK (#{new.date})")
@@ -221,5 +221,34 @@ private
     options.inject(rv) { |rv, o| rv += "<option value=\"#{o.id}\">#{o.code} #{o.name}</option>"}
   end
   
+  def set_lengths    
+    @serial_cases = ""
+    @phone_cases = ""
+    @types.each { |t| 
+      @serial_cases += "case \"#{t.id}\":\n";
+      # select all exceptions to this type
+      @serial_cases += "switch(zone) {"
+      t.length_exceptions.each { |e|
+        next if e.type_id != 1
+        @serial_cases += "case \"#{e.row_id}\": return #{e.serial_length}; "
+        }
+      @serial_cases += "default:"
+      @serial_cases += "return #{t.serial_length};"
+      @serial_cases += "}\n"
+
+      @phone_cases += "case \"#{t.id}\":\n";
+      # select all exceptions to this type
+      @phone_cases += "switch(zone) {"
+      t.length_exceptions.each { |e|
+        next if e.type_id != 1
+        @phone_cases += "case \"#{e.row_id}\": return #{e.phone_length}; "
+        }
+      @phone_cases += "default:"
+      @phone_cases += "return #{t.phone_length};"
+      @phone_cases += "}\n"
+
+      }
+  end
+
 end
 

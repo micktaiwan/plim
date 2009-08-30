@@ -33,6 +33,7 @@ en:
   none:              "==None=="
   phone_length_error: "Phone length error"
   serial_length_error: "Serial length error"
+  no_result_jobs:   "Job without results"
 
 # users
 
@@ -76,6 +77,10 @@ en:
   job_type:             "Job type"
   phone_length:         "Phone length"
   serial_length:        "Serial length"
+  length_exceptions_by_zone: "Exceptions by zone"
+  add_exception:        "Add an exception"
+  exceptions:           "Exceptions"
+  
   
 # results
 

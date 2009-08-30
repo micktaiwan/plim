@@ -1,6 +1,6 @@
 <tr id="tr<%=job.id%>">
 <td class="print"><%= link_to_remote(image_tag("edit.gif"), :url=>{:controller=>'jobs', :action=>'edit_form', :id=>job.id}, :loading=>"$('edit').update('Loading...');$('edit').top=this.top;$('edit').show();", :update=>'edit') %></td>
-<td><%= h job.date %></td>
+<td<% if job.date.wday==0 %> style="background:#FF0;"<%end%>><%= h job.date %><% if job.date.wday==0 %> (<%=I18n.t('date.day_names')[0]%>)<%end%></td>
 <td><%= h job.employee.team %> <%= job.employee.name %></td>
 <td><%= h job.friendly_zone %></td>
 <td><%= h job.friendly_serial %></td>
@@ -13,9 +13,8 @@
 <%= image_tag('loading.gif', :id=>"adj_load_#{job.id}", :style=>"display:none;") %>
 </span>
 <% end %>
-
 </td>
-<td><%= h job.ampm %></td>
+<td><%= h job.friendly_reason %></td>
 <td><%= h job.memo %></td>
 </tr>
 
