@@ -58,7 +58,7 @@ class JobTypesController < ApplicationController
     @exception.type_id = params[:type_id].to_i
     case @exception.type_id
       when LengthException::TYPE_ZONE
-        @rows = Zone.find(:all, :conditions=>["company_id=?",current_user.company_id]).map {|r| ["#{r.code} #{r.name}", r.id]}
+        @rows = Zone.find(:all, :conditions=>["company_id=?",current_user.company_id], :order=>"code").map {|r| ["#{r.code} #{r.name}", r.id]}
       else
         raise "unknown exception type"
     end

@@ -18,7 +18,7 @@ function get_phone_len(job_type, zone) {
 <%= f.text_field(:date) %><br/>
 
 <label><%=I18n.t(:zone)%></label>
-<%= f.collection_select(:zone, @zones, :id, :name) %><br/>
+<%= f.collection_select(:zone, @zones, :id, :code_and_name) %><br/>
 
 <label><%=I18n.t(:job_type)%></label>
 <%= f.collection_select(:job_type, @types, :id, :name) %><br/>
