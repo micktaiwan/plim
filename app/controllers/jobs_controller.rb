@@ -75,20 +75,20 @@ class JobsController < ApplicationController
   def search
     set_dropboxes
     @sort = [[I18n.t(:mdate),'date, employees.team'], [I18n.t(:team),'employees.team, date'], [I18n.t(:zone),'zones.code, date, employees.team'], [I18n.t(:serial),'serials.serial'], [I18n.t(:phone),'phones.phone'], [I18n.t(:job_type),'job_types.sort'], [I18n.t(:result),'results.sort'], [I18n.t(:create_time),'id'], [I18n.t(:last_edit_time),'updated_at']]
-    do_search if(params['serial'] or params['phone'])
+    do_search(nil,true) if(params['serial'] or params['phone'])
   end
   
-  def do_search(print=nil)
+  def do_search(print=nil, reset_session=nil)
     begin  
-      sort      = params[:sort]     || session['search_sort']
-      fromdate  = params[:fromdate] || session['search_fromdate']
-      todate    = params[:todate]   || session['search_todate']
-      zone      = (params[:s] ? params[:s][:zone] : nil)      || session['search_zone']
-      job_type  = (params[:s] ? params[:s][:job_type] : nil)  || session['search_job_type']
-      team      = (params[:s] ? params[:s][:team] : nil)      || session['search_team']
-      serial    = params[:serial]   || session['search_serial']
-      phone     = params[:phone]    || session['search_phone']
-      result    = (params[:job] ? params[:job][:result_id] : nil) || session['search_result']
+      sort      = params[:sort]     || (reset_session ? 'date' : nil) || session['search_sort']
+      fromdate  = params[:fromdate] || (reset_session ? '' : nil) || session['search_fromdate']
+      todate    = params[:todate]   || (reset_session ? '' : nil) || session['search_todate']
+      zone      = (params[:s] ? params[:s][:zone] : nil)      || (reset_session ? '' : nil) || session['search_zone']
+      job_type  = (params[:s] ? params[:s][:job_type] : nil)  || (reset_session ? '' : nil) || session['search_job_type']
+      team      = (params[:s] ? params[:s][:team] : nil)      || (reset_session ? '' : nil) || session['search_team']
+      serial    = params[:serial]   || (reset_session ? '' : nil) || session['search_serial']
+      phone     = params[:phone]    || (reset_session ? '' : nil) || session['search_phone']
+      result    = (params[:job] ? params[:job][:result_id] : nil) || (reset_session ? '' : nil) || session['search_result']
 
       # for pagination and print
       session['search_sort']      = sort
