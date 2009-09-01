@@ -75,6 +75,7 @@ class JobsController < ApplicationController
   def search
     set_dropboxes
     @sort = [[I18n.t(:mdate),'date, employees.team'], [I18n.t(:team),'employees.team, date'], [I18n.t(:zone),'zones.code, date, employees.team'], [I18n.t(:serial),'serials.serial'], [I18n.t(:phone),'phones.phone'], [I18n.t(:job_type),'job_types.sort'], [I18n.t(:result),'results.sort'], [I18n.t(:create_time),'id'], [I18n.t(:last_edit_time),'updated_at']]
+    do_search if(params['serial'] or params['phone'])
   end
   
   def do_search(print=nil)
@@ -115,12 +116,12 @@ class JobsController < ApplicationController
       end          
       if serial != ''
         serial_id = Serial.find_by_serial(serial)
-        @results = I18n.t(:serial_not_found) and return if not serial_id
+        @search_results = I18n.t(:serial_not_found) and return if not serial_id
         cond << "serial_id='#{serial_id.id}'"
       end
       if phone != ''
         phone_id = Phone.find_by_phone(phone)
-        @results = I18n.t(:phone_not_found) and return if not phone_id
+        @search_results = I18n.t(:phone_not_found) and return if not phone_id
         cond << "phone_id='#{phone_id.id}'"
       end
 
@@ -131,11 +132,11 @@ class JobsController < ApplicationController
         size = 10
       end        
       @jobs = Job.paginate(:all, :include=>inc, :order=>sort, :conditions=>(cond.size>0 ? cond.join(" and ") : nil), :page=>params[:page], :per_page=>size)
-      @results = I18n.t(:no_record_found) and return if @jobs.size == 0
-      @results = render_to_string(:partial=>'results.erb')
+      @search_results = I18n.t(:no_record_found) and return if @jobs.size == 0
+      @search_results = render_to_string(:partial=>'results.erb')
       #render :action => "do_search.js.rjs"
     rescue Exception=>e
-      @results = e.message
+      @search_results = e.message
     end  
   end
   

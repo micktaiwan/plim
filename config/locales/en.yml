@@ -34,6 +34,10 @@ en:
   phone_length_error: "Phone length error"
   serial_length_error: "Serial length error"
   no_result_jobs:   "Job without results"
+  search:           "Search"
+  search_by_serial: "Search by serial"
+  search_by_phone:  "Search by phone"
+  today:            "today"
 
 # users
 

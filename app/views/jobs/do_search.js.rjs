@@ -1,5 +1,4 @@
 page.hide 'loading'
-page['results'].update @results
+page['results'].update @search_results
 page['print'].show
-
 

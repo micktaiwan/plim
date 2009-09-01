@@ -35,6 +35,10 @@ zh:
   phone_length_error: "電話長度錯誤"
   serial_length_error: "聯單長度錯誤"
   no_result_jobs:   "結果不明聯單"
+  search:           "查詢"
+  search_by_serial: "以聯單號碼查詢"
+  search_by_phone:  "以電話號碼查詢"
+  today:            "今天"
    
 # user
 

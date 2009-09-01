@@ -1,13 +1,17 @@
 <% if current_user %>
-<h1><%= I18n.t(:no_result_jobs) %></h1>
+<script>
+function search_serial(serial) {
+  window.location='/jobs/search?serial='+serial;
+  }
+function search_phone(phone) {
+  window.location='/jobs/search?phone='+phone;
+  }
 
-<div id="results">
-<%= render(:partial=>'jobs/results') %>
-</div>
-
-<div id="edit" class="edit_form" style="display:none;"></div>
-
+</script>
 <br/>
+<%=I18n.t(:search_by_serial)%>: <%= text_field_tag(:serial) %> <%= button_to_function(I18n.t(:search), "search_serial($('serial').value)") %><br/>
+<%=I18n.t(:search_by_phone)%>: <%= text_field_tag(:phone) %> <%= button_to_function(I18n.t(:search), "search_phone($('phone').value)") %><br/>　
 <br/>
 <% end %>
+
 

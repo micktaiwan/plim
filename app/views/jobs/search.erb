@@ -2,14 +2,12 @@
 
 <%=I18n.t(:help_search)%><br/>
 <br/>
-<% 
-  form_remote_tag(:url => {:action => "do_search"}, :loading=>"$('loading').show();", :success=>"results" ) do
-%>
+<% form_remote_tag(:url => {:action => "do_search"}, :loading=>"$('loading').show();", :success=>"results" ) do %>
 
 <label><%=I18n.t(:fromdate)%></label>
-<%= text_field_tag(:fromdate, Date.today()) %><br/>
+<%= text_field_tag(:fromdate) %> <%=link_to_function(I18n.t('today'), "$('fromdate').value='#{Date.today()}'")%><br/>
 <label><%=I18n.t(:todate)%></label>
-<%= text_field_tag(:todate, Date.today()) %><br/>
+<%= text_field_tag(:todate) %> <%=link_to_function(I18n.t('today'), "$('todate').value='#{Date.today()}'")%><br/>
 
 <label><%=I18n.t(:zone)%></label>
 <%= collection_select(:s, :zone, @zones, :id, :name, {:include_blank => I18n.t(:all)}) %><br/>
@@ -21,10 +19,10 @@
 <%= collection_select(:s, :team, @employees, :id, :team_and_name, {:include_blank => I18n.t(:all)}) %><br/>
 
 <label><%=I18n.t(:serial)%></label>
-<%= text_field_tag(:serial) %><br/>
+<%= text_field_tag(:serial, params['serial']) %><br/>
 
 <label><%=I18n.t(:phone)%></label>
-<%= text_field_tag(:phone) %><br/>
+<%= text_field_tag(:phone, params['phone']) %><br/>
 
 <label><%=I18n.t(:result)%></label>
 <%= select(:job, :result_id, @results, {:include_blank=>I18n.t(:all)}) %><br/>
@@ -41,7 +39,7 @@
 <br/>
 <div id="print" style="display:none;"><%= link_to(image_tag('print.jpg'), 'print', :target=>'_blank') %></div>
 
-<div id="results"></div>
+<div id="results"><%=@search_results%></div>
 
 <div id="edit" class="edit_form" style="display:none;"></div>
 
