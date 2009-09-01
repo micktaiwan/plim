@@ -25,7 +25,7 @@ div#container {
 div#side {
   height:100%;
   float: left;
-  padding: 0px 10px 50px 10px;
+  margin: 0px 10px 50px 10px;
   font-size: 1.05em;
   width: 100px;
 }
@@ -63,7 +63,7 @@ h1, h2 {
 
 
 h1 {
-  width: 100%;
+  width: 95%;
 }
 
 h2 {
