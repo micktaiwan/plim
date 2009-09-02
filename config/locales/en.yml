@@ -93,7 +93,7 @@ en:
   edit_result:         "Edit results"
   results:              "Results"
   result:               "Result"
-  nil_result:           "unclear"
+  nil_result:           ""
   is_adjourner:         "this result is an adjourner"
   adjourn:              "adjourn"
   reason_list:          "Reason list"
