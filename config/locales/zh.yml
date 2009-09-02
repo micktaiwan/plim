@@ -90,7 +90,7 @@ zh:
   edit_result:          "編輯結果"
   results:              "結果"
   result:               "結果"
-  nil_result:           "不明"
+  nil_result:           "空白"
   is_adjourner:         "使用這個結果的聯單可以延遲"
   adjourn:              "延遲"
   reason_list:          "原因目錄"

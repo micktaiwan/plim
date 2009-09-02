@@ -16,5 +16,6 @@
 </td>
 <td><%= h job.friendly_reason %></td>
 <td><%= h job.memo %></td>
+<td><%= link_to_remote(image_tag("trashcan.gif"), :url=>{:controller=>'jobs', :action=>'destroy', :id=>job.id}, :loading=>"$('loading').show();", :success=>"$('tr#{job.id}').fade();", :complete=>"$('loading').hide();", :confirm=>I18n.t(:confirm_action)) %></td>
 </tr>
 

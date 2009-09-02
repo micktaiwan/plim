@@ -169,7 +169,7 @@ class JobsController < ApplicationController
     old = job.result_id
     job.result_id = result_id
     job.reason_id = reason_id=="" ? nil : reason_id.to_i
-    job.memo = (job.memo || '') + "\n#{Date.today}: " + params[:memo] if params[:memo] != ""
+    job.memo = (job.memo || '') + "\n" + params[:memo] if params[:memo] != ""
     job.save
     @result = "OK<br/><br/>" + render_to_string(:partial=>'all_results')    
   end
@@ -206,7 +206,12 @@ class JobsController < ApplicationController
     codes = Code.find(:all, :conditions=>["code_list_id=?", r.reason_list_id], :order=>'code')
     render(:text=>options_for_select(codes))
   end
-  
+
+  def destroy
+    Job.destroy(params[:id])
+    render(:nothing=>true)
+  end
+
 private
 
   def set_dropboxes
@@ -250,6 +255,6 @@ private
 
       }
   end
-
+  
 end
 
