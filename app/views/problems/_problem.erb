@@ -1,0 +1,19 @@
+<tr id="tr<%=problem.id%>">
+<td<% if problem.date.wday==0 %> style="background:#FF0;"<%end%>><%= h problem.date %><% if problem.date.wday==0 %> (<%=I18n.t('date.day_names')[0]%>)<%end%></td>
+<td><%= h problem.employee.team %> <%= problem.employee.name %></td>
+<td><%= h problem.friendly_zone %></td>
+<td><%= h problem.friendly_serial %></td>
+<td><%= h problem.friendly_phone %></td>
+<td><%= h problem.friendly_job_type %></td>
+<td><%= h problem.friendly_result %>
+<% if problem.can_be_adjourned? %>
+<span id="adj_div_<%=problem.id%>">
+<%= link_to_remote(I18n.t('adjourn'), {:url=>{:controller=>'jobs', :action=>'adjourn', :id=>problem.id}, :loading=>"$('adj_load_#{problem.id}').show();", :update=>"adj_div_#{problem.id}"}) %>
+<%= image_tag('loading.gif', :id=>"adj_load_#{problem.id}", :style=>"display:none;") %>
+</span>
+<% end %>
+</td>
+<td><%= h problem.friendly_reason %></td>
+<td><%= h problem.memo %></td>
+</tr>
+

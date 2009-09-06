@@ -18,8 +18,6 @@ jobs (visits)
 ======================
 Detailled TODO
 
-print
-
 il faut plus de roles
   il y a ceux qui mettre les résultats
   les konpan ne font que des recherches ?
@@ -33,9 +31,6 @@ repairlog
 ======================
 TODO
 
-P1 prints
-P1 codes
-============
 repairlog
  sms
 cases
@@ -92,4 +87,11 @@ Si les roles sont simples, pourquoi avoir uine tables de roles ?
  ou sinon des roles éditables => pourquoi je me prendrais la tête ?
 
 ======================
+<!--
+<%#= image_tag('beta.png', :align=>:left)
+%>
+測試版<br/>
+請記住資料任何時間可被刪除<br/>
+<br/>
+-->
 

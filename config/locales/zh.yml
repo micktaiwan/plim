@@ -94,6 +94,15 @@ zh:
   is_adjourner:         "使用這個結果的聯單可以延遲"
   adjourn:              "延遲"
   reason_list:          "原因目錄"
+  problem_type:         "Problem type"
+  problem_type_normal:  "Normal"
+  problem_type_problem: "Problem"
+  problem_type_resolver: "Resolver"
+
+# problems
+
+  menu_problems:        "障礙管理"
+
 
 # jobs
 

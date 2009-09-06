@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090830105755) do
+ActiveRecord::Schema.define(:version => 20090906130846) do
 
   create_table "action_logs", :force => true do |t|
     t.string   "controller"
@@ -50,6 +50,16 @@ ActiveRecord::Schema.define(:version => 20090830105755) do
 
   create_table "companies", :force => true do |t|
     t.string "name"
+  end
+
+  create_table "customers", :force => true do |t|
+    t.string   "name"
+    t.text     "address"
+    t.string   "phone"
+    t.string   "cell_phone"
+    t.text     "memo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "employees", :force => true do |t|
@@ -129,12 +139,25 @@ ActiveRecord::Schema.define(:version => 20090830105755) do
     t.datetime "updated_at"
   end
 
+  create_table "problems", :force => true do |t|
+    t.integer  "visit_id"
+    t.integer  "employee_id"
+    t.integer  "customer_id"
+    t.date     "problem_date"
+    t.date     "resolved_date"
+    t.integer  "problem_reason_id"
+    t.integer  "resolved_reason_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "results", :force => true do |t|
     t.string  "name"
     t.integer "sort"
     t.integer "company_id"
-    t.boolean "is_adjourner",   :default => false
+    t.boolean "is_adjourner",    :default => false
     t.integer "reason_list_id"
+    t.integer "is_problem_type", :default => 0
   end
 
   add_index "results", ["company_id"], :name => "index_results_on_company_id"

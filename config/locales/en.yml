@@ -97,6 +97,15 @@ en:
   is_adjourner:         "this result is an adjourner"
   adjourn:              "adjourn"
   reason_list:          "Reason list"
+  problem_type:         "Problem type"
+  problem_type_normal:  "Normal"
+  problem_type_problem: "Problem"
+  problem_type_resolver: "Resolver"
+
+# problems
+
+  menu_problems:        "Problems"
+
   
 # jobs
 

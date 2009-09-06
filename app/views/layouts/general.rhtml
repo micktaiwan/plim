@@ -47,26 +47,20 @@
 
 <div id="content">
 
-<!--
-<%#= image_tag('beta.png', :align=>:left)
-%>
-測試版<br/>
-請記住資料任何時間可被刪除<br/>
-<br/>
--->
+  <div id="yield">
+  <%= yield %>
+  </div>
 
-<div id="yield">
-<%= yield %>
+  <p><br/></p>
 </div>
-
-<p><br/></p>
-</div>
+<% if logged_in? %>
 
   <div id="footer">
-  Plim |
-  Tested mainly with firefox |
+  PLIM |
   &copy; Mickael Faivre-Maçon 2001-2009
   </div>
+
+<% end %>
 
 </div>
 

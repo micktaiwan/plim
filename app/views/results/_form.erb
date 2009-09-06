@@ -9,6 +9,22 @@
 <%= I18n.t(:is_adjourner) %>
 </p>
 
+<p><label for="is_problem"><%= I18n.t(:problem_type) %></label>
+<%= radio_button :result, :is_problem_type, 0 %>
+<%= I18n.t(:problem_type_normal) %>
+</p>
+
+<p><label for="is_problem">&nbsp;</label>
+<%= radio_button :result, :is_problem_type, 1 %>
+<%= I18n.t(:problem_type_problem) %>
+</p>
+
+<p><label for="is_problem">&nbsp;</label>
+<%= radio_button :result, :is_problem_type, 2 %>
+<%= I18n.t(:problem_type_resolver) %>
+</p>
+
+
 <p><label for="reason_list_id"><%= I18n.t(:reason_list) %></label>
 <%= select(:result, :reason_list_id, @lists, {:include_blank=>I18n.t(:none)}) %></p>
 

@@ -25,5 +25,6 @@
 
 <% if self.current_user.role_id <= 200 %>
 <%= link_to(I18n.t(:result_input),  :controller=>'jobs', :action=>'result_input')%><br/>
+<%= link_to(I18n.t(:menu_problems),  :controller=>'problems', :action=>'show')%><br/>
 <% end %>
 
