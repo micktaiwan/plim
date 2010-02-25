@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090906130846) do
+ActiveRecord::Schema.define(:version => 20100225203353) do
 
   create_table "action_logs", :force => true do |t|
     t.string   "controller"
@@ -132,6 +132,13 @@ ActiveRecord::Schema.define(:version => 20090906130846) do
   add_index "length_exceptions", ["job_type_id"], :name => "index_length_exceptions_on_job_type_id"
   add_index "length_exceptions", ["row_id"], :name => "index_length_exceptions_on_row_id"
   add_index "length_exceptions", ["type_id"], :name => "index_length_exceptions_on_type_id"
+
+  create_table "phone_customers", :force => true do |t|
+    t.string   "phone_id"
+    t.integer  "customer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "phones", :force => true do |t|
     t.string   "phone"

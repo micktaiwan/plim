@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
 
   before_filter { |c| c.verify_role(200) if not ['search','do_search'].include?(c.action_name) }
-  protect_from_forgery :except => [:select_reason_list_from_result]
+  protect_from_forgery :except => [:select_reason_list_from_result, :search_customers]
 
 
   def index
@@ -205,6 +205,16 @@ class JobsController < ApplicationController
     render(:text=>"<option value="">#{I18n.t(:none)}</option>") and return if r.reason_list_id == nil
     codes = Code.find(:all, :conditions=>["code_list_id=?", r.reason_list_id], :order=>'code')
     render(:text=>options_for_select(codes))
+  end
+  
+  def search_customers
+    phone = params['phone']
+    p = Phone.find_by_phone(phone)
+    if not p
+      render(:text=>"no phone, so no customer")
+      return
+    end
+    render(:text=>p.customers.size+" customers")
   end
 
   def destroy

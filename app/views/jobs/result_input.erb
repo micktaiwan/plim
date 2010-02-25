@@ -1,5 +1,6 @@
 <h1><%=I18n.t(:result_input)%></h1>
 
+
 <% 
   form_remote_tag(:url => {:action => "do_result_input"}, :loading=>"$('loading').show();", :success=>"result" ) do
 %>
@@ -36,4 +37,5 @@
 <br/>
 <div id="edit"></div>
 <div id="result"></div>
+<div id="customer_list">s</div>
 

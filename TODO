@@ -88,9 +88,8 @@ Si les roles sont simples, pourquoi avoir uine tables de roles ?
 
 ======================
 <!--
-<%#= image_tag('beta.png', :align=>:left)
-%>
-測試版<br/>
+<%= image_tag('beta.png', :align=>:left) %>
+施工中 - 測試版<br/>
 請記住資料任何時間可被刪除<br/>
 <br/>
 -->

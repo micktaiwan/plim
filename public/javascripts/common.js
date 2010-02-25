@@ -1,6 +1,6 @@
 if (!window.Rails) { Rails = {}; }
 
-Rails.authenticityToken = "M5FWTyTNjzMGxH4mnkQM5/QwpvF+GxN+CGEeM55yewA=";
+Rails.authenticityToken = "AgweFN+Juto0FgIOrtz0Ghk1l5xOxYxX0o6pgl5lDZY=";
 
 Rails.env = "development";
 
