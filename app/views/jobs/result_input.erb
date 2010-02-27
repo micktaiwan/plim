@@ -21,13 +21,11 @@
 <label><%=I18n.t(:result)%></label>
 <%= select(:job, :result_id, @results, {:prompt=>I18n.t(:choose)}, {:onchange=>'result_change(this.value);'}) %><br/>
 
-
 <label><%=I18n.t(:reason)%></label>
 <%= select_tag(:reason_id) %><br/>
 
 <label><%=I18n.t(:memo)%></label>
 <%= text_area_tag(:memo, {}, {:cols=>30, :rows=>3}) %><br/>
-
 
 <label>&nbsp;</label>
 <%= submit_tag(I18n.t(:send_data)) %>
@@ -37,5 +35,5 @@
 <br/>
 <div id="edit"></div>
 <div id="result"></div>
-<div id="customer_list">s</div>
+<div id="customer_list"></div>
 

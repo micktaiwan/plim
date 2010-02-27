@@ -8,7 +8,10 @@ class Phone < ActiveRecord::Base
   
   def self.get_or_create(name)
     s = find_by_phone(name)
-    s = create(:phone=>name) if not s # FIXME: that's the problem, create does not call the uniqueness validator !!
+    if not s
+      s = new(:phone=>name) # create does not call the uniqueness validator !!
+      s.save!
+    end  
     s
   end
 

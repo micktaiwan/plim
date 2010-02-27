@@ -214,7 +214,7 @@ class JobsController < ApplicationController
       render(:text=>"no phone, so no customer")
       return
     end
-    render(:text=>p.customers.size+" customers")
+    render(:text=>p.customers.size.to_s+" customers")
   end
 
   def destroy

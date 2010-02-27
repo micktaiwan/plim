@@ -28,3 +28,6 @@
 <%= link_to(I18n.t(:menu_problems),  :controller=>'problems', :action=>'show')%><br/>
 <% end %>
 
+<div class="menu_sec"><%= I18n.t(:connected_users) %></div>
+
+<%= render(:partial=>'welcome/connected_user', :collection=>@connected_users) %>

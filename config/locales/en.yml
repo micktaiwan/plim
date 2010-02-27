@@ -38,6 +38,7 @@ en:
   search_by_serial: "Search by serial"
   search_by_phone:  "Search by phone"
   today:            "today"
+  connected_users:  "Connected users"
 
 # users
 
