@@ -1,0 +1,3 @@
+<%= render(:partial=>'search_result', :collection=>@search) %>
+<%= link_to_remote("new", :url=>{:action=>"new"}, :update=>:search_bar) %>
+

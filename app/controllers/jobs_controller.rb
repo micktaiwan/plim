@@ -152,6 +152,7 @@ class JobsController < ApplicationController
     team      = params[:job][:team]
     date      = params[:date]
     phone     = params[:phone]
+    customer_id = params[:job][:customer_id]
     error = ""
     error += I18n.t(:result) +" "+I18n.t(:can_not_be_blank)+"<br/>" if result_id == ""
     error += I18n.t(:team)   +" "+I18n.t(:can_not_be_blank)+"<br/>" if team == ""
@@ -168,6 +169,7 @@ class JobsController < ApplicationController
     job = @jobs.first
     old = job.result_id
     job.result_id = result_id
+    job.customer_id = customer_id if customer_id
     job.reason_id = reason_id=="" ? nil : reason_id.to_i
     job.memo = (job.memo || '') + "\n" + params[:memo] if params[:memo] != ""
     job.save
@@ -209,12 +211,13 @@ class JobsController < ApplicationController
   
   def search_customers
     phone = params['phone']
-    p = Phone.find_by_phone(phone)
-    if not p
-      render(:text=>"no phone, so no customer")
+    @p = Phone.find_by_phone(phone)
+    if not @p
+      render(:text=>"no phone found, so no customer")
       return
     end
-    render(:text=>p.customers.size.to_s+" customers")
+    @customer = Customer.new
+    render(:partial=>'customer_list')
   end
 
   def destroy

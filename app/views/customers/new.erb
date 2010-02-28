@@ -1,0 +1,14 @@
+<% form_remote_for :customer, :url=>{:controller=>'customers', :action=>'create'} do |f| %>
+  <%= label_tag(:name, I18n.t(:name)) %>
+  <%= f.text_field(:name, :value=>session[:customer_name]) %><br/>
+  <%= label_tag(:phone, I18n.t(:phone)) %>
+  <%= f.text_field(:phone) %><br/>
+  <%= label_tag(:address, I18n.t(:address)) %>
+  <%= f.text_field(:address) %><br/>
+  <%= label_tag(:submit, "&nbsp;") %>
+  <%= f.submit(I18n.t(:send_data)) %>
+  <% if  @p %>
+    <%= hidden_field_tag(:phone_id, @p.id) %>
+  <% end %>
+<% end %>
+

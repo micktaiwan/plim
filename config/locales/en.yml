@@ -122,6 +122,7 @@ en:
   all:              "All"
   sort_by:          "Sort by"
   edit:             "Edit"
+  delete:           "Delete"
   fromdate:         "From date"
   todate:           "To date"
   serial_not_found: "Serial not found"
@@ -142,10 +143,16 @@ en:
   create_new_code_list: "Create a new code list"
   edit_code_list:       "Editing code list"
   code_list:            "Code list"
-
   create_new_code:   "Create a new code"
   edit_code:         "Editing code"
   codes:             "Codes"
+
+# customers
+
+  menu_customers:       "Customers"
+  customer:             "Customer"
+  search_or_add_customer: "Search or add customer"
+
 
   activerecord:
     errors:

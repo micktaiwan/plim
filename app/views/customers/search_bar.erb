@@ -1,0 +1,12 @@
+<div id="search_bar">
+<% form_remote_tag(:url=>{:controller=>'customers', :action=>'search'}, :update=>'customer_search_results') do  %>
+  <%= label_tag(:name, I18n.t(:name)) %>
+  <input id="search_input" name="customer[name]" size="10" type="text" /><div class="auto_complete" id="search_input_auto_complete"></div>
+  <span id="indicator1" style="display: none">
+    <img src="/images/loading.gif" alt="Working..." />
+  </span>
+<% end %>
+
+<div id="customer_search_results"></div>
+</div>
+

@@ -12,7 +12,7 @@
 <td><%= I18n.t(:result) %></td>
 <td><%= I18n.t(:reason) %></td>
 <td><%= I18n.t(:memo) %></td>
-<td>&nbsp;</td>
+<td class="print"><%= I18n.t(:delete) %></td>
 </tr>
 
 <%= render(:partial=>'jobs/job', :collection=>@jobs) %>

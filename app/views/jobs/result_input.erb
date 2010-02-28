@@ -21,6 +21,9 @@
 <label><%=I18n.t(:result)%></label>
 <%= select(:job, :result_id, @results, {:prompt=>I18n.t(:choose)}, {:onchange=>'result_change(this.value);'}) %><br/>
 
+<div id="customer_list"></div>
+
+
 <label><%=I18n.t(:reason)%></label>
 <%= select_tag(:reason_id) %><br/>
 
@@ -35,5 +38,8 @@
 <br/>
 <div id="edit"></div>
 <div id="result"></div>
-<div id="customer_list"></div>
+
+<div id="add_customer">
+<%= render(:file=>"customers/search_bar") %>
+</div>
 
