@@ -19,7 +19,7 @@ Company.find(:all).each { |c|
   }
 
 User.find(:all, :conditions=>"email != '' and role_id=100").each { |u|
-  # only delivers if nb of connected users > 0
-  AppMailer.deliver_changes(u, h[u.company_id]) if h[u.company_id][0] > 0
+  # only delivers if nb of edited jobs > 0
+  AppMailer.deliver_changes(u, h[u.company_id]) if h[u.company_id][3] > 0
   }
 
