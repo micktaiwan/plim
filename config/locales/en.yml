@@ -39,6 +39,7 @@ en:
   search_by_phone:  "Search by phone"
   today:            "today"
   connected_users:  "Connected users"
+  search_not_found: "Not found"
 
 # users
 
@@ -152,6 +153,8 @@ en:
   menu_customers:       "Customers"
   customer:             "Customer"
   search_or_add_customer: "Search or add customer"
+  search_customer_explaination: "The result needs a related customer"
+  create_customer:      "Enter new customer data"
 
 
   activerecord:

@@ -40,6 +40,7 @@ zh:
   search_by_phone:  "以電話號碼查詢"
   today:            "今天"
   connected_users:  "線上使用者"
+  search_not_found: "沒有找到"
    
 # user
 
@@ -149,7 +150,8 @@ zh:
   menu_customers:       "客戶管理"
   customer:             "客戶"
   search_or_add_customer: "查詢或增加客戶"
-
+  search_customer_explaination: "The result needs a related customer"
+  create_customer:      "新建客戶"
   
   activerecord:
     errors:

@@ -1,4 +1,4 @@
-<% form_remote_for :customer, :url=>{:controller=>'customers', :action=>'create'} do |f| %>
+<% form_for :customer, :url=>{:controller=>'customers', :action=>'create'} do |f| %>
   <%= label_tag(:name, I18n.t(:name)) %>
   <%= f.text_field(:name, :value=>session[:customer_name]) %><br/>
   <%= label_tag(:phone, I18n.t(:phone)) %>

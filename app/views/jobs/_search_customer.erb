@@ -1,0 +1,7 @@
+<%= I18n.t(:search_customer_explaination) %><br/>
+<%= link_to_remote('reload', {:url=>{:controller=>'customers', :action=>'search_bar'}, :update=>'add_customer'}) %>
+<br/>
+<div id="add_customer">
+<%= render(:partial=>"customers/search_bar") %>
+</div>
+

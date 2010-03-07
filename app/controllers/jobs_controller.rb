@@ -71,7 +71,6 @@ class JobsController < ApplicationController
     end
   end
 
-
   def search
     set_dropboxes
     @sort = [[I18n.t(:mdate),'date, employees.team'], [I18n.t(:team),'employees.team, date'], [I18n.t(:zone),'zones.code, date, employees.team'], [I18n.t(:serial),'serials.serial'], [I18n.t(:phone),'phones.phone'], [I18n.t(:job_type),'job_types.sort'], [I18n.t(:result),'results.sort'], [I18n.t(:create_time),'id'], [I18n.t(:last_edit_time),'updated_at']]
@@ -149,9 +148,9 @@ class JobsController < ApplicationController
   def do_result_input
     result_id = params[:job][:result_id]
     reason_id = params[:reason_id]
-    team      = params[:job][:team]
-    date      = params[:date]
-    phone     = params[:phone]
+    session['team']   = team  = params[:job][:team]
+    session['date']   = date  = params[:date]
+    session['phone']  = phone = params[:phone]
     customer_id = params[:job][:customer_id]
     error = ""
     error += I18n.t(:result) +" "+I18n.t(:can_not_be_blank)+"<br/>" if result_id == ""
@@ -167,14 +166,30 @@ class JobsController < ApplicationController
     @result = I18n.t(:too_many_records) and return if @jobs.size > 1 # should not happen if there is one phone for one date
     # change the result
     job = @jobs.first
-    old = job.result_id
+    # old = job.result_id
     job.result_id = result_id
     job.customer_id = customer_id if customer_id
     job.reason_id = reason_id=="" ? nil : reason_id.to_i
     job.memo = (job.memo || '') + "\n" + params[:memo] if params[:memo] != ""
     job.save
-    @result = "OK<br/><br/>" + render_to_string(:partial=>'all_results')    
+    # if result is a problem, then ask for a customer information
+    result = Result.find_by_id(result_id)
+    if result.is_problem_type == 1
+      @update_result_box = true
+      session[:job_id] = job.id
+      session[:redirect_url] = "/jobs/associate_customer"
+      @result = render_to_string(:partial=>'search_customer')
+    else
+      @result = "OK<br/><br/>" + render_to_string(:partial=>'all_results')    
+    end  
   end
+
+  def associate_customer
+    job = Job.find_by_id(session[:job_id])
+    job.customer_id = params[:customer_id]
+    job.save!
+    redirect_to(:action=>'result_input')
+  end  
   
   def print
     do_search(true)
@@ -207,17 +222,6 @@ class JobsController < ApplicationController
     render(:text=>"<option value="">#{I18n.t(:none)}</option>") and return if r.reason_list_id == nil
     codes = Code.find(:all, :conditions=>["code_list_id=?", r.reason_list_id], :order=>'code')
     render(:text=>options_for_select(codes))
-  end
-  
-  def search_customers
-    phone = params['phone']
-    @p = Phone.find_by_phone(phone)
-    if not @p
-      render(:text=>"no phone found, so no customer")
-      return
-    end
-    @customer = Customer.new
-    render(:partial=>'customer_list')
   end
 
   def destroy

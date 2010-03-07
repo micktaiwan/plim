@@ -4,6 +4,7 @@ class CustomersController < ApplicationController
 
 
   def index
+    session[:redirect_url] = "/customers/edit"
   end
 
   def create
@@ -12,12 +13,20 @@ class CustomersController < ApplicationController
     c.save!
     p_id = params['phone_id']
     c.phone_customers.create(:phone_id=>p_id) if p_id
-    render(:nothing=>true)
+    redirect_to(session[:redirect_url]+"?customer_id=#{c.id}")
   end
 
   def new
     @customer = Customer.new
     render :layout => false
+  end
+
+  def edit
+    render(:text=>'edit')
+  end
+  
+  def search_bar # by name only
+    render(:partial=>'search_bar')
   end
 
   def search_autocomplete
@@ -30,11 +39,18 @@ class CustomersController < ApplicationController
     session[:customer_name] = name = params['customer']['name']
     name = name.gsub(/\\/, '\&\&').gsub(/'/, "''") 
     @search = Customer.find(:all,:conditions=>"name like '%#{name}%' and company_id in (#{current_user.company_id})", :order=>"name")
-    if @search.size > 0
-      render :partial => "results"
-    else
-      render :text => "No results"
+    render :partial => "results"
+  end
+  
+  def search_customers_by_phone
+    phone = params['phone']
+    @p = Phone.find_by_phone(phone)
+    if not @p
+      render(:text=>"no phone found, so no customer")
+      return
     end
+    @customer = Customer.new
+    render(:partial=>'customer_list')
   end
 
 end
