@@ -105,7 +105,7 @@ zh:
 
   menu_problems:        "障礙管理"
   problems:             "障礙管理"
-
+  problem_customer:     "聯絡客戶"
 
 # jobs
 
@@ -150,7 +150,7 @@ zh:
   menu_customers:       "客戶管理"
   customer:             "客戶"
   search_or_add_customer: "查詢或增加客戶"
-  search_customer_explaination: "The result needs a related customer"
+  search_customer_explaination: "結果需要客戶"
   create_customer:      "新建客戶"
   
   activerecord:

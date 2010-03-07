@@ -117,7 +117,7 @@ input, select, textarea {
   border: 1px solid #DDDDD0;
   padding: 0;
   margin: 2px;
-  background-color: #FFFFFF;
+  background-color: #FFF;
 }
 
 select {
@@ -211,11 +211,12 @@ ul.mylist {
 }
 
 .btnlnk {
-  color: #343;
-  background: #CEC;
-  border: 1px solid #585;
-  padding: 1px 3px 1px 3px;
+  font-family: Arial;
   font-size: 10pt;
+  border: 1px solid #DDDDD0;
+  padding: 0;
+  margin: 2px;
+  background-color: #FFF;
 }
 
 .fieldWithErrors {

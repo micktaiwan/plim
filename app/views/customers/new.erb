@@ -7,8 +7,8 @@
   <%= f.text_field(:address) %><br/>
   <%= label_tag(:submit, "&nbsp;") %>
   <%= f.submit(I18n.t(:send_data)) %>
-  <% if  @p %>
-    <%= hidden_field_tag(:phone_id, @p.id) %>
+  <% if  @phone %>
+    <%= hidden_field_tag(:phone_id, @phone.id) %>
   <% end %>
 <% end %>
 

@@ -38,14 +38,15 @@ class CustomersController < ApplicationController
   def search
     session[:customer_name] = name = params['customer']['name']
     name = name.gsub(/\\/, '\&\&').gsub(/'/, "''") 
+    @phone = Phone.find_by_phone(params['phone'])
     @search = Customer.find(:all,:conditions=>"name like '%#{name}%' and company_id in (#{current_user.company_id})", :order=>"name")
     render :partial => "results"
   end
   
   def search_customers_by_phone
-    phone = params['phone']
-    @p = Phone.find_by_phone(phone)
-    if not @p
+    #phone = params['phone']
+    @phone = Phone.find_by_phone(params['phone'])
+    if not @phone
       render(:text=>"no phone found, so no customer")
       return
     end

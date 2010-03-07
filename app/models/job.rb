@@ -8,6 +8,7 @@ class Job < ActiveRecord::Base
   belongs_to :result
   belongs_to :job_type
   belongs_to :reason, :class_name=>'Code'
+  belongs_to :customer
   
   before_save {|job| job.verify!}
   
@@ -61,6 +62,11 @@ class Job < ActiveRecord::Base
   def friendly_reason
     return "" if not reason
     reason.name
+  end
+  
+  def friendly_customer
+    return "" if not customer
+    "<b>#{customer.name}</b> [#{customer.phone}] #{customer.address}"
   end
   
 end
