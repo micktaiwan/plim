@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
 
   before_filter { |c| c.verify_role(200) if not ['search','do_search'].include?(c.action_name) }
-  protect_from_forgery :except => [:select_reason_list_from_result]
+  protect_from_forgery :except => [:select_reason_list_from_result, :search_customers]
 
 
   def index
@@ -70,7 +70,6 @@ class JobsController < ApplicationController
       render :action => "edit_error.js.rjs"
     end
   end
-
 
   def search
     set_dropboxes
@@ -149,9 +148,10 @@ class JobsController < ApplicationController
   def do_result_input
     result_id = params[:job][:result_id]
     reason_id = params[:reason_id]
-    team      = params[:job][:team]
-    date      = params[:date]
-    phone     = params[:phone]
+    session['team']   = team  = params[:job][:team]
+    session['date']   = date  = params[:date]
+    session['phone']  = phone = params[:phone]
+    customer_id = params[:job][:customer_id]
     error = ""
     error += I18n.t(:result) +" "+I18n.t(:can_not_be_blank)+"<br/>" if result_id == ""
     error += I18n.t(:team)   +" "+I18n.t(:can_not_be_blank)+"<br/>" if team == ""
@@ -166,13 +166,30 @@ class JobsController < ApplicationController
     @result = I18n.t(:too_many_records) and return if @jobs.size > 1 # should not happen if there is one phone for one date
     # change the result
     job = @jobs.first
-    old = job.result_id
+    # old = job.result_id
     job.result_id = result_id
+    job.customer_id = customer_id if customer_id
     job.reason_id = reason_id=="" ? nil : reason_id.to_i
     job.memo = (job.memo || '') + "\n" + params[:memo] if params[:memo] != ""
     job.save
-    @result = "OK<br/><br/>" + render_to_string(:partial=>'all_results')    
+    # if result is a problem, then ask for a customer information
+    result = Result.find_by_id(result_id)
+    if result.is_problem_type == 1
+      @update_result_box = true
+      session[:job_id] = job.id
+      session[:redirect_url] = "/jobs/associate_customer"
+      @result = render_to_string(:partial=>'search_customer')
+    else
+      @result = "OK<br/><br/>" + render_to_string(:partial=>'all_results')    
+    end  
   end
+
+  def associate_customer
+    job = Job.find_by_id(session[:job_id])
+    job.customer_id = params[:customer_id]
+    job.save!
+    redirect_to(:action=>'result_input')
+  end  
   
   def print
     do_search(true)

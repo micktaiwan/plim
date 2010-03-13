@@ -1,0 +1,16 @@
+<% if @search.size > 0 %>
+<% form_tag(session[:redirect_url]) do  %>
+<%= render(:partial=>'search_result', :collection=>@search) %>
+<br/>
+<% if  @phone -%>
+  <%= hidden_field_tag(:phone_id, @phone.id) %>
+<% end -%>
+<%= submit_tag(I18n.t(:send_data)) %>
+<% end %>
+
+<% else %>
+<%= I18n.t(:search_not_found) %>
+<% end %>
+<br/>
+<%= link_to_remote(I18n.t(:create_customer), {:url=>{:action=>"new"}, :update=>:search_bar}, {:class=>'btnlnk'}) %>
+

@@ -57,7 +57,7 @@
 
   <div id="footer">
   PLIM |
-  &copy; Mickael Faivre-Maçon 2001-2009
+  &copy; Mickael Faivre-Maçon 2001-2010
   </div>
 
 <% end %>
@@ -65,6 +65,12 @@
 </div>
 
   <%= javascript_include_merged :base %>
+  
+<script type="text/javascript">
+//<![CDATA[
+new Ajax.Autocompleter('search_input', 'search_input_auto_complete', '/customers/search_autocomplete',  {indicator: 'indicator1'});
+//]]>
+</script>
   
 </body>
 </html>

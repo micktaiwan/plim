@@ -1,8 +1,8 @@
 <h1><%=I18n.t(:result_input)%></h1>
 
-<% 
-  form_remote_tag(:url => {:action => "do_result_input"}, :loading=>"$('loading').show();", :success=>"result" ) do
-%>
+<div id="result_box">
+
+<% form_remote_tag(:url => {:action => "do_result_input"}, :loading=>"$('loading').show();", :success=>"result" ) do %>
 
 <%=I18n.t(:search)%><br/>
 
@@ -10,23 +10,21 @@
 <%= collection_select(:job, :team, @employees, :id, :team_and_name, {:prompt => I18n.t(:choose)}) %><br/>
 
 <label><%=I18n.t(:mdate)%></label>
-<%= text_field_tag(:date, Date.today) %><br/>
+<%= text_field_tag(:date, session['date'] || Date.today) %><br/>
 
 <label><%=I18n.t(:phone)%></label>
-<%= text_field_tag(:phone) %><br/>
+<%= text_field_tag(:phone, session['phone']) %><br/>
 
 <%=I18n.t(:result)%><br/>
 
 <label><%=I18n.t(:result)%></label>
-<%= select(:job, :result_id, @results, {:prompt=>I18n.t(:choose)}, {:onchange=>'result_change(this.value);'}) %><br/>
-
+<%= select(:job, :result_id, @results, {:prompt=>I18n.t(:choose)}) %><br/>
 
 <label><%=I18n.t(:reason)%></label>
 <%= select_tag(:reason_id) %><br/>
 
 <label><%=I18n.t(:memo)%></label>
 <%= text_area_tag(:memo, {}, {:cols=>30, :rows=>3}) %><br/>
-
 
 <label>&nbsp;</label>
 <%= submit_tag(I18n.t(:send_data)) %>
@@ -36,4 +34,6 @@
 <br/>
 <div id="edit"></div>
 <div id="result"></div>
+
+</div>
 

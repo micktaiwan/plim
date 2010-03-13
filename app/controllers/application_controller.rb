@@ -59,6 +59,7 @@ class ApplicationController < ActionController::Base
   def set_globals
     @current_action     = action_name
     @current_controller = controller_name
+    @connected_users = User.find(:all, :conditions=>"datediff(now(),last_login)<30", :order=>'last_login desc', :limit=>15)
   end
 
 end

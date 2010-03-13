@@ -1,0 +1,7 @@
+<label><%=I18n.t(:customer)%></label><% size = @p.customers.size %>
+<%=  size.to_s + " customers" %> for <%=  @p.phone %><br/>
+<% if size > 0 %>
+<%= render(:partial=>'customer', :collection=>@p.customers) %>
+<% end %>
+<%= link_to_function(I18n.t(:search_or_add_customer),"$('add_customer').show()") %>
+

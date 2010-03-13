@@ -39,6 +39,8 @@ zh:
   search_by_serial: "以聯單號碼查詢"
   search_by_phone:  "以電話號碼查詢"
   today:            "今天"
+  connected_users:  "線上使用者"
+  search_not_found: "沒有找到"
    
 # user
 
@@ -103,7 +105,7 @@ zh:
 
   menu_problems:        "障礙管理"
   problems:             "障礙管理"
-
+  problem_customer:     "聯絡客戶"
 
 # jobs
 
@@ -118,6 +120,7 @@ zh:
   all:              "所有"
   sort_by:          "排序"
   edit:             "編輯"
+  delete:           "刪除"
   fromdate:         "從日期"
   todate:           "到日期"
   serial_not_found: "找不到這個聯單號碼"
@@ -138,11 +141,17 @@ zh:
   create_new_code_list: "新建代碼目錄"
   edit_code_list:       "編輯代碼目錄"
   code_list:            "代碼目錄"
+  create_new_code:      "新建代碼"
+  edit_code:            "編輯代碼"
+  codes:                "代碼"
 
-  create_new_code:   "新建代碼"
-  edit_code:         "編輯代碼"
-  codes:             "代碼"
+# customers
 
+  menu_customers:       "客戶管理"
+  customer:             "客戶"
+  search_or_add_customer: "查詢或增加客戶"
+  search_customer_explaination: "結果需要客戶"
+  create_customer:      "新建客戶"
   
   activerecord:
     errors:

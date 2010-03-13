@@ -8,10 +8,16 @@ function search_phone(phone) {
   }
 
 </script>
-<br/>
+<h1>訊息</h1>
+03/07: Working on
+<ol>
+<li>客戶管理 (75%)</li>
+<li>障礙管理 (50%)</li>
+<li>簡訊</li>
+</ol>
+<h1>查詢</h1>
 <%=I18n.t(:search_by_serial)%>: <%= text_field_tag(:serial) %> <%= button_to_function(I18n.t(:search), "search_serial($('serial').value)") %><br/>
 <%=I18n.t(:search_by_phone)%>: <%= text_field_tag(:phone) %> <%= button_to_function(I18n.t(:search), "search_phone($('phone').value)") %><br/>　
 <br/>
 <% end %>
-
 

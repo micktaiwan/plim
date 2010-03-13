@@ -25,3 +25,9 @@ class MyLinkRenderer < WillPaginate::LinkRenderer
 
 end
 
+class String
+  def to_hash
+    Hash[*self.scan(/(.*)=>(.*)/).to_a.flatten]  
+  end
+end
+

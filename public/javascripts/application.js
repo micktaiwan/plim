@@ -1,6 +1,3 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
-
 function verify() {
 
   var form  = document.addform;
@@ -85,9 +82,26 @@ function job_input_key(event,object) {
   return true;
   }
 
-
+// when the result type is selected, display the correpondong reason list
 function result_change(id) {
   if(id=="") return;
+  // update the reason field
   new Ajax.Updater('reason_id', '/jobs/select_reason_list_from_result/'+id);
+  // update the customer list for this phone number
+  var phone = $('phone').value
+  if(phone == "") alert('no phone!')
+  else update_customer_list(phone);
   }
+
+function update_customer_list(phone) {
+  new Ajax.Updater('customer_list', '/jobs/search_customers/?phone='+phone);
+}
+
+// when fired, try to get information on a job from the page and displays corresponding jobs
+function update_job_list() {
+  team = $('team').value
+  date = $('date').value
+  phone = $('phone').value
+  new Ajax.Updater('job_list', '/jobs/search_jobs/?team='+team+'&date='+date+'&phone='+phone);
+}
 
