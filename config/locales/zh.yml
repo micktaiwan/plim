@@ -41,7 +41,11 @@ zh:
   today:            "今天"
   connected_users:  "線上使用者"
   search_not_found: "沒有找到"
-   
+
+# company settings
+
+  menu_company:     "Company"
+
 # user
 
   menu_users:       "網站帳戶"

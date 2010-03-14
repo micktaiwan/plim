@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100227192317) do
+ActiveRecord::Schema.define(:version => 20100314142815) do
 
   create_table "action_logs", :force => true do |t|
     t.string   "controller"
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(:version => 20100227192317) do
 
   create_table "companies", :force => true do |t|
     t.string "name"
+    t.string "sms_login"
+    t.string "sms_pwd"
   end
 
   create_table "customers", :force => true do |t|
@@ -177,6 +179,20 @@ ActiveRecord::Schema.define(:version => 20100227192317) do
     t.datetime "updated_at"
   end
 
+  create_table "sms", :force => true do |t|
+    t.string   "msg_id"
+    t.integer  "status"
+    t.string   "status_msg"
+    t.string   "phone"
+    t.string   "msg"
+    t.integer  "user_id"
+    t.integer  "employee_id"
+    t.integer  "hidden",      :default => 0
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "login"
     t.string   "email"
@@ -189,9 +205,10 @@ ActiveRecord::Schema.define(:version => 20100227192317) do
     t.integer  "role_id"
     t.integer  "company_id"
     t.string   "name"
-    t.datetime "last_login",                              :default => '2010-03-12 21:29:29'
+    t.datetime "last_login",                              :default => '2009-08-21 19:30:51'
   end
 
+  add_index "users", ["company_id"], :name => "index_users_on_company_id"
   add_index "users", ["role_id"], :name => "index_users_on_role_id"
 
   create_table "zones", :force => true do |t|

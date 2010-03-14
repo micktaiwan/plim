@@ -41,6 +41,10 @@ en:
   connected_users:  "Connected users"
   search_not_found: "Not found"
 
+# company settings
+
+  menu_company:     "Company"
+
 # users
 
   menu_users:       "Site accounts"

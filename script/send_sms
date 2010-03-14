@@ -1,0 +1,40 @@
+# send companies sms
+
+# call this script in a cron task:
+# MAILTO="admin@yoursite.com"
+# 0 0 * * 0 cd /home/protask/plim/script && /usr/local/bin/ruby runner -e production send_sms
+
+sender = HinetSmsSender.new
+sender.server_ip = "202.39.54.130"
+
+Company.find(:all).each { |c|
+  puts "company ##{c.id}"  
+  
+  sender.login  = c.sms_login
+  sender.pwd    = c.sms_pwd
+
+  # send waiting sms
+  
+  Sms.find(:all, :conditions=>"status = 0").each { |s|
+    puts "sms ##{s.id}"  
+    status, msg, msg_id = sender.send_sms(s.phone, s.msg)
+    
+    s.status      = status
+    s.status_msg  = msg
+    s.msg_id      = msg_id
+    s.save
+    }
+  
+  # query sent sms status
+  
+  Sms.find(:all, :conditions=>"status = 1").each { |s|
+    
+    status, msg = sender.query(s.msg_id)
+    
+    s.status      = status
+    s.status_msg  = msg
+    s.save
+    }
+
+  }
+
