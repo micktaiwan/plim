@@ -1,0 +1,5 @@
+notify2.c       ： 傳送文字簡訊的範例
+query2.c        ： 查詢傳送結果的範例
+receive2.c      ： 接收雙向簡訊的範例
+notify2_foreign.c ： 傳送國外簡訊的範例notify2_unicode.c：使用Unicode編碼傳送文字簡訊的範例
+big5_unicode.c  ： 將big5轉成Unicode編碼的函式

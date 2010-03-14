@@ -189,10 +189,9 @@ ActiveRecord::Schema.define(:version => 20100227192317) do
     t.integer  "role_id"
     t.integer  "company_id"
     t.string   "name"
-    t.datetime "last_login",                              :default => '2009-08-21 19:30:51'
+    t.datetime "last_login",                              :default => '2010-03-12 21:29:29'
   end
 
-  add_index "users", ["company_id"], :name => "index_users_on_company_id"
   add_index "users", ["role_id"], :name => "index_users_on_role_id"
 
   create_table "zones", :force => true do |t|
