@@ -1,2 +1,3 @@
 class Problem < ActiveRecord::Base
+  # this model is not used... A problem is a job with a problem type....
 end

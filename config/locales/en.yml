@@ -40,6 +40,8 @@ en:
   today:            "today"
   connected_users:  "Connected users"
   search_not_found: "Not found"
+  created_at:       "created at"
+  updated_at:       "updated at"
 
 # company settings
 
@@ -113,6 +115,9 @@ en:
   menu_problems:        "Problems"
   problems:             "Problems"
   problem_customer:     "Contact"
+  menu_send_sms:        "Send SMS"
+  menu_sms:             "SMS"
+  sms_content:          "Message"
   
 # jobs
 

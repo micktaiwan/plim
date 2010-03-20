@@ -1,0 +1,19 @@
+<h1><%= I18n.t(:menu_sms) %></h1>
+<%= render(:file=>'problems/sms_menu') %>
+
+<table>
+<tr class="heading">
+<td><%= I18n.t(:name) %></td>
+<td><%= I18n.t(:phone) %></td>
+<td><%= I18n.t(:sms_content) %></td>
+<td><%= I18n.t(:created_at) %></td>
+<td><%= I18n.t(:updated_at) %></td>
+<td>status</td>
+<td>msg</td>
+</tr>
+
+<%= render(:partial=>'sms', :collection=>@sms) %>
+
+</table>
+
+

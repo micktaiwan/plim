@@ -41,6 +41,8 @@ zh:
   today:            "今天"
   connected_users:  "線上使用者"
   search_not_found: "沒有找到"
+  created_at:       "建於"
+  updated_at:       "更新於"
 
 # company settings
 
@@ -110,6 +112,9 @@ zh:
   menu_problems:        "障礙管理"
   problems:             "障礙管理"
   problem_customer:     "聯絡客戶"
+  menu_send_sms:        "送簡訊"
+  menu_sms:             "簡訊"
+  sms_content:          "簡訊"
 
 # jobs
 
