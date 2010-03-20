@@ -187,11 +187,13 @@ ActiveRecord::Schema.define(:version => 20100320101218) do
     t.string   "msg"
     t.integer  "user_id"
     t.integer  "employee_id"
-    t.integer  "hidden",      :default => 0
+    t.integer  "hidden",       :default => 0
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "job_id"
+    t.integer  "code"
+    t.datetime "arrival_time"
   end
 
   create_table "users", :force => true do |t|

@@ -41,31 +41,48 @@ class SendMsg
     puts "building login from #{login} and #{pwd}"
     @msg_type = 0
     @msg_set = [login,pwd].pack("a#{login.size+1}a#{pwd.size+1}")
-    @msg_set_len = @msg_set.size
-    @msg_content_len = @msg_content.size
+    @msg_content = ""
     pack
   end
 
   def build_sms(phone, msg)
     puts "building sms from #{phone} and #{msg}"
     @msg_type = 1
-    @msg_set = [phone,"01"].pack("a#{phone.size+1}a#{3}")
-    @msg_set_len = @msg_set.size
-    @msg_content = msg
-    @msg_content_len = @msg_content.size
+    @msg_set = [phone,"01"].pack("a#{phone.size+1}a3")
+    @msg_content = [msg].pack("a#{msg.size}")
     pack
   end
+
+  def build_query(msg_id)
+    puts "building query from #{msg_id}"
+    @msg_type = 2
+    @msg_set = [msg_id].pack("a#{msg_id.size+1}")
+    @msg_content = ""
+    pack
+  end
+
 
 private
 
   def pack
-    rv = [@msg_type, @msg_coding, @msg_priority, @msg_country_code, @msg_set_len, @msg_content_len, @msg_set, @msg_content]
-    packing = "CCCCCCa#{@msg_set_len}a#{@msg_content_len}"  
-    1.upto(266 - 6 - (@msg_set_len+@msg_content_len)) {
+    @msg_set_len = @msg_set.size
+    @msg_content_len = @msg_content.size
+    rv = [@msg_type, @msg_coding, @msg_priority, @msg_country_code, @msg_set_len, @msg_content_len, @msg_set]
+    #puts rv.join(',')
+    packing = "CCCCCCa#{@msg_set_len}"
+    1.upto(100 - @msg_set_len) {
       rv << 0
       packing += "C"
       }
+    rv << @msg_content  
+    packing += "a#{@msg_content_len}"
+    1.upto(160 - @msg_content_len) {
+      rv << 0
+      packing += "C"
+      } 
+    #puts packing
     rv = rv.pack(packing)
+    #puts rv.size
     [rv, rv.size]
   end
    end
@@ -115,6 +132,10 @@ end
 class HinetSmsSender
 
   PORT = 8000
+  # if the code is final, no need to continue to query the message
+  Final_Query = [0, 2, 3, 5, 7, 8, 9, 10, 15, 17, 23]
+  # the query shows that the result failed
+  Error_Query = [2, 3, 5, 7, 8, 9, 10, 15, 17, 18, 23]
   attr_accessor :server_ip, :login, :pwd
 
   def initialize
@@ -130,63 +151,84 @@ class HinetSmsSender
   
   def query(msg_id)
     puts "querying #{msg_id}"
-    [1,"not implemented"]
+    @msg_id = msg_id
+    query_packet
+    @answer
   end
   
 private
 
-  def build_packet
-    #@packet = [].pack
-  end
-  
   def send_packet
     begin
       t = TCPSocket.new(@server_ip, PORT)
     rescue
-      @answer= [0, "error: #{$!}"]
+      @answer= [nil, -1, "error: #{$!}"]
       t.close if t
     else
-      puts "sending..."
       msg = SendMsg.new
-      
-      # login
-      
-      m, s = msg.build_login(@login,@pwd)
-      # puts "size = #{s}"
-      t.send m, s
-      puts "reading..."
+      return if not send_login(msg,t)
+
+      t.send *msg.build_sms(@phone,@msg)
       data = t.read(244)
-      puts "received #{data.size} bytes: #{data}"
       ret = RetMsg.new
       ret.parse(data)
       if ret.code != 0
-        @answer = [ret.code, "login sending phase: "+ret.content]
+        @answer = [2, ret.code, "sending phase: " + ret.content]
         t.close
         return
       end
-      
-      # send msg
-      
-      m, s = msg.build_sms(@phone,@msg)
-      # puts "size = #{s}"
-      t.send m, s
-      puts "reading..."
-      data = t.read(244)
-      puts "received #{data.size} bytes: #{data}"
-      ret = RetMsg.new
-      ret.parse(data)
-      if ret.code != 0
-        @answer = [ret.code, "sms sending phase: " + ret.content]
-        t.close
-        return
-      end
-      
-      #puts ret.to_s
-      #data.each_byte { |b| puts b}
-      @answer = [1, "SMS sent sucessfully"]
+      # save msg id
+      msg_id = ret.content
+      @answer = [1, ret.code, "SMS sent sucessfully",msg_id]
       t.close
     end
   end 
 
+  def query_packet
+    begin
+      t = TCPSocket.new(@server_ip, PORT)
+    rescue
+      @answer= [nil, -1, "error: #{$!}"]
+      t.close if t
+    else
+      msg = SendMsg.new
+      return if not send_login(msg,t)
+
+      t.send *msg.build_query(@msg_id) # a,b = build; t.send a,b
+      data = t.read(244)
+      ret = RetMsg.new
+      ret.parse(data)
+      if not Final_Query.include?(ret.code)
+        @answer = [nil, ret.code, "quering phase: "+ret.content]
+      elsif ret.code == 0
+        date = parse_arrival_time(ret.content.split(':')[1])
+        @answer = [2, ret.code, "Received", date]
+      else  
+        @answer = [2, ret.code, ret.content]
+      end
+
+      t.close
+    end
+  end 
+
+  def send_login(msg, t)
+    # login
+    t.send *msg.build_login(@login,@pwd) # a,b = build; t.send a,b
+    data = t.read(244)
+    ret = RetMsg.new
+    ret.parse(data)
+    if ret.code != 0
+      @answer = [nil, "login phase: "+ret.content]
+      t.close
+      return false
+    end
+    return true
+  end
+  
+  # return a date format usable by a DB
+  def parse_arrival_time(str)
+    d = Time.parse(str, "%Y%m%d%H%M%S")
+    d.strftime("%Y-%m-%d %H:%M:%S")
+  end
 end
 
