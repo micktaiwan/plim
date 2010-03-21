@@ -44,7 +44,13 @@ private
   
   def create_msg(job)
     # 障223y078170 聯09 26120991 不能上網 復興南路2段197號3樓 45-2-85 用戶表示裝機未完成無法使用洽用戶約時 D5-13
-    "障#{job.friendly_phone} 聯#{job.friendly_customer_phone} #{job.friendly_reason} #{job.friendly_customer_address}"
+    "障#{split_phone(job.friendly_phone)} 聯#{split_phone(job.friendly_customer_phone)} #{job.friendly_reason} #{job.friendly_customer_address}"
+  end
+  
+  def split_phone(p)
+    rv = p
+    rv = rv.insert(2," ") if rv.size > 2
+    rv
   end
 
 end

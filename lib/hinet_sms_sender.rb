@@ -40,6 +40,7 @@ class SendMsg
   def build_login(login, pwd)
     puts "building login from #{login} and #{pwd}"
     @msg_type = 0
+    @msg_coding = 1
     @msg_set = [login,pwd].pack("a#{login.size+1}a#{pwd.size+1}")
     @msg_content = ""
     pack
@@ -48,6 +49,7 @@ class SendMsg
   def build_sms(phone, msg)
     puts "building sms from #{phone} and #{msg}"
     @msg_type = 1
+    @msg_coding = 4
     @msg_set = [phone,"01"].pack("a#{phone.size+1}a3")
     @msg_content = [msg].pack("a#{msg.size}")
     pack
