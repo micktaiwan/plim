@@ -1,6 +1,4 @@
 config/database.yml
-Capfile
-config/deploy.rb
 log/
 db/production_data.sql
 
