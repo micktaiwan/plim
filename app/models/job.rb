@@ -68,6 +68,16 @@ class Job < ActiveRecord::Base
     return "" if not customer
     "<b>#{customer.name}</b> [#{customer.phone}] #{customer.address}"
   end
+
+  def friendly_customer_phone
+    return "" if not customer
+    customer.phone
+  end
+
+  def friendly_customer_address
+    return "" if not customer
+    customer.address
+  end
   
 end
 

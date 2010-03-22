@@ -213,10 +213,11 @@ ul.mylist {
 .btnlnk {
   font-family: Arial;
   font-size: 10pt;
-  border: 1px solid #DDDDD0;
-  padding: 0;
+  border: 1px solid #44A;
+  padding: 2px;
   margin: 2px;
-  background-color: #FFF;
+  background-color: #7AF;
+  color: black;
 }
 
 .fieldWithErrors {

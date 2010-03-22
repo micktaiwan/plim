@@ -17,11 +17,12 @@ Company.find(:all).each { |c|
   
   Sms.find(:all, :conditions=>"status = 0").each { |s|
     puts "sms ##{s.id}"  
-    status, msg, msg_id = sender.send_sms(s.phone, s.msg)
+    status, code, msg, msg_id = sender.send_sms(s.phone, s.msg)
     
-    s.status      = status
+    s.status      = status if status
+    s.code        = code if code
     s.status_msg  = msg
-    s.msg_id      = msg_id
+    s.msg_id      = msg_id if msg_id
     s.save
     }
   
@@ -29,10 +30,12 @@ Company.find(:all).each { |c|
   
   Sms.find(:all, :conditions=>"status = 1").each { |s|
     
-    status, msg = sender.query(s.msg_id)
+    status, code, msg, arrival_time = sender.query(s.msg_id)
     
-    s.status      = status
+    s.status      = status if status
+    s.code        = code if code
     s.status_msg  = msg
+    s.arrival_time = arrival_time if arrival_time
     s.save
     }
 

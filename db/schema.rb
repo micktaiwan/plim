@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100314142815) do
+ActiveRecord::Schema.define(:version => 20100320101218) do
 
   create_table "action_logs", :force => true do |t|
     t.string   "controller"
@@ -187,10 +187,13 @@ ActiveRecord::Schema.define(:version => 20100314142815) do
     t.string   "msg"
     t.integer  "user_id"
     t.integer  "employee_id"
-    t.integer  "hidden",      :default => 0
+    t.integer  "hidden",       :default => 0
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "job_id"
+    t.integer  "code"
+    t.datetime "arrival_time"
   end
 
   create_table "users", :force => true do |t|

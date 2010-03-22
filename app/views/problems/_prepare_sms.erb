@@ -1,0 +1,7 @@
+<tr>
+<td><%= prepare_sms.employee.name %></td>
+<td><%= prepare_sms.phone %></td>
+<td><%= prepare_sms.msg %></td>
+<td><% if prepare_sms.phone != "" %><%= check_box_tag('job_id[]', prepare_sms.job_id.to_s) %><% end %></td>
+</tr>
+
