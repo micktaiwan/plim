@@ -165,7 +165,11 @@ en:
   search_customer_explaination: "The result needs a related customer"
   create_customer:      "Enter new customer data"
 
+# cases
 
+  menu_cases:           "Cases"
+  create_new_case:      "Add case"
+  
   activerecord:
     errors:
       models:

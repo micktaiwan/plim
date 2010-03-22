@@ -161,6 +161,28 @@ zh:
   search_or_add_customer: "查詢或增加客戶"
   search_customer_explaination: "結果需要客戶"
   create_customer:      "新建客戶"
+
+# cases
+
+  menu_cases:           "標案管理"
+  create_new_case:      "新建標案"
+  tender_source:        "招標機關"
+  job_name:             "工程名稱"
+  case_code:            "工程編號"
+  bid_opening_date:     "開標日期"
+  tender_deadline:      "投標期限"
+  compliance_deadline:  "履約期限"
+  deposit_amount:       "押金額度"
+  fee:                  "標單費用"
+  budget:               "預算金額"
+  max_budget:           "底價金額"
+  bid_amount:           "標價金額"
+  points:               "核定點數"
+  bid_price:            "得標單價"
+  point_price:          "底價單價"
+  winning_company:      "得標廠商"
+  publication_date:     "公告日期"
+  downloaded:           "下載"
   
   activerecord:
     errors:

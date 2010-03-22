@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100320101218) do
+ActiveRecord::Schema.define(:version => 20100322195530) do
 
   create_table "action_logs", :force => true do |t|
     t.string   "controller"
@@ -28,6 +28,29 @@ ActiveRecord::Schema.define(:version => 20100320101218) do
   add_index "action_logs", ["company_id"], :name => "index_action_logs_on_company_id"
   add_index "action_logs", ["session_id"], :name => "index_action_logs_on_session_id"
   add_index "action_logs", ["user_id"], :name => "index_action_logs_on_user_id"
+
+  create_table "cases", :force => true do |t|
+    t.integer  "company_id",          :null => false
+    t.string   "tender_source"
+    t.string   "job_name"
+    t.string   "code"
+    t.date     "bid_opening_date"
+    t.date     "tender_deadline"
+    t.date     "compliance_deadline"
+    t.integer  "deposit_amount"
+    t.integer  "fee"
+    t.integer  "budget"
+    t.integer  "max_budget"
+    t.integer  "bid_amount"
+    t.integer  "points"
+    t.float    "bid_price"
+    t.float    "point_price"
+    t.string   "winning_company"
+    t.date     "publication_date"
+    t.integer  "downloaded"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "code_lists", :force => true do |t|
     t.string   "name"
