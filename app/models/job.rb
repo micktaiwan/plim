@@ -19,7 +19,7 @@ class Job < ActiveRecord::Base
   
   def duplicate?
     if self.id != nil
-      cond = ["id!=? and date=? and phone_id=?", self.id, self.date, self.phone_id]
+      cond = ["id != ? and date=? and phone_id=?", self.id, self.date, self.phone_id]
     else
       cond = ["date=? and phone_id=?", self.date, self.phone_id]
     end

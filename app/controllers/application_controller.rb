@@ -4,6 +4,7 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   layout 'general'
+  before_filter :stop
   before_filter :set_globals
   before_filter :set_locale
   before_filter :log_action
@@ -18,7 +19,10 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   filter_parameter_logging :password
   
- 
+  def stop
+    render(:text=>"The site is closed")
+  end
+  
   def set_locale
     locale = I18n.locale = session[:locale] || I18n.default_locale
     p = params[:locale]
